@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>La Bella Napoli - Order Online</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;background:#0a0a0a;color:#fff}
+.hero{height:100vh;background:url('https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?w=1200&q=80') center/cover;display:flex;align-items:center;justify-content:center;text-align:center;position:relative}
+.hero::before{content:'';position:absolute;top:0;left:0;right:0;bottom:0;background:rgba(0,0,0,0.5)}
+.hero-content{position:relative;z-index:1}
+.hero h1{font-size:3.5rem;font-weight:800;letter-spacing:-1px;margin-bottom:8px}
+.hero p{font-size:1.2rem;color:rgba(255,255,255,0.7)}
+.order-btn{display:inline-block;margin-top:24px;padding:16px 48px;background:#4a9ed9;color:#fff;border:none;border-radius:12px;font-size:1.1rem;font-weight:700;cursor:pointer;text-decoration:none}
+.order-btn:hover{background:#3a8bc8}
+.menu{max-width:900px;margin:0 auto;padding:48px 20px}
+.cat-bar{display:flex;gap:12px;overflow-x:auto;padding-bottom:24px;border-bottom:1px solid rgba(255,255,255,0.1);margin-bottom:32px}
+.cat-btn{padding:8px 20px;background:rgba(255,255,255,0.1);border:none;color:#fff;border-radius:20px;cursor:pointer;font-size:0.9rem;white-space:nowrap}
+.cat-btn.active{background:#4a9ed9}
+.items{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:20px}
+.item{background:#141422;border-radius:16px;overflow:hidden;cursor:pointer;transition:transform 0.2s}
+.item:hover{transform:translateY(-4px)}
+.item-img{height:180px;background:#222244;display:flex;align-items:center;justify-content:center;font-size:3rem}
+.item-info{padding:16px}
+.item-name{font-size:1.1rem;font-weight:600}
+.item-desc{font-size:0.85rem;color:rgba(255,255,255,0.5);margin-top:4px}
+.item-bottom{display:flex;justify-content:space-between;align-items:center;padding:0 16px 16px;margin-top:8px}
+.item-price{font-weight:700;color:#4a9ed9}
+.add-btn{padding:6px 16px;background:rgba(74,158,217,0.2);border:1px solid #4a9ed9;color:#4a9ed9;border-radius:8px;cursor:pointer;font-size:0.85rem}
+.add-btn:hover{background:#4a9ed9;color:#fff}
+.modal-overlay{display:none;position:fixed;top:0;left:0;right:0;bottom:0;background:rgba(0,0,0,0.8);z-index:100;align-items:center;justify-content:center}
+.modal-overlay.active{display:flex}
+.modal{background:#141422;border-radius:20px;padding:32px;max-width:420px;width:90%;text-align:center}
+.modal h3{font-size:1.4rem;margin-bottom:8px}
+.btn{background:#4a9ed9;color:#fff;border:none;padding:14px 32px;border-radius:12px;font-size:1rem;font-weight:600;cursor:pointer;width:100%;margin-top:12px}
+.btn-outline{background:transparent;border:2px solid rgba(255,255,255,0.2)}
+.cart-bar{position:fixed;bottom:0;left:0;right:0;background:#4a9ed9;padding:16px 24px;display:none;justify-content:space-between;align-items:center;z-index:50;cursor:pointer}
+.cart-bar.active{display:flex}
+.demo-badge{position:fixed;top:16px;right:16px;background:rgba(74,158,217,0.9);padding:8px 16px;border-radius:20px;font-size:0.8rem;font-weight:600;z-index:200}
+.powered{text-align:center;padding:40px 20px;font-size:0.85rem;color:rgba(255,255,255,0.3)}
+.powered a{color:#4a9ed9;text-decoration:none}
+</style>
+</head>
+<body>
+<div class="demo-badge">DEMO</div>
+<div class="hero">
+<div class="hero-content">
+<h1>La Bella Napoli</h1>
+<p>Torrance &bull; Order Online</p>
+<a href="#menu" class="order-btn">ORDER NOW</a>
+</div>
+</div>
+<div class="menu" id="menu">
+<div class="cat-bar">
+<button class="cat-btn active" onclick="filter('all',this)">All</button>
+<button class="cat-btn" onclick="filter('pizza',this)">Pizzas</button>
+<button class="cat-btn" onclick="filter('pasta',this)">Pasta</button>
+<button class="cat-btn" onclick="filter('salad',this)">Salads</button>
+<button class="cat-btn" onclick="filter('dessert',this)">Desserts</button>
+</div>
+<div class="items" id="items">
+<div class="item" data-cat="pizza" onclick="openModal('Margherita Pizza','Classic tomato sauce, fresh mozzarella, basil','12.99')">
+<div class="item-img">🎝</div>
+<div class="item-info"><div class="item-name">Margherita Pizza</div><div class="item-desc">Classic tomato sauce, fresh mozzarella, basil</div></div>
+<div class="item-bottom"><div class="item-price">$12.99</div><button class="add-btn">+ Add</button></div>
+</div>
+<div class="item" data-cat="pizza" onclick="openModal('Pepperoni Pizza','Pepperoni, mozzarella, tomato sauce','14.99')">
+<div class="item-img">🍕</div>
+<div class="item-info"><div class="item-name">Pepperoni Pizza</div><div class="item-desc">Pepperoni, mozzarella, tomato sauce</div></div>
+<div class="item-bottom"><div class="item-price">$14.99</div><button class="add-btn">+ Add</button></div>
+</div>
+<div class="item" data-cat="pasta" onclick="openModal('Spaghetti Carbonara','Guanciale, egg yolk, pecorino, black pepper','16.99')">
+<div class="item-img">🍝</div>
+<div class="item-info"><div class="item-name">Spaghetti Carbonara</div><div class="item-desc">Guanciale, egg yolk, pecorino, black pepper</div></div>
+<div class="item-bottom"><div class="item-price">$16.99</div><button class="add-btn">+ Add</button></div>
+</div>
+<div class="item" data-cat="salad" onclick="openModal('Caesar Salad','Romaine, croutons, parmesan, caesar dressing','9.99')">
+<div class="item-img">🥗</div>
+<div class="item-info"><div class="item-name">Caesar Salad</div><div class="item-desc">Romaine, croutons, parmesan, caesar dressing</div></div>
+<div class="item-bottom"><div class="item-price">$9.99</div><button class="add-btn">+ Add</button></div>
+</div>
+<div class="item" data-cat="dessert" onclick="openModal('Tiramisu','Classic Italian coffee dessert','8.99')">
+<div class="item-img">🍰</div>
+<div class="item-info"><div class="item-name">Tiramisu</div><div class="item-desc">Classic Italian coffee dessert</div></div>
+<div class="item-bottom"><div class="item-price">$8.99</div><button class="add-btn">+ Add</button></div>
+</div>
+</div>
+</div>
+<div class="modal-overlay" id="itemModal">
+<div class="modal">
+<h3 id="mT"></h3>
+<p id="mD" style="color:rgba(255,255,255,0.6);margin-bottom:20px"></p>
+<button class="btn" onclick="addToCart()">Add to Cart &mdash; <span id="mP"></span></button>
+<button class="btn btn-outline" onclick="closeModal()">Cancel</button>
+</div>
+</div>
+<div class="modal-overlay" id="coModal">
+<div class="modal">
+<h3>This is a Demo</h3>
+<p style="color:rgba(255,255,255,0.6);margin-bottom:20px">This ordering experience is powered by VoiceBit. Want this for your restaurant?</p>
+<button class="btn" onclick="window.open('https://voicebit.ai','_blank')">Learn More at VoiceBit.ai</button>
+<button class="btn btn-outline" onclick="closeCo()">Back to Menu</button>
+</div>
+</div>
+<div class="cart-bar" id="cBar" onclick="openCo()">
+<span><strong id="cCount">1 item</strong> in cart</span>
+<span style="font-weight:700">Checkout &rarr;</span>
+</div>
+<div class="powered">Powered by <a href="https://voicebit.ai" target="_blank">VoiceBit</a></div>
+<script>
+let cart=0;
+function openModal(n,d,p){document.getElementById('mT').textContent=n;document.getElementById('mD').textContent=d;document.getElementById('mP').textContent='$'+p;document.getElementById('itemModal').classList.add('active')}
+function closeModal(){document.getElementById('itemModal').classList.remove('active')}
+function addToCart(){cart++;closeModal();document.getElementById('cBar').classList.add('active');document.getElementById('cCount').textContent=cart+' item'+(cart>1?'s':'')}
+function openCo(){document.getElementById('coModal').classList.add('active')}
+function closeCo(){document.getElementById('coModal').classList.remove('active')}
+function filter(c,b){document.querySelectorAll('.cat-btn').forEach(e=>e.classList.remove('active'));b.classList.add('active');document.querySelectorAll('.item').forEach(e=>{e.style.display=c==='all'||e.dataset.cat===c?'':'none'})}
+</script>
+</body>
+</html>
