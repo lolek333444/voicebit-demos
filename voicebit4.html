@@ -162,23 +162,15 @@ h1 em{font-style:italic;color:var(--red);font-family:'Playfair Display',serif;fo
 .hero-input-area{caret-color:var(--teal)}
 @keyframes blink-cursor{0%,100%{opacity:1}50%{opacity:0}}
 /* "We'll build" row */
-.hero-builds-row{display:flex;align-items:center;gap:10px;padding:11px 20px;
-  background:linear-gradient(100deg,var(--teal-dark) 0%,var(--teal) 100%);
-  border-bottom:none;flex-wrap:wrap;position:relative;overflow:hidden}
-.hero-builds-row::after{content:'';position:absolute;inset:0;
-  background:linear-gradient(90deg,transparent 0%,rgba(255,255,255,0.04) 50%,transparent 100%);
-  pointer-events:none}
-.hero-builds-label{font-size:0.6rem;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;
-  color:rgba(255,239,219,0.65);white-space:nowrap}
-.hero-build-badge{display:inline-flex;align-items:center;gap:6px;
-  background:var(--amber);border:1px solid rgba(255,255,255,0.15);
-  color:#fff;border-radius:100px;
-  padding:5px 13px 5px 10px;font-family:'Oswald',sans-serif;font-size:0.68rem;
-  font-weight:600;letter-spacing:0.06em;text-transform:uppercase;white-space:nowrap;
-  transition:background 0.2s,box-shadow 0.2s}
-.hero-build-badge:hover{background:#c47d10;box-shadow:0 0 16px rgba(218,146,26,0.45)}
-.hero-build-badge svg{width:12px;height:12px;flex-shrink:0}
-.hero-builds-sep{font-weight:300;color:rgba(255,255,255,0.35);font-size:1rem;line-height:1}
+.hero-builds-row{display:flex;align-items:center;gap:14px;padding:10px 22px;
+  background:var(--teal-dark);border-bottom:none;flex-wrap:wrap}
+.hero-builds-label{font-size:0.58rem;font-weight:700;letter-spacing:0.13em;text-transform:uppercase;
+  color:var(--amber);white-space:nowrap;margin-right:2px}
+.hero-build-badge{display:inline-flex;align-items:center;gap:5px;
+  color:#fff;font-family:'Oswald',sans-serif;font-size:0.72rem;
+  font-weight:500;letter-spacing:0.04em;text-transform:uppercase;white-space:nowrap}
+.hero-build-badge svg{width:13px;height:13px;flex-shrink:0;opacity:0.7}
+.hero-builds-sep{color:rgba(255,255,255,0.2);font-size:1.1rem;font-weight:200;line-height:1}
 /* Suggestion chips row */
 .hero-examples{display:flex;align-items:center;gap:10px;padding:10px 18px;
   border-top:1px solid var(--border);flex-wrap:wrap}
