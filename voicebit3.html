@@ -312,8 +312,8 @@ h2 em{font-style:italic;color:var(--red)}
 /* ─── CASE STUDIES / TESTIMONIALS ─── */
 .case-wrap{background:#fff;border:none;
   padding:72px 0 0;position:relative;z-index:2;overflow:hidden;
-  border-top:3px solid var(--teal);
-  box-shadow:0 -6px 0 0 rgba(52,92,102,0.08),0 8px 40px rgba(52,92,102,0.10)}
+  border-top:3px solid #111;border-bottom:3px solid #111;
+  box-shadow:0 -8px 32px rgba(0,0,0,0.18),0 8px 32px rgba(0,0,0,0.18)}
 /* cool subtle teal diagonal stripe texture */
 .case-wrap::before{content:'';position:absolute;inset:0;pointer-events:none;z-index:0;
   background-image:repeating-linear-gradient(
@@ -601,6 +601,68 @@ footer{background:var(--teal-dark);border-top:1px solid rgba(255,255,255,0.08);p
   .ft{grid-template-columns:1fr 1fr}
   .prob-bg,.case-wrap,.proof-bg,.int-bg,.faq-bg,.cta-bg{padding:64px 20px}
   .section{padding:64px 20px}
+}
+
+/* ─── MOBILE (phones) ─── */
+@media(max-width:680px){
+  /* NAV */
+  nav{top:8px;left:8px;right:8px;transform:none;border-radius:12px;padding:10px 16px}
+  .nav-links{display:none}
+
+  /* HERO */
+  .hero{padding:100px 20px 48px}
+  .hero h1{font-size:clamp(2.4rem,9vw,3.2rem)}
+  .hero-annotation{display:none}
+
+  /* STATS */
+  .stats-band{grid-template-columns:1fr 1fr;gap:10px}
+  .stat-cell{padding:28px 20px 24px}
+  .stat-num{font-size:2.8rem}
+
+  /* PROBLEMS SECTION */
+  .prob-bg{padding:48px 16px 56px;margin-top:40px}
+  .prob-heading-row{grid-template-columns:1fr;gap:12px}
+  .prob-layout{grid-template-columns:1fr;margin-top:32px;border-radius:16px}
+  /* tabs become horizontal scrollable row */
+  .prob-tabs-v{flex-direction:row;overflow-x:auto;border-right:none;
+    border-bottom:2px solid rgba(0,0,0,0.08);-webkit-overflow-scrolling:touch;
+    scrollbar-width:none}
+  .prob-tabs-v::-webkit-scrollbar{display:none}
+  .prob-tab-v{min-height:auto;padding:18px 20px;font-size:1rem;
+    white-space:nowrap;border-left:none;border-bottom:3px solid transparent;
+    flex-shrink:0}
+  .prob-tab-v.active{border-left:none;border-bottom:3px solid var(--red);background:rgba(169,17,0,0.04)}
+  /* panels stack vertically */
+  .prob-panel.active{grid-template-columns:1fr}
+  .prob-panel-issue{padding:28px 20px;border-right:none;border-bottom:1px solid rgba(0,0,0,0.07)}
+  .prob-panel-solve{padding:28px 20px}
+  .prob-impact-num,.prob-solve-num{font-size:2.6rem}
+
+  /* TESTIMONIALS CAROUSEL */
+  .case-wrap{padding:48px 0 0}
+  .case-inner{padding:0 20px}
+  /* kill side blurs on mobile — can't see cards */
+  .cc-carousel-wrap::before,.cc-carousel-wrap::after{display:none}
+  .cc-carousel-track .cc{width:280px;min-height:420px}
+  .cc-carousel-wrap{padding:24px 0 40px}
+
+  /* FEATURES */
+  .feat-grid{grid-template-columns:1fr}
+  .feat-stack-block{min-height:200px}
+
+  /* CTA */
+  .cta-bg{padding:56px 20px 64px}
+  .cta-line1,.cta-line2{text-align:center;font-size:clamp(2.4rem,8vw,3.8rem)}
+  .cta-tablet-wrap{max-width:100%}
+  .cta-tablet-actions{flex-direction:column;gap:12px;margin-top:28px}
+  .btn-red,.btn-ghost-light{padding:16px 24px}
+
+  /* FAQ */
+  .faq-bg{padding:48px 16px}
+
+  /* FOOTER */
+  .ft{grid-template-columns:1fr;gap:28px}
+  footer{padding:40px 20px 24px}
 }
 </style>
 </head>
