@@ -275,11 +275,11 @@ h2 em{font-style:italic;color:var(--red)}
 .prob-logo-box img{width:70%;height:70%;object-fit:contain;filter:brightness(0) invert(1);opacity:0.8}
 
 /* ─── FEAT STACK BLOCK (integrations embedded in features) ─── */
-.feat-stack-block{position:relative;margin-top:16px;border-radius:var(--r);overflow:hidden;
+.feat-stack-block{position:relative;margin-top:16px;border-radius:var(--r) var(--r) 0 0;overflow:hidden;
   background:linear-gradient(135deg,var(--teal-dark) 0%,var(--teal) 60%,#1e3a42 100%);
-  min-height:260px;display:flex;align-items:center;justify-content:center;
-  transition:transform 0.3s cubic-bezier(.22,.68,0,1.35),box-shadow 0.3s;cursor:default}
-.feat-stack-block:hover{transform:translateY(-16px) scale(1.02);box-shadow:0 40px 100px rgba(52,92,102,0.32)}
+  min-height:260px;display:flex;align-items:center;justify-content:center;cursor:default;
+  width:100vw;left:50%;transform:translateX(-50%);margin-bottom:0}
+.feat-stack-block:hover{box-shadow:none}
 /* dark vignette overlay so center content stays readable */
 .feat-stack-block::after{content:'';position:absolute;inset:0;pointer-events:none;z-index:1;
   background:radial-gradient(ellipse 60% 80% at 50% 50%,rgba(42,74,82,0.82) 0%,transparent 100%)}
