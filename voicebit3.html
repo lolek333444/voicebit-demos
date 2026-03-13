@@ -274,12 +274,10 @@ h2 em{font-style:italic;color:var(--red)}
 .prob-logo-box:hover{background:rgba(255,255,255,0.12);transform:translateY(-2px)}
 .prob-logo-box img{width:70%;height:70%;object-fit:contain;filter:brightness(0) invert(1);opacity:0.8}
 
-/* ─── FEAT STACK BLOCK (integrations embedded in features) ─── */
-.feat-stack-block{position:relative;margin-top:16px;border-radius:var(--r) var(--r) 0 0;overflow:hidden;
+/* ─── FEAT STACK BLOCK (integrations — full-width between features and receipts) ─── */
+.feat-stack-block{position:relative;overflow:hidden;
   background:linear-gradient(135deg,var(--teal-dark) 0%,var(--teal) 60%,#1e3a42 100%);
-  min-height:260px;display:flex;align-items:center;justify-content:center;cursor:default;
-  width:100vw;left:50%;transform:translateX(-50%);margin-bottom:0}
-.feat-stack-block:hover{box-shadow:none}
+  min-height:260px;display:flex;align-items:center;justify-content:center;cursor:default}
 /* dark vignette overlay so center content stays readable */
 .feat-stack-block::after{content:'';position:absolute;inset:0;pointer-events:none;z-index:1;
   background:radial-gradient(ellipse 60% 80% at 50% 50%,rgba(42,74,82,0.82) 0%,transparent 100%)}
@@ -1205,56 +1203,58 @@ footer{background:var(--teal-dark);border-top:1px solid rgba(255,255,255,0.08);p
     </div>
   </div>
 
-  <!-- Connects with your stack — embedded after the 3 cards -->
-  <div id="integrations" class="feat-stack-block rv d2">
-    <div class="feat-stack-logos-bg">
-      <!-- Row 1 — forward scroll -->
-      <div class="pos-marquee-track">
-        <div class="pos-chip" style="--brand:#FF4C00"><span class="pos-chip-icon">T</span>Toast</div>
-        <div class="pos-chip" style="--brand:#111"><span class="pos-chip-icon">S</span>Square</div>
-        <div class="pos-chip" style="--brand:#3DAA35"><span class="pos-chip-icon">C</span>Clover</div>
-        <div class="pos-chip" style="--brand:#4B5BEB"><span class="pos-chip-icon">O</span>Olo</div>
-        <div class="pos-chip" style="--brand:#F7941D"><span class="pos-chip-icon">R</span>Revel</div>
-        <div class="pos-chip" style="--brand:#E4002B"><span class="pos-chip-icon">T</span>TouchBistro</div>
-        <div class="pos-chip" style="--brand:#6B33FF"><span class="pos-chip-icon">S</span>SpotOn</div>
-        <div class="pos-chip" style="--brand:#1769AA"><span class="pos-chip-icon">L</span>Lightspeed</div>
-        <!-- duplicated for seamless loop -->
-        <div class="pos-chip" style="--brand:#FF4C00"><span class="pos-chip-icon">T</span>Toast</div>
-        <div class="pos-chip" style="--brand:#111"><span class="pos-chip-icon">S</span>Square</div>
-        <div class="pos-chip" style="--brand:#3DAA35"><span class="pos-chip-icon">C</span>Clover</div>
-        <div class="pos-chip" style="--brand:#4B5BEB"><span class="pos-chip-icon">O</span>Olo</div>
-        <div class="pos-chip" style="--brand:#F7941D"><span class="pos-chip-icon">R</span>Revel</div>
-        <div class="pos-chip" style="--brand:#E4002B"><span class="pos-chip-icon">T</span>TouchBistro</div>
-        <div class="pos-chip" style="--brand:#6B33FF"><span class="pos-chip-icon">S</span>SpotOn</div>
-        <div class="pos-chip" style="--brand:#1769AA"><span class="pos-chip-icon">L</span>Lightspeed</div>
-      </div>
-      <!-- Row 2 — reverse scroll -->
-      <div class="pos-marquee-track pos-rev">
-        <div class="pos-chip" style="--brand:#00A651"><span class="pos-chip-icon">U</span>Uber Eats</div>
-        <div class="pos-chip" style="--brand:#FF3008"><span class="pos-chip-icon">D</span>DoorDash</div>
-        <div class="pos-chip" style="--brand:#FF8000"><span class="pos-chip-icon">G</span>GrubHub</div>
-        <div class="pos-chip" style="--brand:#2C6EBD"><span class="pos-chip-icon">P</span>Paytronix</div>
-        <div class="pos-chip" style="--brand:#C8202F"><span class="pos-chip-icon">P</span>PAR Brink</div>
-        <div class="pos-chip" style="--brand:#009EDB"><span class="pos-chip-icon">N</span>NCR Aloha</div>
-        <div class="pos-chip" style="--brand:#F06A25"><span class="pos-chip-icon">M</span>Menufy</div>
-        <div class="pos-chip" style="--brand:#8DC63F"><span class="pos-chip-icon">O</span>OpenTable</div>
-        <!-- duplicated for seamless loop -->
-        <div class="pos-chip" style="--brand:#00A651"><span class="pos-chip-icon">U</span>Uber Eats</div>
-        <div class="pos-chip" style="--brand:#FF3008"><span class="pos-chip-icon">D</span>DoorDash</div>
-        <div class="pos-chip" style="--brand:#FF8000"><span class="pos-chip-icon">G</span>GrubHub</div>
-        <div class="pos-chip" style="--brand:#2C6EBD"><span class="pos-chip-icon">P</span>Paytronix</div>
-        <div class="pos-chip" style="--brand:#C8202F"><span class="pos-chip-icon">P</span>PAR Brink</div>
-        <div class="pos-chip" style="--brand:#009EDB"><span class="pos-chip-icon">N</span>NCR Aloha</div>
-        <div class="pos-chip" style="--brand:#F06A25"><span class="pos-chip-icon">M</span>Menufy</div>
-        <div class="pos-chip" style="--brand:#8DC63F"><span class="pos-chip-icon">O</span>OpenTable</div>
-      </div>
-    </div>
-    <div class="feat-stack-content">
-      <h2>Connects with your <em>stack</em></h2>
-      <p>Works natively with the POS and tools you already run — no rip-and-replace required.</p>
-    </div>
   </div>
 </section>
+
+<!-- Connects with your stack — full-width block between features and receipts -->
+<div id="integrations" class="feat-stack-block rv d2">
+  <div class="feat-stack-logos-bg">
+    <!-- Row 1 — forward scroll -->
+    <div class="pos-marquee-track">
+      <div class="pos-chip" style="--brand:#FF4C00"><span class="pos-chip-icon">T</span>Toast</div>
+      <div class="pos-chip" style="--brand:#111"><span class="pos-chip-icon">S</span>Square</div>
+      <div class="pos-chip" style="--brand:#3DAA35"><span class="pos-chip-icon">C</span>Clover</div>
+      <div class="pos-chip" style="--brand:#4B5BEB"><span class="pos-chip-icon">O</span>Olo</div>
+      <div class="pos-chip" style="--brand:#F7941D"><span class="pos-chip-icon">R</span>Revel</div>
+      <div class="pos-chip" style="--brand:#E4002B"><span class="pos-chip-icon">T</span>TouchBistro</div>
+      <div class="pos-chip" style="--brand:#6B33FF"><span class="pos-chip-icon">S</span>SpotOn</div>
+      <div class="pos-chip" style="--brand:#1769AA"><span class="pos-chip-icon">L</span>Lightspeed</div>
+      <!-- duplicated for seamless loop -->
+      <div class="pos-chip" style="--brand:#FF4C00"><span class="pos-chip-icon">T</span>Toast</div>
+      <div class="pos-chip" style="--brand:#111"><span class="pos-chip-icon">S</span>Square</div>
+      <div class="pos-chip" style="--brand:#3DAA35"><span class="pos-chip-icon">C</span>Clover</div>
+      <div class="pos-chip" style="--brand:#4B5BEB"><span class="pos-chip-icon">O</span>Olo</div>
+      <div class="pos-chip" style="--brand:#F7941D"><span class="pos-chip-icon">R</span>Revel</div>
+      <div class="pos-chip" style="--brand:#E4002B"><span class="pos-chip-icon">T</span>TouchBistro</div>
+      <div class="pos-chip" style="--brand:#6B33FF"><span class="pos-chip-icon">S</span>SpotOn</div>
+      <div class="pos-chip" style="--brand:#1769AA"><span class="pos-chip-icon">L</span>Lightspeed</div>
+    </div>
+    <!-- Row 2 — reverse scroll -->
+    <div class="pos-marquee-track pos-rev">
+      <div class="pos-chip" style="--brand:#00A651"><span class="pos-chip-icon">U</span>Uber Eats</div>
+      <div class="pos-chip" style="--brand:#FF3008"><span class="pos-chip-icon">D</span>DoorDash</div>
+      <div class="pos-chip" style="--brand:#FF8000"><span class="pos-chip-icon">G</span>GrubHub</div>
+      <div class="pos-chip" style="--brand:#2C6EBD"><span class="pos-chip-icon">P</span>Paytronix</div>
+      <div class="pos-chip" style="--brand:#C8202F"><span class="pos-chip-icon">P</span>PAR Brink</div>
+      <div class="pos-chip" style="--brand:#009EDB"><span class="pos-chip-icon">N</span>NCR Aloha</div>
+      <div class="pos-chip" style="--brand:#F06A25"><span class="pos-chip-icon">M</span>Menufy</div>
+      <div class="pos-chip" style="--brand:#8DC63F"><span class="pos-chip-icon">O</span>OpenTable</div>
+      <!-- duplicated for seamless loop -->
+      <div class="pos-chip" style="--brand:#00A651"><span class="pos-chip-icon">U</span>Uber Eats</div>
+      <div class="pos-chip" style="--brand:#FF3008"><span class="pos-chip-icon">D</span>DoorDash</div>
+      <div class="pos-chip" style="--brand:#FF8000"><span class="pos-chip-icon">G</span>GrubHub</div>
+      <div class="pos-chip" style="--brand:#2C6EBD"><span class="pos-chip-icon">P</span>Paytronix</div>
+      <div class="pos-chip" style="--brand:#C8202F"><span class="pos-chip-icon">P</span>PAR Brink</div>
+      <div class="pos-chip" style="--brand:#009EDB"><span class="pos-chip-icon">N</span>NCR Aloha</div>
+      <div class="pos-chip" style="--brand:#F06A25"><span class="pos-chip-icon">M</span>Menufy</div>
+      <div class="pos-chip" style="--brand:#8DC63F"><span class="pos-chip-icon">O</span>OpenTable</div>
+    </div>
+  </div>
+  <div class="feat-stack-content">
+    <h2>Connects with your <em>stack</em></h2>
+    <p>Works natively with the POS and tools you already run — no rip-and-replace required.</p>
+  </div>
+</div>
 
 <!-- STORY CARDS -->
 <div class="stories-bg">
