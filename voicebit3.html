@@ -705,7 +705,8 @@ footer{background:var(--teal-dark);border-top:1px solid rgba(255,255,255,0.08);p
   .stat-num{font-size:2.8rem}
 
   /* PROBLEMS SECTION */
-  .prob-bg{padding:48px 16px 56px;margin-top:0}
+  .prob-bg{padding:48px 16px 36px;margin-top:0}
+  .stats-section{padding:40px 16px 56px}
   .prob-heading-row{grid-template-columns:1fr;gap:12px}
   .prob-layout{grid-template-columns:1fr;margin-top:32px;border-radius:16px}
   /* tabs: 3 equal columns — all visible, no scroll needed */
@@ -749,7 +750,13 @@ footer{background:var(--teal-dark);border-top:1px solid rgba(255,255,255,0.08);p
   /* LOGO MARQUEE — hide cream side gradients on mobile (teal bg makes them look yellow) */
   .logo-marquee-wrap::before,.logo-marquee-wrap::after{display:none}
 
-  /* FEATURES — use .feat-cards (the actual class) */
+  /* FEATURES — lightning bolts pulled inside viewport on mobile */
+  .feat-intro{overflow:visible}
+  .feat-lightning.lt{left:4px;top:-10px}
+  .feat-lightning.rt{right:4px;top:-14px}
+  .feat-lightning.bl2{left:4px}
+  .feat-lightning.br2{right:4px}
+  /* use .feat-cards (the actual class) */
   .feat-cards{grid-template-columns:1fr}
   .feat-stack-block{min-height:200px}
   .int-logos-grid{grid-template-columns:1fr 1fr}
