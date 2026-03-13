@@ -179,9 +179,9 @@ h1 em{font-style:italic;color:var(--red);font-family:'Playfair Display',serif}
   transition:transform 0.25s,box-shadow 0.25s;
   display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center}
 .stat-cell:hover{transform:translateY(-6px);box-shadow:0 16px 48px rgba(52,92,102,0.3)}
-/* amber brush stroke + thin border rectangle behind each stat */
-.stat-cell::before{content:'';position:absolute;inset:-6px;pointer-events:none;z-index:0;
-  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 272 150'%3E%3Cpath d='M0,45 L5,25 12,38 18,12 26,30 32,8 40,24 46,5 55,20 60,3 70,15 74,4 84,14 88,3 98,12 102,3 114,11 118,4 130,12 134,5 146,13 150,6 162,14 166,7 178,16 184,10 194,18 200,13 210,20 215,16 222,22 228,18 235,24 240,22 248,28 253,27 260,33 265,38 268,43 270,52 C272,65 270,82 266,96 L260,100 254,112 248,104 242,116 236,108 230,118 224,110 218,120 212,112 206,122 200,114 194,124 188,116 182,126 176,118 170,128 164,120 158,130 152,122 146,132 140,124 134,134 128,126 122,136 116,128 110,138 104,130 98,140 92,132 86,142 80,134 74,142 68,133 62,140 56,131 50,138 44,128 38,134 28,122 18,108 8,90 0,70 Z' fill='rgba(218,146,26,0.36)'/%3E%3Crect x='12' y='12' width='248' height='126' fill='none' stroke='rgba(218,146,26,0.55)' stroke-width='1.5'/%3E%3C/svg%3E");
+/* amber brush stroke behind each stat */
+.stat-cell::before{content:'';position:absolute;inset:-4px;pointer-events:none;z-index:0;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 280 130'%3E%3Cpath d='M6,55 C8,38 16,26 32,28 Q38,18 50,26 Q58,15 68,24 Q76,14 88,22 Q96,12 108,20 Q116,11 128,19 Q136,12 148,18 Q158,10 170,17 Q180,12 192,19 Q202,14 214,21 Q224,17 234,23 Q244,20 252,27 Q260,26 266,34 C270,38 274,46 274,58 C274,70 270,80 262,86 Q254,94 246,86 Q238,94 230,86 Q222,94 214,86 Q206,94 198,86 Q190,94 182,86 Q174,94 166,86 Q158,94 150,86 Q142,94 134,86 Q126,94 118,86 Q110,94 102,86 Q94,94 86,86 Q78,94 70,86 Q62,93 52,87 Q42,94 30,84 C16,76 4,68 6,55 Z' fill='rgba(218,146,26,0.4)'/%3E%3C/svg%3E");
   background-size:100% 100%;background-repeat:no-repeat}
 .stat-cell::after{content:none}
 /* all same color — shadow only, no alternating */
