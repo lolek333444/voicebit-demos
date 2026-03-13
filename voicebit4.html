@@ -157,6 +157,23 @@ h1 em{font-style:italic;color:var(--red);font-family:'Playfair Display',serif}
 .hero-send-btn:hover{background:var(--red-light);transform:translateY(-1px);box-shadow:0 6px 24px rgba(169,17,0,0.36)}
 .hero-send-btn svg{width:13px;height:13px;flex-shrink:0;stroke-width:2.5;stroke:currentColor;fill:none;stroke-linecap:round;stroke-linejoin:round}
 
+/* ─── HERO TYPEWRITER CURSOR ─── */
+.hero-input-area{caret-color:var(--teal)}
+@keyframes blink-cursor{0%,100%{opacity:1}50%{opacity:0}}
+/* Example chips row */
+.hero-examples{display:flex;align-items:center;gap:8px;padding:10px 18px;
+  border-top:1px solid var(--border);flex-wrap:wrap}
+.hero-examples-label{font-size:0.62rem;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;
+  color:var(--ink-4);white-space:nowrap}
+.hero-ex-chip{display:inline-flex;align-items:center;gap:6px;
+  background:#fff;border:1px solid var(--border-md);border-radius:100px;
+  padding:5px 12px 5px 8px;font-size:0.72rem;font-weight:600;color:var(--ink-2);
+  cursor:pointer;transition:all 0.18s;white-space:nowrap;text-decoration:none}
+.hero-ex-chip:hover{border-color:var(--teal);color:var(--teal);
+  background:var(--teal-light);transform:translateY(-1px)}
+.hero-ex-chip img{width:14px;height:14px;object-fit:contain;border-radius:2px;flex-shrink:0}
+.hero-ex-chip-dot{width:8px;height:8px;border-radius:50%;flex-shrink:0}
+
 /* ─── TRUSTED BY (Restaurant Logos) ─── */
 .trusted-section{position:relative;z-index:1;
   background:rgba(255,255,255,0.4);padding:52px 40px 48px;text-align:center}
@@ -900,7 +917,15 @@ nav{background:linear-gradient(135deg,rgba(42,74,82,0.97) 0%,rgba(52,92,102,0.97
     </div>
     <div class="hero-input-top">
       <div class="hero-input-label">Your restaurant</div>
-      <textarea class="hero-input-area" placeholder="Paste your website URL or describe your restaurant — we'll set up your AI ordering." rows="2"></textarea>
+      <textarea id="heroTextarea" class="hero-input-area" placeholder="" rows="2"></textarea>
+    </div>
+    <!-- Example chips -->
+    <div class="hero-examples">
+      <span class="hero-examples-label">Try:</span>
+      <button class="hero-ex-chip" data-val="https://www.doordash.com/store/big-apple-pizza-livermore/"><span class="hero-ex-chip-dot" style="background:#FF3008"></span>DoorDash link</button>
+      <button class="hero-ex-chip" data-val="https://www.ubereats.com/store/chandos-tacos/"><span class="hero-ex-chip-dot" style="background:#06C167"></span>Uber Eats link</button>
+      <button class="hero-ex-chip" data-val="https://order.slice.pizza/store/sensiores-pizza"><span class="hero-ex-chip-dot" style="background:#FF6B35"></span>Slice link</button>
+      <button class="hero-ex-chip" data-val="Family pizza spot in Sacramento, CA — 3 locations, open daily 11am–10pm"><span class="hero-ex-chip-dot" style="background:var(--teal)"></span>Describe it</button>
     </div>
     <div class="hero-input-footer">
       <label class="hero-upload-btn">
@@ -1536,6 +1561,43 @@ function closeMenu(){mobileMenu.classList.remove('open');document.body.style.ove
 hamburger.addEventListener('click',()=>{mobileMenu.classList.contains('open')?closeMenu():openMenu()});
 navClose.addEventListener('click',closeMenu);
 mobileMenu.querySelectorAll('a').forEach(a=>a.addEventListener('click',closeMenu));
+
+// ── Typewriter for hero textarea ──
+const heroTA = document.getElementById('heroTextarea');
+const typeExamples = [
+  'https://www.doordash.com/store/big-apple-pizza-livermore/',
+  'Family-owned taco spot in Sacramento — 3 locations, open daily',
+  'https://order.slice.pizza/store/sensiores-pizza',
+  'Italian restaurant, lunch & dinner, full bar, outdoor seating',
+  'https://www.ubereats.com/store/chandos-tacos/'
+];
+let twIdx=0,twChar=0,twDeleting=false,twTimer=null;
+function typeStep(){
+  if(!heroTA||document.activeElement===heroTA)return;
+  const cur=typeExamples[twIdx];
+  if(!twDeleting){
+    twChar++;heroTA.value=cur.slice(0,twChar);
+    if(twChar===cur.length){twDeleting=true;twTimer=setTimeout(typeStep,1800);return;}
+  }else{
+    twChar--;heroTA.value=cur.slice(0,twChar);
+    if(twChar===0){twDeleting=false;twIdx=(twIdx+1)%typeExamples.length;twTimer=setTimeout(typeStep,400);return;}
+  }
+  twTimer=setTimeout(typeStep,twDeleting?28:58);
+}
+setTimeout(typeStep,900);
+heroTA.addEventListener('focus',()=>{clearTimeout(twTimer);if(!heroTA.value||typeExamples.includes(heroTA.value))heroTA.value='';});
+heroTA.addEventListener('blur',()=>{if(!heroTA.value){twChar=0;twDeleting=false;setTimeout(typeStep,600);}});
+
+// ── Example chips click ──
+document.querySelectorAll('.hero-ex-chip').forEach(chip=>{
+  chip.addEventListener('click',()=>{
+    clearTimeout(twTimer);
+    const val=chip.dataset.val;
+    heroTA.value='';heroTA.focus();
+    let i=0;
+    const t=setInterval(()=>{heroTA.value=val.slice(0,++i);if(i===val.length)clearInterval(t);},40);
+  });
+});
 </script>
 </body>
 </html>
