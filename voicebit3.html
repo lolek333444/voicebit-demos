@@ -436,18 +436,30 @@ h2 em{font-style:italic;color:var(--red)}
   background-image:url('Photos/background_photo.png');background-size:600px auto;background-repeat:repeat;
   opacity:0.07}
 .faq-inner{max-width:1160px;margin:0 auto;text-align:center;position:relative;z-index:1}
-.faq-list{max-width:760px;margin:56px auto 0;display:flex;flex-direction:column;gap:8px;text-align:left}
-.fi{background:var(--cream);border:1px solid var(--border);border-radius:var(--r-sm);overflow:hidden;transition:border-color 0.2s}
-.fi:hover,.fi.open{border-color:var(--border-md)}
-.fq{padding:17px 22px;font-family:'Playfair Display',serif;font-size:0.92rem;font-weight:700;
-  color:var(--ink);cursor:pointer;display:flex;justify-content:space-between;align-items:center;gap:12px;user-select:none}
-.fi-toggle{width:22px;height:22px;border-radius:50%;border:1.5px solid var(--border-md);flex-shrink:0;
-  display:flex;align-items:center;justify-content:center;transition:background 0.2s,transform 0.3s,border-color 0.2s}
-.fi-toggle svg{width:10px;height:10px;stroke:var(--ink-3);stroke-width:2.5;fill:none;stroke-linecap:round;transition:stroke 0.2s}
-.fi.open .fi-toggle{background:var(--red);border-color:var(--red);transform:rotate(45deg)}
-.fi.open .fi-toggle svg{stroke:#fff}
-.fa{max-height:0;overflow:hidden;font-size:0.83rem;color:var(--ink-2);line-height:1.75;font-weight:300;transition:max-height 0.38s ease,padding 0.2s}
-.fi.open .fa{max-height:220px;padding:0 22px 18px}
+.faq-list{max-width:780px;margin:56px auto 0;display:flex;flex-direction:column;gap:12px;text-align:left}
+.fi{background:#fff;border:none;border-radius:14px;overflow:hidden;
+  box-shadow:0 2px 12px rgba(52,92,102,0.08),0 1px 3px rgba(52,92,102,0.06);
+  border-left:5px solid var(--teal);
+  transition:box-shadow 0.2s,transform 0.2s,border-left-color 0.2s}
+.fi:hover{box-shadow:0 8px 32px rgba(52,92,102,0.14);transform:translateX(4px)}
+.fi.open{border-left-color:var(--red);box-shadow:0 8px 36px rgba(52,92,102,0.16)}
+/* alternating accent colors */
+.fi:nth-child(2){border-left-color:var(--amber)}
+.fi:nth-child(3){border-left-color:var(--red)}
+.fi:nth-child(4){border-left-color:var(--teal-dark)}
+.fi:nth-child(5){border-left-color:var(--amber)}
+.fi:nth-child(6){border-left-color:var(--teal)}
+.fi:nth-child(7){border-left-color:var(--red)}
+.fq{padding:20px 24px;font-family:'Oswald',sans-serif;font-size:1.05rem;font-weight:600;
+  letter-spacing:0.02em;text-transform:uppercase;
+  color:var(--teal);cursor:pointer;display:flex;justify-content:space-between;align-items:center;gap:12px;user-select:none}
+.fi-toggle{width:28px;height:28px;border-radius:8px;background:var(--teal);flex-shrink:0;
+  display:flex;align-items:center;justify-content:center;transition:background 0.2s,transform 0.3s}
+.fi-toggle svg{width:11px;height:11px;stroke:#fff;stroke-width:2.5;fill:none;stroke-linecap:round;transition:stroke 0.2s}
+.fi.open .fi-toggle{background:var(--red);transform:rotate(45deg)}
+.fa{max-height:0;overflow:hidden;font-size:0.9rem;color:var(--ink-2);line-height:1.8;font-weight:400;
+  transition:max-height 0.38s ease,padding 0.2s}
+.fi.open .fa{max-height:220px;padding:0 24px 20px}
 
 /* ─── CTA ─── */
 .cta-bg{background:var(--teal);padding:96px 40px 0;text-align:center;position:relative;z-index:1;overflow:hidden}
@@ -459,7 +471,19 @@ h2 em{font-style:italic;color:var(--red)}
 .cta-tablet-frame{background:#1a1a1a;border-radius:20px 20px 0 0;padding:10px 10px 0;
   box-shadow:0 -12px 60px rgba(0,0,0,0.35)}
 .cta-tablet-screen{background:#fff;border-radius:12px 12px 0 0;overflow:hidden;line-height:0}
-.cta-tablet-screen img,.cta-tablet-screen svg{width:100%;height:auto;display:block}
+.cta-tablet-screen img,.cta-tablet-screen svg{width:100%;height:auto;display:block;
+  animation:dashZoom 18s ease-in-out infinite;transform-origin:top left}
+@keyframes dashZoom{
+  0%   {transform:scale(1) translate(0,0)}
+  12%  {transform:scale(1) translate(0,0)}
+  25%  {transform:scale(2.2) translate(-8%,-4%)}   /* zoom: metric cards row */
+  40%  {transform:scale(2.2) translate(-8%,-4%)}
+  52%  {transform:scale(2.4) translate(-38%,-4%)}  /* pan right: $1,247 revenue */
+  65%  {transform:scale(2.4) translate(-38%,-4%)}
+  75%  {transform:scale(1.9) translate(-5%,-22%)}  /* zoom: recent orders list */
+  88%  {transform:scale(1.9) translate(-5%,-22%)}
+  100% {transform:scale(1) translate(0,0)}
+}
 .cta-glow{position:absolute;top:-200px;left:50%;transform:translateX(-50%);width:900px;height:600px;
   background:radial-gradient(ellipse,rgba(52,92,102,0.35) 0%,transparent 62%);pointer-events:none}
 .cta-tag{display:inline-flex;align-items:center;gap:7px;
