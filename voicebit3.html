@@ -839,7 +839,7 @@ footer{background:var(--teal-dark);border-top:1px solid rgba(255,255,255,0.08);p
   </div>
 </footer>
 
-<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+<script>
 function tf(el){const i=el.parentElement,o=i.classList.contains('open');document.querySelectorAll('.fi').forEach(x=>x.classList.remove('open'));if(!o)i.classList.add('open')}
 const obs=new IntersectionObserver(e=>{e.forEach(x=>{if(x.isIntersecting){x.target.classList.add('visible');obs.unobserve(x.target)}})},{threshold:0.07});
 document.querySelectorAll('.rv').forEach(el=>obs.observe(el));
@@ -858,4 +858,13 @@ const cobs=new IntersectionObserver(e=>{
   if(e[0].isIntersecting){
     animCount(document.getElementById('c1'),500,'+','',false);
     setTimeout(()=>animCount(document.getElementById('c2'),4.9,' ★','',true),150);
-    setTimeout(()=>animCount(document.getElementById('c3'),0,'%','',false
+    setTimeout(()=>animCount(document.getElementById('c3'),0,'%','',false),300);
+    setTimeout(()=>animCount(document.getElementById('c4'),222,'+','',false),450);
+    cobs.disconnect();
+  }
+},{threshold:0.3});
+const ps=document.getElementById('proof-stats');
+if(ps)cobs.observe(ps);
+</script>
+</body>
+</html>
