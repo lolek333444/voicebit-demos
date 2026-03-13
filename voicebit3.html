@@ -353,7 +353,7 @@ h2 em{font-style:italic;color:var(--red)}
 .trust-stamp-ring{position:absolute;inset:0;animation:stampSpin 18s linear infinite}
 .trust-stamp-ring svg{width:100%;height:100%}
 @keyframes stampSpin{from{transform:rotate(0deg)}to{transform:rotate(360deg)}}
-.trust-stamp-flag{position:relative;z-index:2;font-size:2rem;line-height:1}
+.trust-stamp-flag{position:relative;z-index:2;border-radius:3px;box-shadow:0 1px 4px rgba(0,0,0,0.3)}
 /* heading row — relative so stamp can anchor to corner */
 .case-heading-row{position:relative;display:inline-block;overflow:visible}
 
@@ -720,7 +720,7 @@ footer{background:var(--teal-dark);border-top:1px solid rgba(255,255,255,0.08);p
 
   /* TESTIMONIALS — stamp shrinks on mobile */
   .trust-stamp{width:72px;height:72px;bottom:-28px;right:-6px;top:auto}
-  .trust-stamp-flag{font-size:1.3rem}
+  .trust-stamp-flag{width:30px;height:17px}
 
   /* TESTIMONIALS CAROUSEL */
   .case-wrap{padding:48px 0 0;box-shadow:none;border-bottom:none}
@@ -882,7 +882,34 @@ footer{background:var(--teal-dark);border-top:1px solid rgba(255,255,255,0.08);p
               </text>
             </svg>
           </div>
-          <span class="trust-stamp-flag">🇺🇸</span>
+          <svg class="trust-stamp-flag" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 38 20" width="40" height="22" style="border-radius:3px;overflow:hidden;display:block">
+            <rect width="38" height="20" fill="#B22234"/>
+            <rect y="1.54" width="38" height="1.54" fill="#fff"/>
+            <rect y="4.62" width="38" height="1.54" fill="#fff"/>
+            <rect y="7.69" width="38" height="1.54" fill="#fff"/>
+            <rect y="10.77" width="38" height="1.54" fill="#fff"/>
+            <rect y="13.85" width="38" height="1.54" fill="#fff"/>
+            <rect y="16.92" width="38" height="1.54" fill="#fff"/>
+            <rect width="15.2" height="10.77" fill="#3C3B6E"/>
+            <circle cx="2.5" cy="1.3" r="0.75" fill="#fff"/>
+            <circle cx="5.5" cy="1.3" r="0.75" fill="#fff"/>
+            <circle cx="8.5" cy="1.3" r="0.75" fill="#fff"/>
+            <circle cx="11.5" cy="1.3" r="0.75" fill="#fff"/>
+            <circle cx="4" cy="3.5" r="0.75" fill="#fff"/>
+            <circle cx="7" cy="3.5" r="0.75" fill="#fff"/>
+            <circle cx="10" cy="3.5" r="0.75" fill="#fff"/>
+            <circle cx="13" cy="3.5" r="0.75" fill="#fff"/>
+            <circle cx="2.5" cy="5.7" r="0.75" fill="#fff"/>
+            <circle cx="5.5" cy="5.7" r="0.75" fill="#fff"/>
+            <circle cx="8.5" cy="5.7" r="0.75" fill="#fff"/>
+            <circle cx="11.5" cy="5.7" r="0.75" fill="#fff"/>
+            <circle cx="4" cy="7.9" r="0.75" fill="#fff"/>
+            <circle cx="7" cy="7.9" r="0.75" fill="#fff"/>
+            <circle cx="10" cy="7.9" r="0.75" fill="#fff"/>
+            <circle cx="2.5" cy="9.5" r="0.75" fill="#fff"/>
+            <circle cx="5.5" cy="9.5" r="0.75" fill="#fff"/>
+            <circle cx="8.5" cy="9.5" r="0.75" fill="#fff"/>
+          </svg>
         </div>
       </div>
     </div>
