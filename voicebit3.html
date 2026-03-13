@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>VoiceBit — AI Phone & Web Ordering for Restaurants</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@600;700&family=Playfair+Display:ital,wght@0,700;0,800;1,700;1,800&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,300&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@600;700&family=Playfair+Display:ital,wght@0,700;0,800;1,700;1,800&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,300&family=Caveat:wght@600;700&display=swap" rel="stylesheet">
 <style>
 :root {
   --teal:      #345c66;
@@ -82,6 +82,15 @@ h1 em{font-style:italic;color:var(--red);font-family:'Playfair Display',serif}
   font-family:'DM Sans',sans-serif;font-size:0.88rem;font-weight:500;text-decoration:none;
   border:1.5px solid var(--border-md);display:inline-flex;align-items:center;gap:8px;transition:all 0.2s}
 .btn-outline:hover{background:#fff;border-color:rgba(52,92,102,0.28)}
+
+/* ─── HERO ANNOTATION ─── */
+.hero-annotation{position:absolute;left:calc(50% - 390px);top:50%;transform:translateY(-50%);
+  pointer-events:none;display:flex;flex-direction:column;align-items:flex-end;gap:4px;z-index:2}
+.hero-annotation-text{font-family:'Caveat',cursive;font-size:1.55rem;font-weight:700;
+  color:var(--red);line-height:1.2;text-align:right;white-space:nowrap;
+  transform:rotate(-6deg);transform-origin:right center}
+.hero-annotation svg{width:80px;height:64px;overflow:visible}
+@media(max-width:960px){.hero-annotation{display:none}}
 
 /* ─── HERO INPUT CARD ─── */
 .hero-input-card{background:#fff;border:1px solid var(--border-md);border-radius:18px;
@@ -396,9 +405,12 @@ h2 em{font-style:italic;color:var(--red)}
 .int-note{text-align:center;margin-top:18px;font-size:0.78rem;color:var(--ink-3);font-weight:300}
 
 /* ─── FAQ ─── */
-.faq-bg{background:#fff;border-top:1px solid var(--border);border-bottom:1px solid var(--border);
+.faq-bg{background:var(--cream);border-top:1px solid var(--border);border-bottom:1px solid var(--border);
   padding:96px 40px;position:relative;z-index:1}
-.faq-inner{max-width:1160px;margin:0 auto;text-align:center}
+.faq-bg::after{content:'';position:absolute;inset:0;pointer-events:none;z-index:0;
+  background-image:url('Photos/background_photo.png');background-size:600px auto;background-repeat:repeat;
+  opacity:0.07}
+.faq-inner{max-width:1160px;margin:0 auto;text-align:center;position:relative;z-index:1}
 .faq-list{max-width:760px;margin:56px auto 0;display:flex;flex-direction:column;gap:8px;text-align:left}
 .fi{background:var(--cream);border:1px solid var(--border);border-radius:var(--r-sm);overflow:hidden;transition:border-color 0.2s}
 .fi:hover,.fi.open{border-color:var(--border-md)}
@@ -513,6 +525,16 @@ footer{background:var(--teal-dark);border-top:1px solid rgba(255,255,255,0.08);p
   </a>
   <h1>Take Back <em>Control</em><br>of Your Orders.</h1>
   <p class="hero-sub">VoiceBit uses AI to turn your phone and website into powerful direct ordering channels — capture more orders, eliminate missed calls, and keep revenue where it belongs.</p>
+
+  <!-- Squiggly annotation -->
+  <div class="hero-annotation">
+    <span class="hero-annotation-text">Get your AI<br>ordering today!</span>
+    <!-- squiggly arrow pointing right-down toward the card -->
+    <svg viewBox="0 0 80 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <path d="M4 8 C14 4, 18 20, 28 16 C38 12, 36 30, 48 26 C58 23, 58 38, 68 42 L60 52 M68 42 L72 32"
+        stroke="#a91100" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+    </svg>
+  </div>
 
   <div class="hero-input-card">
     <!-- Product type selector -->
