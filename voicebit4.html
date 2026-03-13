@@ -1664,20 +1664,23 @@ document.querySelectorAll('.hero-ex-chip[data-val]').forEach(chip=>{
   });
 });
 
-// Prevent horizontal scroll on mobile — lock direction after first 5px of movement
-document.addEventListener('touchstart', function(e){
-  window._tsX = e.touches[0].clientX;
-  window._tsY = e.touches[0].clientY;
-  window._tsDir = null;
-}, {passive:true});
-document.addEventListener('touchmove', function(e){
-  var dx = Math.abs(e.touches[0].clientX - window._tsX);
-  var dy = Math.abs(e.touches[0].clientY - window._tsY);
-  if(!window._tsDir && (dx > 5 || dy > 5)){
-    window._tsDir = dx > dy ? 'h' : 'v';
-  }
-  if(window._tsDir === 'h'){ e.preventDefault(); }
-}, {passive:false});
+// Prevent horizontal scroll on mobile
+(function(){
+  var tsX=0, tsY=0, dir=null;
+  document.addEventListener('touchstart', function(e){
+    tsX = e.touches[0].clientX;
+    tsY = e.touches[0].clientY;
+    dir = null;
+  }, {passive:true});
+  document.addEventListener('touchend',    function(){ dir = null; }, {passive:true});
+  document.addEventListener('touchcancel', function(){ dir = null; }, {passive:true});
+  document.addEventListener('touchmove', function(e){
+    var dx = Math.abs(e.touches[0].clientX - tsX);
+    var dy = Math.abs(e.touches[0].clientY - tsY);
+    if(!dir && (dx > 5 || dy > 5)) dir = dx > dy ? 'h' : 'v';
+    if(dir === 'h') e.preventDefault();
+  }, {passive:false});
+})();
 </script>
 </div><!-- /page-wrap -->
 </body>
