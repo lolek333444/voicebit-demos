@@ -212,12 +212,15 @@ h2 em{font-style:italic;color:var(--red)}
 .feat-intro-desc{font-size:0.98rem;color:var(--ink-2);font-weight:300;line-height:1.7}
 .feat-cards{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
 .fc2{background:#fff;border:1px solid var(--border);border-radius:var(--r);
-  padding:28px 24px;display:flex;flex-direction:column;gap:0;position:relative}
-.fc2-bar{height:4px;border-radius:4px;width:36px;margin-bottom:20px}
+  padding:32px 28px;display:flex;flex-direction:column;gap:0;position:relative;
+  transition:transform 0.35s cubic-bezier(.22,.68,0,1.2),box-shadow 0.35s,border-color 0.2s;
+  cursor:default}
+.fc2:hover{transform:translateY(-10px);box-shadow:0 32px 80px rgba(52,92,102,0.16);border-color:rgba(52,92,102,0.2)}
+.fc2-bar{height:4px;border-radius:4px;width:40px;margin-bottom:24px}
 .fc2-body{flex:1;display:flex;flex-direction:column}
-.fc2-title{font-size:1rem;font-weight:400;color:var(--ink-2);line-height:1.4;margin-bottom:10px}
+.fc2-title{font-size:1.05rem;font-weight:400;color:var(--ink-2);line-height:1.35;margin-bottom:12px}
 .fc2-title strong{font-weight:700;color:var(--ink)}
-.fc2-desc{font-size:0.82rem;color:var(--ink-2);line-height:1.68;margin-bottom:18px;font-weight:300}
+.fc2-desc{font-size:0.85rem;color:var(--ink-2);line-height:1.7;margin-bottom:20px;font-weight:300}
 .fc-list{list-style:none;display:flex;flex-direction:column;gap:7px;margin-top:auto}
 .fc-list li{font-size:0.78rem;color:var(--ink-2);display:flex;align-items:flex-start;gap:8px;line-height:1.4}
 .chk{width:18px;height:18px;border-radius:5px;display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:1px}
@@ -302,24 +305,37 @@ h2 em{font-style:italic;color:var(--red)}
 .logo-m-box img{width:100%;height:100%;object-fit:contain}
 
 /* ─── STORY CARDS ─── */
-.stories-bg{background:#fff;padding:80px 40px;position:relative;z-index:1;border-top:1px solid var(--border);border-bottom:1px solid var(--border)}
-.stories-inner{max-width:1160px;margin:0 auto;display:flex;flex-direction:column;gap:20px}
-.story-card{background:var(--cream);border-radius:20px;overflow:hidden;display:grid;grid-template-columns:1fr 1.15fr;min-height:400px;border:1px solid var(--border);position:relative}
-.story-left{padding:36px;display:flex;flex-direction:column}
-.story-read-btn{position:absolute;top:24px;right:24px;display:inline-flex;align-items:center;gap:6px;background:#111;color:#fff;padding:9px 16px;border-radius:100px;font-size:0.74rem;font-weight:600;text-decoration:none;transition:background 0.2s;z-index:3}
-.story-read-btn:hover{background:var(--teal)}
+.stories-bg{background:var(--cream-dark);padding:80px 40px;position:relative;z-index:1}
+.stories-inner{max-width:1160px;margin:0 auto;display:flex;flex-direction:column;gap:24px}
+.story-card{background:#fff;border-radius:24px;overflow:hidden;display:grid;
+  grid-template-columns:1fr 1.3fr;min-height:440px;border:1px solid var(--border);
+  position:relative;
+  transition:transform 0.4s cubic-bezier(.22,.68,0,1.2),box-shadow 0.4s}
+.story-card:hover{transform:translateY(-8px);box-shadow:0 40px 100px rgba(52,92,102,0.18)}
+.story-left{padding:44px;display:flex;flex-direction:column;justify-content:center}
+.story-read-btn{position:absolute;top:24px;right:24px;display:inline-flex;align-items:center;gap:6px;
+  background:#111;color:#fff;padding:10px 18px;border-radius:100px;font-size:0.74rem;font-weight:600;
+  text-decoration:none;transition:background 0.2s,transform 0.2s;z-index:3}
+.story-read-btn:hover{background:var(--teal);transform:scale(1.04)}
 .story-read-btn svg{width:11px;height:11px;fill:none;stroke:currentColor;stroke-width:2.5;stroke-linecap:round;stroke-linejoin:round}
-.story-name{font-family:'Playfair Display',serif;font-size:1.55rem;font-weight:800;color:var(--ink);line-height:1.15;margin-bottom:3px}
-.story-title{font-size:0.76rem;color:var(--ink-3);font-weight:400;margin-bottom:22px}
-.story-quote{font-size:0.9rem;color:var(--ink-2);font-style:italic;line-height:1.65;margin-bottom:auto;font-weight:300;max-width:300px}
+.story-name{font-family:'Oswald',sans-serif;font-size:2rem;font-weight:700;color:var(--ink);line-height:1;margin-bottom:4px}
+.story-title{font-size:0.78rem;color:var(--ink-3);font-weight:400;margin-bottom:20px;letter-spacing:0.02em}
+.story-quote{font-size:1.05rem;color:var(--ink);font-style:italic;line-height:1.6;
+  font-family:'Playfair Display',serif;font-weight:700;margin-bottom:32px}
 .story-quote::before{content:'\201C'}.story-quote::after{content:'\201D'}
-.story-metrics{display:flex;flex-direction:column;gap:14px;margin-top:28px}
-.story-metric{border-top:1px solid var(--border);padding-top:14px}
-.story-metric-val{font-family:'Playfair Display',serif;font-size:2rem;font-weight:800;color:var(--teal);line-height:1;margin-bottom:3px}
+.story-metrics{display:flex;flex-direction:row;gap:0;border-top:1px solid var(--border);padding-top:24px}
+.story-metric{flex:1;padding-right:20px;border-right:1px solid var(--border)}
+.story-metric:last-child{border-right:none;padding-right:0;padding-left:20px}
+.story-metric-val{font-family:'Oswald',sans-serif;font-size:2.4rem;font-weight:700;color:var(--teal);line-height:1;margin-bottom:4px}
 .story-metric-lbl{font-size:0.7rem;color:var(--ink-3);font-weight:300;line-height:1.4}
 .story-photo{position:relative;overflow:hidden}
-.story-photo img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center top}
-.story-photo-tag{position:absolute;bottom:20px;left:20px;z-index:2;display:flex;align-items:center;gap:8px;background:rgba(0,0,0,0.55);backdrop-filter:blur(6px);padding:8px 14px;border-radius:100px}
+.story-photo img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center top;
+  transition:transform 0.6s cubic-bezier(.22,.68,0,1.1)}
+.story-card:hover .story-photo img{transform:scale(1.06)}
+.story-photo::after{content:'';position:absolute;inset:0;
+  background:linear-gradient(to top,rgba(0,0,0,0.45) 0%,transparent 55%)}
+.story-photo-tag{position:absolute;bottom:20px;left:20px;z-index:2;display:flex;align-items:center;gap:8px;
+  background:rgba(0,0,0,0.55);backdrop-filter:blur(6px);padding:8px 14px;border-radius:100px}
 .story-photo-tag-label{color:rgba(255,255,255,0.65);font-size:0.65rem;font-weight:400}
 .story-photo-tag-name{color:#fff;font-size:0.78rem;font-weight:600}
 
@@ -408,11 +424,11 @@ footer{background:var(--teal-dark);border-top:1px solid rgba(255,255,255,0.08);p
 .f-socials a:hover{color:rgba(255,239,219,0.55)}
 
 /* ─── ANIMATIONS ─── */
-.rv{opacity:0;transform:translateY(32px) scale(0.97);
-  transition:opacity 0.65s cubic-bezier(.22,.68,0,1.2),transform 0.65s cubic-bezier(.22,.68,0,1.2)}
+.rv{opacity:0;transform:translateY(60px) scale(0.96);
+  transition:opacity 0.75s cubic-bezier(.22,.68,0,1.1),transform 0.75s cubic-bezier(.22,.68,0,1.1)}
 .rv.visible{opacity:1;transform:translateY(0) scale(1)}
-.d1{transition-delay:.12s}.d2{transition-delay:.22s}.d3{transition-delay:.32s}.d4{transition-delay:.42s}
-@keyframes heroSlide{from{opacity:0;transform:translateY(32px) scale(0.97)}to{opacity:1;transform:none}}
+.d1{transition-delay:.15s}.d2{transition-delay:.28s}.d3{transition-delay:.41s}.d4{transition-delay:.54s}
+@keyframes heroSlide{from{opacity:0;transform:translateY(40px) scale(0.97)}to{opacity:1;transform:none}}
 .hero>*{animation:heroSlide 0.8s ease both}
 .hero>*:nth-child(1){animation-delay:0.1s}
 .hero>*:nth-child(2){animation-delay:0.2s}
@@ -821,7 +837,7 @@ footer{background:var(--teal-dark);border-top:1px solid rgba(255,255,255,0.08);p
     </div>
 
     <!-- Card 2: Chando / Chando's Tacos (photo left, text right) -->
-    <div class="story-card rv d1" style="grid-template-columns:1.15fr 1fr">
+    <div class="story-card rv d1" style="grid-template-columns:1.3fr 1fr">
       <div class="story-photo">
         <img src="Photos/Chando.avif" alt="Chando's Tacos">
         <div class="story-photo-tag">
