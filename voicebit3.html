@@ -293,16 +293,19 @@ h2 em{font-style:italic;color:var(--red)}
 .stats-section-inner{max-width:1160px;margin:0 auto}
 
 /* ─── LOGO MARQUEE (restaurant trust bar) ─── */
-.logo-marquee-wrap{overflow:hidden;margin-top:40px;position:relative}
-.logo-marquee-wrap::before,.logo-marquee-wrap::after{content:'';position:absolute;top:0;bottom:0;width:80px;z-index:2;pointer-events:none}
+.stats-partner-text{font-family:'Playfair Display',serif;font-size:clamp(1.3rem,2.2vw,1.75rem);
+  font-weight:700;color:var(--ink);text-align:center;margin-bottom:36px;font-style:italic}
+.logo-marquee-wrap{overflow:hidden;margin-top:40px;position:relative;
+  width:100vw;left:50%;transform:translateX(-50%)}
+.logo-marquee-wrap::before,.logo-marquee-wrap::after{content:'';position:absolute;top:0;bottom:0;width:100px;z-index:2;pointer-events:none}
 .logo-marquee-wrap::before{left:0;background:linear-gradient(to right,var(--cream),transparent)}
 .logo-marquee-wrap::after{right:0;background:linear-gradient(to left,var(--cream),transparent)}
-.logo-marquee-track{display:flex;align-items:center;animation:logoMarquee 28s linear infinite;width:max-content}
+.logo-marquee-track{display:flex;align-items:center;animation:logoMarquee 36s linear infinite;width:max-content}
 .logo-marquee-track:hover{animation-play-state:paused}
 @keyframes logoMarquee{from{transform:translateX(0)}to{transform:translateX(-50%)}}
-.logo-m-box{width:130px;height:72px;display:flex;align-items:center;justify-content:center;
-  margin:0 12px;background:#fff;border:1px solid var(--border);border-radius:10px;
-  flex-shrink:0;overflow:hidden;padding:10px}
+.logo-m-box{width:180px;height:100px;display:flex;align-items:center;justify-content:center;
+  margin:0 14px;background:#fff;border:1px solid var(--border);border-radius:14px;
+  flex-shrink:0;overflow:hidden;padding:14px}
 .logo-m-box img{width:100%;height:100%;object-fit:contain}
 
 /* ─── STORY CARDS ─── */
@@ -364,9 +367,15 @@ h2 em{font-style:italic;color:var(--red)}
 .fi.open .fa{max-height:220px;padding:0 22px 18px}
 
 /* ─── CTA ─── */
-.cta-bg{background:var(--teal);
-  background-image:linear-gradient(rgba(255,255,255,0.04) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,0.04) 1px,transparent 1px);
-  background-size:48px 48px;padding:110px 40px;text-align:center;position:relative;z-index:1;overflow:hidden}
+.cta-bg{background:var(--teal);padding:96px 40px 0;text-align:center;position:relative;z-index:1;overflow:hidden}
+.cta-bg::before{content:'';position:absolute;inset:0;pointer-events:none;z-index:0;
+  background-image:url('Photos/background_photo.png');background-size:600px auto;background-repeat:repeat;
+  opacity:0.06;filter:brightness(0) invert(1)}
+.cta-tablet-wrap{position:relative;z-index:1;margin-top:56px;max-width:900px;margin-left:auto;margin-right:auto}
+.cta-tablet-frame{background:#1a1a1a;border-radius:20px 20px 0 0;padding:10px 10px 0;
+  box-shadow:0 -12px 60px rgba(0,0,0,0.35)}
+.cta-tablet-screen{background:#fff;border-radius:12px 12px 0 0;overflow:hidden;line-height:0}
+.cta-tablet-screen img,.cta-tablet-screen svg{width:100%;height:auto;display:block}
 .cta-glow{position:absolute;top:-200px;left:50%;transform:translateX(-50%);width:900px;height:600px;
   background:radial-gradient(ellipse,rgba(52,92,102,0.35) 0%,transparent 62%);pointer-events:none}
 .cta-tag{display:inline-flex;align-items:center;gap:7px;
@@ -586,9 +595,11 @@ footer{background:var(--teal-dark);border-top:1px solid rgba(255,255,255,0.08);p
 <!-- PROBLEMS -->
 <div class="prob-bg">
   <div class="prob-inner">
-    <div class="prob-heading-row rv">
-      <h2 style="text-align:left;color:#fff">Running a restaurant has never been harder…</h2>
-      <p class="prob-heading-sub">…so choosing the right partner is even more important.</p>
+    <h2 class="rv" style="text-align:left;color:#fff">Running a restaurant has never been harder…</h2>
+    <div class="rv" style="margin-top:20px;margin-bottom:4px">
+      <svg width="28" height="52" viewBox="0 0 28 52" fill="none" xmlns="http://www.w3.org/2000/svg" style="opacity:0.5">
+        <path d="M14 2 C14 2 14 38 14 44 M14 44 L6 36 M14 44 L22 36" stroke="rgba(255,255,255,0.7)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
     </div>
 
     <div class="prob-layout rv">
@@ -640,21 +651,6 @@ footer{background:var(--teal-dark);border-top:1px solid rgba(255,255,255,0.08);p
       </div>
     </div>
 
-    <!-- Restaurant logos below the tablet -->
-    <div class="prob-logos rv" style="margin-top:48px;text-align:center">
-      <div class="prob-logos-grid">
-        <div class="prob-logo-box"><img src="Photos/Restaurant Logos/A-town.jpg" alt="A-town"></div>
-        <div class="prob-logo-box"><img src="Photos/Restaurant Logos/BAP Livermore.avif" alt="BAP Livermore"></div>
-        <div class="prob-logo-box"><img src="Photos/Restaurant Logos/BAP San Ramon.png" alt="BAP San Ramon"></div>
-        <div class="prob-logo-box"><img src="Photos/Restaurant Logos/Danville.avif" alt="Danville"></div>
-        <div class="prob-logo-box"><img src="Photos/Restaurant Logos/JJ Fish & Chicken.png" alt="JJ Fish & Chicken"></div>
-        <div class="prob-logo-box"><img src="Photos/Restaurant Logos/NYPNP Pleasant Hill.png" alt="NYPNP Pleasant Hill"></div>
-        <div class="prob-logo-box"><img src="Photos/Restaurant Logos/Pizza Ponte.jpeg" alt="Pizza Ponte"></div>
-        <div class="prob-logo-box"><img src="Photos/Restaurant Logos/Rayos.png" alt="Rayos"></div>
-        <div class="prob-logo-box"><img src="Photos/Restaurant Logos/Seniore_s_Logo-removebg-preview.png" alt="Seniore's"></div>
-        <div class="prob-logo-box"><img src="Photos/Restaurant Logos/falafel boy.webp" alt="Falafel Boy"></div>
-      </div>
-    </div>
 
   </div>
 </div>
@@ -662,6 +658,7 @@ footer{background:var(--teal-dark);border-top:1px solid rgba(255,255,255,0.08);p
 <!-- STATS (standalone section) -->
 <div class="stats-section">
   <div class="stats-section-inner">
+    <p class="rv stats-partner-text">…so choosing the right partner is even more important.</p>
     <div class="stats-band rv">
       <div class="stat-cell">
         <div class="stat-num"><em>$0</em></div>
@@ -866,6 +863,14 @@ footer{background:var(--teal-dark);border-top:1px solid rgba(255,255,255,0.08);p
       <a href="#contact" class="btn-ghost-light">Contact Us</a>
     </div>
     <p class="cta-email">Or email us directly at <a href="mailto:hello@voicebit.ai">hello@voicebit.ai</a></p>
+  </div>
+  <!-- Dashboard tablet mockup -->
+  <div class="cta-tablet-wrap rv">
+    <div class="cta-tablet-frame">
+      <div class="cta-tablet-screen">
+        <img src="Photos/voicebit-dashboard.svg" alt="VoiceBit Dashboard">
+      </div>
+    </div>
   </div>
 </div>
 
