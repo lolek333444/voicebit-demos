@@ -29,7 +29,7 @@
   --r-sm: 10px;
 }
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
-html{scroll-behavior:smooth}
+html{scroll-behavior:smooth;overflow-x:hidden}
 body{font-family:'DM Sans',sans-serif;background:var(--cream);color:var(--ink);overflow-x:hidden}
 body::after{content:'';position:fixed;inset:0;pointer-events:none;z-index:0;
   background-image:url('Photos/background_photo.png');
@@ -52,6 +52,28 @@ nav{position:fixed;top:18px;left:50%;transform:translateX(-50%);z-index:300;
   padding:9px 20px!important;border-radius:100px;margin-left:10px;font-size:0.83rem!important;
   transition:background 0.2s,transform 0.15s!important}
 .nav-cta:hover{background:var(--red-light)!important;transform:scale(1.02)!important}
+/* hamburger */
+.nav-hamburger{display:none;flex-direction:column;justify-content:center;align-items:center;
+  gap:5px;width:38px;height:38px;background:rgba(255,255,255,0.12);border:none;
+  border-radius:50%;cursor:pointer;padding:0;flex-shrink:0}
+.nav-hamburger span{display:block;width:18px;height:2px;background:#fff;
+  border-radius:2px;transition:transform 0.25s,opacity 0.2s}
+/* mobile menu overlay */
+.nav-mobile-menu{display:none;position:fixed;inset:0;z-index:299;
+  background:rgba(42,74,82,0.97);backdrop-filter:blur(16px);
+  flex-direction:column;align-items:center;justify-content:center;gap:8px;
+  padding:80px 32px 40px}
+.nav-mobile-menu.open{display:flex}
+.nav-mobile-menu a{font-family:'Oswald',sans-serif;font-size:1.8rem;font-weight:700;
+  color:#fff;text-decoration:none;letter-spacing:0.04em;text-transform:uppercase;
+  padding:12px 0;opacity:0.85;transition:opacity 0.2s}
+.nav-mobile-menu a:hover{opacity:1}
+.nav-mobile-menu .nav-cta-m{background:var(--red);color:#fff!important;
+  padding:14px 40px!important;border-radius:100px;font-size:1.2rem!important;
+  opacity:1!important;margin-top:16px}
+.nav-close{position:absolute;top:24px;right:24px;background:rgba(255,255,255,0.12);
+  border:none;border-radius:50%;width:40px;height:40px;cursor:pointer;
+  display:flex;align-items:center;justify-content:center;color:#fff;font-size:1.4rem}
 
 /* ─── HERO ─── */
 .hero{position:relative;z-index:1;max-width:780px;margin:0 auto;
@@ -648,8 +670,10 @@ footer{background:var(--teal-dark);border-top:1px solid rgba(255,255,255,0.08);p
 /* ─── MOBILE (phones) ─── */
 @media(max-width:680px){
   /* NAV */
-  nav{top:8px;left:8px;right:8px;transform:none;border-radius:12px;padding:10px 16px}
+  nav{top:8px;left:8px;right:8px;transform:none;border-radius:12px;padding:10px 16px;
+    justify-content:space-between}
   .nav-links{display:none}
+  .nav-hamburger{display:flex}
 
   /* HERO */
   .hero{padding:100px 20px 48px}
@@ -665,14 +689,13 @@ footer{background:var(--teal-dark);border-top:1px solid rgba(255,255,255,0.08);p
   .prob-bg{padding:48px 16px 56px;margin-top:40px}
   .prob-heading-row{grid-template-columns:1fr;gap:12px}
   .prob-layout{grid-template-columns:1fr;margin-top:32px;border-radius:16px}
-  /* tabs: horizontal scrollable, visible text */
-  .prob-tabs-v{flex-direction:row;overflow-x:auto;border-right:none;
-    border-bottom:2px solid rgba(0,0,0,0.08);-webkit-overflow-scrolling:touch;
-    scrollbar-width:none;background:#fff}
-  .prob-tabs-v::-webkit-scrollbar{display:none}
-  .prob-tab-v{min-height:auto;padding:16px 18px;font-size:0.9rem;
-    white-space:nowrap;border-left:none;border-bottom:3px solid transparent;
-    flex-shrink:0;color:var(--ink);text-align:center}
+  /* tabs: 3 equal columns — all visible, no scroll needed */
+  .prob-tabs-v{flex-direction:row;border-right:none;overflow:visible;
+    border-bottom:2px solid rgba(0,0,0,0.08);background:#fff;
+    display:grid;grid-template-columns:repeat(3,1fr)}
+  .prob-tab-v{min-height:auto;padding:14px 6px;font-size:0.75rem;
+    white-space:normal;border-left:none;border-bottom:3px solid transparent;
+    flex-shrink:0;color:var(--ink);text-align:center;line-height:1.25}
   .prob-tab-v.active{border-left:none;border-bottom:3px solid var(--red);
     color:var(--red);background:rgba(169,17,0,0.04)}
   /* panels stack vertically */
@@ -683,7 +706,7 @@ footer{background:var(--teal-dark);border-top:1px solid rgba(255,255,255,0.08);p
   .prob-issue-label,.prob-solve-label{font-size:0.82rem;padding:6px 12px 6px 9px}
 
   /* TESTIMONIALS — stamp shrinks on mobile */
-  .trust-stamp{width:80px;height:80px;bottom:-16px;right:-10px;top:auto}
+  .trust-stamp{width:76px;height:76px;bottom:-32px;right:-8px;top:auto}
   .trust-stamp-flag{font-size:1.4rem}
 
   /* TESTIMONIALS CAROUSEL */
@@ -742,7 +765,21 @@ footer{background:var(--teal-dark);border-top:1px solid rgba(255,255,255,0.08);p
     <li><a href="#contact">Contact Us</a></li>
     <li><a href="#demo" class="nav-cta">Book a Demo</a></li>
   </ul>
+  <button class="nav-hamburger" id="navHamburger" aria-label="Open menu">
+    <span></span><span></span><span></span>
+  </button>
 </nav>
+
+<!-- MOBILE MENU OVERLAY -->
+<div class="nav-mobile-menu" id="navMobileMenu">
+  <button class="nav-close" id="navClose">✕</button>
+  <a href="#features" class="nav-mobile-link">Products</a>
+  <a href="#integrations" class="nav-mobile-link">Integrations</a>
+  <a href="#cases" class="nav-mobile-link">Case Studies</a>
+  <a href="#faq" class="nav-mobile-link">FAQ</a>
+  <a href="#contact" class="nav-mobile-link">Contact Us</a>
+  <a href="#demo" class="nav-cta-m">Book a Demo</a>
+</div>
 
 <!-- HERO -->
 <section class="hero">
@@ -956,7 +993,7 @@ footer{background:var(--teal-dark);border-top:1px solid rgba(255,255,255,0.08);p
             <p>of every order goes straight to DoorDash, Uber Eats, and Grubhub. <strong>Your restaurant does the work. They keep the money.</strong></p>
           </div>
           <div class="prob-panel-solve">
-            <div class="prob-solve-label"><img class="prob-solve-label-logo" src="Photos/1. VoiceBit Brand Mark.png" alt="">VoiceBit Solves This</div>
+            <div class="prob-solve-label"><img class="prob-solve-label-logo" src="Photos/2. Logo.png" alt="">VoiceBit Solves This</div>
             <div class="prob-solve-num">100%</div>
             <p>of revenue stays in your restaurant. <strong>Every order direct. Zero commission. Every single time.</strong></p>
           </div>
@@ -968,7 +1005,7 @@ footer{background:var(--teal-dark);border-top:1px solid rgba(255,255,255,0.08);p
             <p>calls go unanswered during rush. <strong>Every missed call is a lost order — and a customer who won't call back.</strong></p>
           </div>
           <div class="prob-panel-solve">
-            <div class="prob-solve-label"><img class="prob-solve-label-logo" src="Photos/1. VoiceBit Brand Mark.png" alt="">VoiceBit Solves This</div>
+            <div class="prob-solve-label"><img class="prob-solve-label-logo" src="Photos/2. Logo.png" alt="">VoiceBit Solves This</div>
             <div class="prob-solve-num">24/7</div>
             <p>your phone gets answered — fast, accurate, and friendly. <strong>Not a single order slips through the cracks.</strong></p>
           </div>
@@ -980,7 +1017,7 @@ footer{background:var(--teal-dark);border-top:1px solid rgba(255,255,255,0.08);p
             <p>Customers already order through Siri, Alexa, and AI assistants. <strong>Restaurants not plugged in are being left behind — permanently.</strong></p>
           </div>
           <div class="prob-panel-solve">
-            <div class="prob-solve-label"><img class="prob-solve-label-logo" src="Photos/1. VoiceBit Brand Mark.png" alt="">VoiceBit Solves This</div>
+            <div class="prob-solve-label"><img class="prob-solve-label-logo" src="Photos/2. Logo.png" alt="">VoiceBit Solves This</div>
             <div class="prob-solve-num">Day 1.</div>
             <p>VoiceBit plugs your restaurant into the AI ordering ecosystem — <strong>direct, commission-free, and built for how people order right now.</strong></p>
           </div>
@@ -1363,6 +1400,16 @@ document.querySelectorAll('.prob-tab-v').forEach(tab => {
     document.querySelector('.prob-panel[data-content="' + idx + '"]').classList.add('active');
   });
 });
+
+// Hamburger menu
+const hamburger=document.getElementById('navHamburger');
+const mobileMenu=document.getElementById('navMobileMenu');
+const navClose=document.getElementById('navClose');
+function openMenu(){mobileMenu.classList.add('open');document.body.style.overflow='hidden'}
+function closeMenu(){mobileMenu.classList.remove('open');document.body.style.overflow=''}
+hamburger.addEventListener('click',openMenu);
+navClose.addEventListener('click',closeMenu);
+mobileMenu.querySelectorAll('a').forEach(a=>a.addEventListener('click',closeMenu));
 </script>
 </body>
 </html>
