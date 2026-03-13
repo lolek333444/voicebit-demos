@@ -148,7 +148,7 @@ h2 em{font-style:italic;color:var(--red)}
 .prob-bg{background:var(--teal);
   background-image:linear-gradient(rgba(255,255,255,0.04) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,0.04) 1px,transparent 1px);
   background-size:48px 48px;padding:96px 40px 80px;position:relative;z-index:1;margin-top:72px}
-.prob-inner{max-width:1160px;margin:0 auto;text-align:center}
+.prob-inner{max-width:1160px;margin:0 auto;text-align:left}
 .prob-bg h2{color:#fff;margin-bottom:0}
 .prob-layout{display:grid;grid-template-columns:240px 1fr;gap:0;background:rgba(255,255,255,0.04);
   border:1px solid rgba(255,255,255,0.08);border-radius:var(--r);margin-top:48px;overflow:hidden;text-align:left}
@@ -230,7 +230,7 @@ h2 em{font-style:italic;color:var(--red)}
 
 /* ─── CASE STUDIES / TESTIMONIALS ─── */
 .case-wrap{background:#fff;border-top:1px solid var(--border);border-bottom:1px solid var(--border);
-  padding:96px 40px;position:relative;z-index:1}
+  padding:56px 40px 48px;position:relative;z-index:1}
 .case-inner{max-width:1160px;margin:0 auto}
 .case-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;margin-top:56px}
 
@@ -286,8 +286,21 @@ h2 em{font-style:italic;color:var(--red)}
 .cc-carousel-track .cc{width:310px;min-height:440px;flex-shrink:0}
 
 /* ─── STATS SECTION (standalone) ─── */
-.stats-section{background:var(--cream);padding:80px 40px;position:relative;z-index:1}
+.stats-section{background:var(--cream);padding:56px 40px 64px;position:relative;z-index:1}
 .stats-section-inner{max-width:1160px;margin:0 auto}
+
+/* ─── LOGO MARQUEE (restaurant trust bar) ─── */
+.logo-marquee-wrap{overflow:hidden;margin-top:40px;position:relative}
+.logo-marquee-wrap::before,.logo-marquee-wrap::after{content:'';position:absolute;top:0;bottom:0;width:80px;z-index:2;pointer-events:none}
+.logo-marquee-wrap::before{left:0;background:linear-gradient(to right,var(--cream),transparent)}
+.logo-marquee-wrap::after{right:0;background:linear-gradient(to left,var(--cream),transparent)}
+.logo-marquee-track{display:flex;align-items:center;animation:logoMarquee 28s linear infinite;width:max-content}
+.logo-marquee-track:hover{animation-play-state:paused}
+@keyframes logoMarquee{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+.logo-m-box{width:130px;height:72px;display:flex;align-items:center;justify-content:center;
+  margin:0 12px;background:#fff;border:1px solid var(--border);border-radius:10px;
+  flex-shrink:0;overflow:hidden;padding:10px}
+.logo-m-box img{width:100%;height:100%;object-fit:contain}
 
 /* ─── STORY CARDS ─── */
 .stories-bg{background:#fff;padding:80px 40px;position:relative;z-index:1;border-top:1px solid var(--border);border-bottom:1px solid var(--border)}
@@ -312,7 +325,7 @@ h2 em{font-style:italic;color:var(--red)}
 .story-photo-tag-name{color:#fff;font-size:0.78rem;font-weight:600}
 
 /* ─── INTEGRATIONS ─── */
-.int-bg{background:var(--cream);padding:72px 40px;position:relative;z-index:1}
+.int-bg{background:var(--cream);padding:40px 40px 64px;position:relative;z-index:1}
 .int-inner{max-width:1160px;margin:0 auto}
 .int-marquee-wrap{overflow:hidden;border-top:1px solid var(--border);border-bottom:1px solid var(--border);
   background:rgba(255,255,255,0.6);margin-top:40px;position:relative}
@@ -461,10 +474,7 @@ footer{background:var(--teal-dark);border-top:1px solid rgba(255,255,255,0.08);p
 <!-- CASE STUDIES / TESTIMONIALS -->
 <div id="cases" class="case-wrap">
   <div class="case-inner">
-    <h2 style="text-align:center;line-height:1.15">
-      <span class="rv" style="display:block">Real restaurants.</span>
-      <span class="rv d2" style="display:block"><em>Real results.</em></span>
-    </h2>
+    <h2 class="rv" style="text-align:center;line-height:1.1;margin-bottom:36px">Real restaurants. <em>Real results.</em></h2>
     <div class="cc-carousel-wrap">
       <div class="cc-carousel-track">
         <!-- Set 1 (8 cards: Ray, Chando alternating x4) -->
@@ -573,7 +583,7 @@ footer{background:var(--teal-dark);border-top:1px solid rgba(255,255,255,0.08);p
 <!-- PROBLEMS -->
 <div class="prob-bg">
   <div class="prob-inner">
-    <h2 class="rv">Running a restaurant<br>has never been harder</h2>
+    <h2 class="rv" style="text-align:left">Running a restaurant has never been harder…</h2>
 
     <div class="prob-layout rv">
       <!-- Left: vertical tabs -->
@@ -666,6 +676,33 @@ footer{background:var(--teal-dark);border-top:1px solid rgba(255,255,255,0.08);p
       </div>
     </div>
 
+    <!-- Revolving restaurant logos -->
+    <div class="logo-marquee-wrap">
+      <div class="logo-marquee-track">
+        <div class="logo-m-box"><img src="Photos/Restaurant Logos/A-town.jpg" alt="A-town"></div>
+        <div class="logo-m-box"><img src="Photos/Restaurant Logos/BAP Livermore.avif" alt="BAP Livermore"></div>
+        <div class="logo-m-box"><img src="Photos/Restaurant Logos/BAP San Ramon.png" alt="BAP San Ramon"></div>
+        <div class="logo-m-box"><img src="Photos/Restaurant Logos/Danville.avif" alt="Danville"></div>
+        <div class="logo-m-box"><img src="Photos/Restaurant Logos/JJ Fish & Chicken.png" alt="JJ Fish & Chicken"></div>
+        <div class="logo-m-box"><img src="Photos/Restaurant Logos/NYPNP Pleasant Hill.png" alt="NYPNP Pleasant Hill"></div>
+        <div class="logo-m-box"><img src="Photos/Restaurant Logos/Pizza Ponte.jpeg" alt="Pizza Ponte"></div>
+        <div class="logo-m-box"><img src="Photos/Restaurant Logos/Rayos.png" alt="Rayos"></div>
+        <div class="logo-m-box"><img src="Photos/Restaurant Logos/Seniore_s_Logo-removebg-preview.png" alt="Seniore's"></div>
+        <div class="logo-m-box"><img src="Photos/Restaurant Logos/falafel boy.webp" alt="Falafel Boy"></div>
+        <!-- duplicate set for seamless loop -->
+        <div class="logo-m-box"><img src="Photos/Restaurant Logos/A-town.jpg" alt="A-town"></div>
+        <div class="logo-m-box"><img src="Photos/Restaurant Logos/BAP Livermore.avif" alt="BAP Livermore"></div>
+        <div class="logo-m-box"><img src="Photos/Restaurant Logos/BAP San Ramon.png" alt="BAP San Ramon"></div>
+        <div class="logo-m-box"><img src="Photos/Restaurant Logos/Danville.avif" alt="Danville"></div>
+        <div class="logo-m-box"><img src="Photos/Restaurant Logos/JJ Fish & Chicken.png" alt="JJ Fish & Chicken"></div>
+        <div class="logo-m-box"><img src="Photos/Restaurant Logos/NYPNP Pleasant Hill.png" alt="NYPNP Pleasant Hill"></div>
+        <div class="logo-m-box"><img src="Photos/Restaurant Logos/Pizza Ponte.jpeg" alt="Pizza Ponte"></div>
+        <div class="logo-m-box"><img src="Photos/Restaurant Logos/Rayos.png" alt="Rayos"></div>
+        <div class="logo-m-box"><img src="Photos/Restaurant Logos/Seniore_s_Logo-removebg-preview.png" alt="Seniore's"></div>
+        <div class="logo-m-box"><img src="Photos/Restaurant Logos/falafel boy.webp" alt="Falafel Boy"></div>
+      </div>
+    </div>
+
   </div>
 </div>
 
@@ -724,7 +761,7 @@ footer{background:var(--teal-dark);border-top:1px solid rgba(255,255,255,0.08);p
 <!-- INTEGRATIONS -->
 <div id="integrations" class="int-bg">
   <div class="int-inner" style="text-align:center">
-    <h2 class="rv">Connects with your stack</h2>
+    <h2 class="rv">Connects with your <em>stack</em></h2>
     <div class="int-marquee-wrap rv d1">
       <div class="int-marquee-track">
         <div class="int-m-item">Square</div>
