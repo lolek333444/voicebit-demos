@@ -1412,7 +1412,7 @@ const mobileMenu=document.getElementById('navMobileMenu');
 const navClose=document.getElementById('navClose');
 function openMenu(){mobileMenu.classList.add('open');document.body.style.overflow='hidden'}
 function closeMenu(){mobileMenu.classList.remove('open');document.body.style.overflow=''}
-hamburger.addEventListener('click',openMenu);
+hamburger.addEventListener('click',()=>{mobileMenu.classList.contains('open')?closeMenu():openMenu()});
 navClose.addEventListener('click',closeMenu);
 mobileMenu.querySelectorAll('a').forEach(a=>a.addEventListener('click',closeMenu));
 </script>
