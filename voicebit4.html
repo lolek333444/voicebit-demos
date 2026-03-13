@@ -1664,12 +1664,19 @@ document.querySelectorAll('.hero-ex-chip[data-val]').forEach(chip=>{
   });
 });
 
-// Prevent horizontal scroll on mobile
-document.addEventListener('touchstart', function(e){ window._tsX = e.touches[0].clientX; window._tsY = e.touches[0].clientY; }, {passive:true});
+// Prevent horizontal scroll on mobile — lock direction after first 5px of movement
+document.addEventListener('touchstart', function(e){
+  window._tsX = e.touches[0].clientX;
+  window._tsY = e.touches[0].clientY;
+  window._tsDir = null;
+}, {passive:true});
 document.addEventListener('touchmove', function(e){
   var dx = Math.abs(e.touches[0].clientX - window._tsX);
   var dy = Math.abs(e.touches[0].clientY - window._tsY);
-  if(dx > dy){ e.preventDefault(); }
+  if(!window._tsDir && (dx > 5 || dy > 5)){
+    window._tsDir = dx > dy ? 'h' : 'v';
+  }
+  if(window._tsDir === 'h'){ e.preventDefault(); }
 }, {passive:false});
 </script>
 </div><!-- /page-wrap -->
