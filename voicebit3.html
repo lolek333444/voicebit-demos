@@ -353,12 +353,12 @@ h2 em{font-style:italic;color:var(--red)}
 .chk svg{width:10px;height:10px;stroke-width:2.5;stroke-linecap:round;stroke-linejoin:round;fill:none}
 
 /* ─── TRUST STAMP ─── */
-.trust-stamp{position:absolute;bottom:-68px;right:-60px;width:130px;height:130px;z-index:10}
-.trust-stamp svg{position:absolute;inset:0;width:100%;height:100%;animation:stampSpin 18s linear infinite}
+.trust-stamp{position:absolute;bottom:-68px;right:-60px;width:130px;height:130px;z-index:10;
+  display:flex;align-items:center;justify-content:center}
+.trust-stamp-ring{position:absolute;inset:0;animation:stampSpin 18s linear infinite}
+.trust-stamp-ring svg{width:100%;height:100%}
 @keyframes stampSpin{from{transform:rotate(0deg)}to{transform:rotate(360deg)}}
-.trust-stamp-inner{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;
-  justify-content:center;gap:3px;z-index:2;pointer-events:none}
-.trust-stamp-flag{font-size:2.2rem;line-height:1;display:block}
+.trust-stamp-flag{position:relative;z-index:2;font-size:2.4rem;line-height:1}
 /* heading row — relative so stamp can anchor to corner */
 .case-heading-row{position:relative;display:inline-block;overflow:visible}
 
@@ -867,19 +867,19 @@ footer{background:var(--teal-dark);border-top:1px solid rgba(255,255,255,0.08);p
         <h2 style="line-height:1.1;margin-bottom:0;font-size:clamp(2.8rem,5vw,4.4rem)">Real restaurants. <em>Real results.</em></h2>
         <!-- rotating trust stamp pinned to top-right corner of heading -->
         <div class="trust-stamp">
-          <svg viewBox="0 0 110 110" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <defs>
-              <path id="stampCircle" d="M55,55 m-38,0 a38,38 0 1,1 76,0 a38,38 0 1,1 -76,0"/>
-            </defs>
-            <circle cx="55" cy="55" r="50" stroke="var(--red)" stroke-width="2.5" stroke-dasharray="4 3"/>
-            <circle cx="55" cy="55" r="42" stroke="var(--red)" stroke-width="1" opacity="0.4"/>
-            <text font-family="Oswald, sans-serif" font-size="9.5" font-weight="700" fill="var(--red)" letter-spacing="2.5">
-              <textPath href="#stampCircle" startOffset="0%">TRUSTED ACROSS THE U.S. ★ TRUSTED ACROSS THE U.S. ★ </textPath>
-            </text>
-          </svg>
-          <div class="trust-stamp-inner">
-            <span class="trust-stamp-flag">🇺🇸</span>
+          <div class="trust-stamp-ring">
+            <svg viewBox="0 0 110 110" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <defs>
+                <path id="stampCircle" d="M55,55 m-38,0 a38,38 0 1,1 76,0 a38,38 0 1,1 -76,0"/>
+              </defs>
+              <circle cx="55" cy="55" r="50" stroke="var(--red)" stroke-width="2.5" stroke-dasharray="4 3"/>
+              <circle cx="55" cy="55" r="42" stroke="var(--red)" stroke-width="1" opacity="0.4"/>
+              <text font-family="Oswald, sans-serif" font-size="9.5" font-weight="700" fill="var(--red)" letter-spacing="2.5">
+                <textPath href="#stampCircle" startOffset="0%">TRUSTED ACROSS THE U.S. ★ TRUSTED ACROSS THE U.S. ★ </textPath>
+              </text>
+            </svg>
           </div>
+          <span class="trust-stamp-flag">🇺🇸</span>
         </div>
       </div>
     </div>
