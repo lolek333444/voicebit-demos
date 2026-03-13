@@ -615,7 +615,7 @@ footer{background:var(--teal-dark);border-top:1px solid rgba(255,255,255,0.08);p
   .hero-annotation{display:none}
 
   /* STATS */
-  .stats-band{grid-template-columns:1fr 1fr;gap:10px}
+  .stats-band{grid-template-columns:1fr 1fr;gap:10px;align-items:stretch}
   .stat-cell{padding:28px 20px 24px}
   .stat-num{font-size:2.8rem}
 
@@ -641,14 +641,16 @@ footer{background:var(--teal-dark);border-top:1px solid rgba(255,255,255,0.08);p
   /* TESTIMONIALS CAROUSEL */
   .case-wrap{padding:48px 0 0}
   .case-inner{padding:0 20px}
-  /* kill side blurs on mobile — can't see cards */
+  /* kill ALL blurs on mobile — side AND top/bottom stage fades */
   .cc-carousel-wrap::before,.cc-carousel-wrap::after{display:none}
+  .cc-stage::before,.cc-stage::after{display:none}
   .cc-carousel-track .cc{width:280px;min-height:420px}
   .cc-carousel-wrap{padding:24px 0 40px}
 
-  /* FEATURES */
-  .feat-grid{grid-template-columns:1fr}
+  /* FEATURES — use .feat-cards (the actual class) */
+  .feat-cards{grid-template-columns:1fr}
   .feat-stack-block{min-height:200px}
+  .int-logos-grid{grid-template-columns:1fr 1fr}
 
   /* CTA */
   .cta-bg{padding:56px 20px 64px}
@@ -656,6 +658,8 @@ footer{background:var(--teal-dark);border-top:1px solid rgba(255,255,255,0.08);p
   .cta-tablet-wrap{max-width:100%}
   .cta-tablet-actions{flex-direction:column;gap:12px;margin-top:28px}
   .btn-red,.btn-ghost-light{padding:16px 24px}
+  /* hide arrow icon so button text fits on one line */
+  .btn-red svg{display:none}
 
   /* FAQ */
   .faq-bg{padding:48px 16px}
@@ -1192,7 +1196,6 @@ footer{background:var(--teal-dark);border-top:1px solid rgba(255,255,255,0.08);p
 <div id="faq" class="faq-bg">
   <div class="faq-inner">
     <h2 class="rv">Frequently asked questions</h2>
-    <p class="s-desc rv" style="margin:0 auto">Everything restaurant owners ask before getting started with VoiceBit.</p>
     <div class="faq-list">
       <div class="fi rv"><div class="fq" onclick="tf(this)">How quickly can VoiceBit be set up for my restaurant?<span class="fi-toggle"><svg viewBox="0 0 12 12"><path d="M6 2v8M2 6h8"/></svg></span></div><div class="fa">Phone AI: as little as 3 hours. Web ordering: 1–5 days. We configure your menu, train the AI on your offerings, and ensure everything works before going live — with zero disruption to your operations.</div></div>
       <div class="fi rv d1"><div class="fq" onclick="tf(this)">What happens if VoiceBit can't handle a customer's request?<span class="fi-toggle"><svg viewBox="0 0 12 12"><path d="M6 2v8M2 6h8"/></svg></span></div><div class="fa">VoiceBit seamlessly transfers calls to your staff when needed — with full context so the customer never has to repeat themselves. You stay in complete control.</div></div>
