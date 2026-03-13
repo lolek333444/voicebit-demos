@@ -29,8 +29,8 @@
   --r-sm: 10px;
 }
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
-html{scroll-behavior:smooth;overflow-x:hidden}
-body{font-family:'DM Sans',sans-serif;background:var(--cream);color:var(--ink);overflow-x:hidden}
+html{scroll-behavior:smooth;overflow-x:hidden;overscroll-behavior:none}
+body{font-family:'DM Sans',sans-serif;background:var(--cream);color:var(--ink);overflow-x:hidden;overscroll-behavior:none}
 body::after{content:'';position:fixed;inset:0;pointer-events:none;z-index:0;
   background-image:url('Photos/background_photo.png');
   background-size:600px auto;background-repeat:repeat;background-position:top left;
@@ -413,7 +413,7 @@ h2 em{font-style:italic;color:var(--red);font-family:'Playfair Display',serif;fo
 /* ─── CASE STUDIES / TESTIMONIALS ─── */
 .case-wrap{background:#fff;border:none;
   padding:72px 0 0;position:relative;z-index:2;
-  box-shadow:none;overflow-x:hidden}
+  box-shadow:none}
 /* cool subtle teal diagonal stripe texture */
 .case-wrap::before{content:'';position:absolute;inset:0;pointer-events:none;z-index:0;
   background-image:repeating-linear-gradient(
@@ -489,7 +489,7 @@ h2 em{font-style:italic;color:var(--red);font-family:'Playfair Display',serif;fo
 .cc-carousel-track .cc:hover{transform:translateY(-10px) scale(1.03);box-shadow:0 32px 72px rgba(52,92,102,0.28),0 8px 24px rgba(52,92,102,0.14)}
 
 /* ─── STATS SECTION (standalone) ─── */
-.stats-section{background:var(--cream);padding:56px 40px 72px;position:relative;z-index:1;overflow-x:hidden}
+.stats-section{background:var(--cream);padding:56px 40px 72px;position:relative;z-index:1}
 .stats-section::before{content:'';position:absolute;inset:0;pointer-events:none;
   background-image:url('Photos/background_photo.png');background-size:600px auto;background-repeat:repeat;
   opacity:0.06}
@@ -513,7 +513,7 @@ h2 em{font-style:italic;color:var(--red);font-family:'Playfair Display',serif;fo
 .logo-m-box img{width:100%;height:100%;object-fit:contain}
 
 /* ─── STORY CARDS ─── */
-.stories-bg{background:var(--cream);padding:72px 40px 0;position:relative;z-index:1;overflow-x:hidden}
+.stories-bg{background:var(--cream);padding:72px 40px 0;position:relative;z-index:1}
 .stories-bg::before{content:'';position:absolute;inset:0;pointer-events:none;
   background-image:url('Photos/background_photo.png');background-size:600px auto;background-repeat:repeat;
   opacity:0.06}
@@ -843,8 +843,12 @@ nav{background:linear-gradient(135deg,rgba(42,74,82,0.97) 0%,rgba(52,92,102,0.97
   .stories-bg{padding:56px 16px 40px}
   .stories-inner{gap:24px}
 
-  /* LOGO MARQUEE — hide cream side gradients on mobile (teal bg makes them look yellow) */
+  /* LOGO MARQUEE — constrain to viewport width on mobile to prevent horizontal scroll */
+  .logo-marquee-wrap{width:100%;left:0;transform:none}
   .logo-marquee-wrap::before,.logo-marquee-wrap::after{display:none}
+
+  /* TESTIMONIALS CAROUSEL — constrain to viewport width on mobile */
+  .cc-carousel-wrap{width:100%;left:0;transform:none}
 
   /* FEATURES — lightning bolts pulled inside viewport on mobile */
   .feat-intro{overflow:visible}
@@ -861,7 +865,7 @@ nav{background:linear-gradient(135deg,rgba(42,74,82,0.97) 0%,rgba(52,92,102,0.97
   .int-logos-grid{grid-template-columns:1fr 1fr}
 
   /* CTA */
-  .cta-bg{padding:56px 20px 64px}
+  .cta-bg{padding:56px 20px 32px}
   .cta-line1,.cta-line2{text-align:center;font-size:clamp(2.8rem,9vw,4.4rem)}
   .cta-tablet-wrap{max-width:100%}
   .cta-tablet-actions{flex-direction:column;gap:12px;margin-top:28px}
@@ -876,7 +880,7 @@ nav{background:linear-gradient(135deg,rgba(42,74,82,0.97) 0%,rgba(52,92,102,0.97
   .hero-send-btn svg{display:none}
 
   /* FAQ */
-  .faq-bg{padding:48px 16px}
+  .faq-bg{padding:20px 16px 64px}
 
   /* FOOTER */
   .ft{grid-template-columns:1fr;gap:28px}
