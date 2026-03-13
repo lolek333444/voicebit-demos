@@ -154,7 +154,8 @@ h1 em{font-style:italic;color:var(--red);font-family:'Playfair Display',serif}
 .stat-cell{padding:40px 36px 36px;position:relative;border-radius:16px;
   background:var(--teal);overflow:hidden;
   box-shadow:0 4px 24px rgba(52,92,102,0.22);
-  transition:transform 0.25s,box-shadow 0.25s}
+  transition:transform 0.25s,box-shadow 0.25s;
+  display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center}
 .stat-cell:hover{transform:translateY(-6px);box-shadow:0 16px 48px rgba(52,92,102,0.3)}
 /* food texture overlay on each card */
 .stat-cell::after{content:'';position:absolute;inset:0;pointer-events:none;
@@ -807,7 +808,7 @@ footer{background:var(--teal-dark);border-top:1px solid rgba(255,255,255,0.08);p
         <div class="stat-lbl">Average setup time — live the same day</div>
       </div>
       <div class="stat-cell">
-        <div class="stat-num">25<em>–30%</em></div>
+        <div class="stat-num"><em>~25%</em></div>
         <div class="stat-lbl">Saved per order vs. third-party platforms</div>
       </div>
     </div>
