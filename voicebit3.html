@@ -142,10 +142,12 @@ h2 em{font-style:italic;color:var(--red)}
 .s-desc{font-size:0.97rem;color:var(--ink-2);font-weight:300;line-height:1.72;max-width:480px}
 
 /* ─── PROBLEMS ─── */
-.prob-bg{background:var(--teal);
-  background-image:linear-gradient(rgba(255,255,255,0.04) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,0.04) 1px,transparent 1px);
-  background-size:48px 48px;padding:96px 40px 80px;position:relative;z-index:1;margin-top:72px}
-.prob-inner{max-width:1160px;margin:0 auto;text-align:left}
+.prob-bg{background:var(--teal);padding:96px 40px 80px;position:relative;z-index:1;margin-top:72px}
+.prob-bg::before{content:'';position:absolute;inset:0;pointer-events:none;z-index:0;
+  background-image:url('Photos/background_photo.png');
+  background-size:600px auto;background-repeat:repeat;
+  opacity:0.07;filter:brightness(0) invert(1)}
+.prob-inner{max-width:1160px;margin:0 auto;text-align:left;position:relative;z-index:1}
 .prob-bg h2{color:#fff;margin-bottom:0}
 .prob-heading-row{display:grid;grid-template-columns:1fr 1fr;align-items:end;gap:40px;margin-bottom:0}
 .prob-heading-sub{font-size:1.1rem;font-weight:300;color:rgba(255,255,255,0.55);line-height:1.55;padding-bottom:6px}
@@ -188,6 +190,9 @@ h2 em{font-style:italic;color:var(--red)}
 /* ─── FEAT STACK BLOCK (integrations embedded in features) ─── */
 .feat-stack-block{position:relative;margin-top:16px;border-radius:var(--r);overflow:hidden;
   background:var(--teal);min-height:180px;display:flex;align-items:center;justify-content:center}
+.feat-stack-block::before{content:'';position:absolute;inset:0;pointer-events:none;z-index:0;
+  background-image:url('Photos/background_photo.png');background-size:600px auto;background-repeat:repeat;
+  opacity:0.07;filter:brightness(0) invert(1)}
 .feat-stack-marquee-bg{position:absolute;inset:0;display:flex;align-items:center;overflow:hidden;opacity:0.18}
 .feat-stack-marquee-track{display:flex;gap:0;animation:intMarquee 20s linear infinite;width:max-content;white-space:nowrap}
 .feat-stack-marquee-track span{font-family:'DM Sans',sans-serif;font-size:1.6rem;font-weight:700;
@@ -204,40 +209,27 @@ h2 em{font-style:italic;color:var(--red)}
 .int-logo-box:hover{transform:translateY(-4px);box-shadow:0 12px 32px rgba(0,0,0,0.18)}
 .int-logo-box img{width:72%;height:72%;object-fit:contain}
 
-/* ─── FEATURES ─── */
-.feat-grid{display:grid;grid-template-columns:1fr 1fr;grid-template-rows:auto auto;gap:16px;margin-top:48px}
-.fc{background:#fff;border:1px solid var(--border);border-radius:var(--r);
-  padding:28px 24px;position:relative;overflow:hidden}
-.fc:nth-child(3){grid-column:1 / -1;display:grid;grid-template-columns:1fr 1fr;gap:24px;
-  background:linear-gradient(135deg,var(--teal) 0%,var(--teal-dark) 100%);border-color:transparent}
-.fc:nth-child(3) .fc-title,.fc:nth-child(3) .fc-desc,.fc:nth-child(3) .fc-list li{color:rgba(255,255,255,0.9)}
-.fc:nth-child(3) .fc-desc{color:rgba(255,255,255,0.65)}
-.fc:nth-child(3) .fc-list li{color:rgba(255,255,255,0.7)}
-.fc:nth-child(3) .fc-tag{display:inline-block;background:rgba(218,146,26,0.25);color:var(--amber);
-  font-size:0.6rem;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;
-  padding:3px 10px;border-radius:100px;border:1px solid rgba(218,146,26,0.35);margin-bottom:14px}
-.fc-left,.fc-right{display:flex;flex-direction:column}
-.fc-accent{position:absolute;top:0;left:0;right:0;height:3px;border-radius:var(--r) var(--r) 0 0}
-.fc:nth-child(3) .fc-accent{display:none}
-.fc-icon{width:40px;height:40px;border-radius:9px;display:flex;align-items:center;justify-content:center;margin-bottom:18px;stroke-width:1.5;stroke-linecap:round;stroke-linejoin:round;fill:none}
-.fc-icon svg{width:20px;height:20px;stroke:inherit}
-.fc:nth-child(1) .fc-accent{background:var(--teal)}
-.fc:nth-child(2) .fc-accent{background:var(--red)}
-.fc:nth-child(1) .fc-icon{background:rgba(52,92,102,0.08)}
-.fc:nth-child(2) .fc-icon{background:#FFF1F0}
-.fc:nth-child(3) .fc-icon{background:rgba(255,255,255,0.12)}
-.fc:nth-child(1) .fc-icon svg{stroke:var(--teal)}
-.fc:nth-child(2) .fc-icon svg{stroke:var(--red)}
-.fc:nth-child(3) .fc-icon svg{stroke:var(--amber)}
-.fc-title{font-size:1.05rem;font-weight:700;color:var(--ink);margin-bottom:8px}
-.fc-desc{font-size:0.82rem;color:var(--ink-2);line-height:1.65;margin-bottom:18px}
+/* ─── FEATURES (Loman-style two-column) ─── */
+.feat-layout{display:grid;grid-template-columns:1fr 1.35fr;gap:56px;align-items:start}
+.feat-intro{position:sticky;top:120px}
+.feat-intro h2{line-height:1.08;margin-bottom:20px}
+.feat-intro-desc{font-size:0.95rem;color:var(--ink-2);font-weight:300;line-height:1.7;margin-bottom:28px;max-width:340px}
+.feat-quote-card{background:var(--cream-dark);border:1px solid var(--border-md);border-radius:14px;padding:22px 24px}
+.feat-quote-text{font-size:0.88rem;color:var(--ink);line-height:1.65;margin-bottom:16px;font-style:italic}
+.feat-quote-name{font-size:0.82rem;font-weight:700;color:var(--ink)}
+.feat-quote-biz{font-size:0.75rem;color:var(--ink-3);margin-top:2px}
+.feat-cards{display:flex;flex-direction:column;gap:14px}
+.fc2{background:#fff;border:1px solid var(--border);border-radius:var(--r);
+  padding:26px 26px;display:flex;gap:18px;position:relative}
+.fc2-bar{width:4px;border-radius:4px;flex-shrink:0;align-self:stretch;min-height:60px}
+.fc2-body{flex:1}
+.fc2-title{font-size:1rem;font-weight:400;color:var(--ink-2);line-height:1.4;margin-bottom:10px}
+.fc2-title strong{font-weight:700;color:var(--ink)}
+.fc2-desc{font-size:0.82rem;color:var(--ink-2);line-height:1.68;margin-bottom:16px;font-weight:300}
 .fc-list{list-style:none;display:flex;flex-direction:column;gap:7px}
 .fc-list li{font-size:0.78rem;color:var(--ink-2);display:flex;align-items:flex-start;gap:8px;line-height:1.4}
 .chk{width:18px;height:18px;border-radius:5px;display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:1px}
 .chk svg{width:9px;height:9px;stroke-width:2.5;stroke-linecap:round;stroke-linejoin:round;fill:none}
-.fc:nth-child(1) .chk{background:rgba(52,92,102,0.08);color:var(--teal)}
-.fc:nth-child(2) .chk{background:#FFF1F0;color:var(--red)}
-.fc:nth-child(3) .chk{background:rgba(255,255,255,0.15);color:rgba(255,255,255,0.8)}
 
 /* ─── CASE STUDIES / TESTIMONIALS ─── */
 .case-wrap{background:#fff;border-top:1px solid var(--border);border-bottom:1px solid var(--border);
@@ -721,53 +713,61 @@ footer{background:var(--teal-dark);border-top:1px solid rgba(255,255,255,0.08);p
 
 <!-- FEATURES -->
 <section id="features" class="section">
-  <div class="eyebrow rv">The Platform</div>
-  <h2 class="rv">Own every ordering channel</h2>
-  <p class="s-desc rv">Three AI products that work together to capture every order, build relationships, and grow direct revenue.</p>
-  <div class="feat-grid">
-    <div class="fc rv">
-      <div class="fc-accent"></div>
-      <div class="fc-title">AI Voice Employee</div>
-      <div class="fc-desc">Answers every call instantly and converts it to an order. No hold times. No missed revenue during rush.</div>
-      <ul class="fc-list">
-        <li><span class="chk"><svg viewBox="0 0 12 12"><path d="M2 6l3 3 5-5"/></svg></span>24/7 AI phone answering</li>
-        <li><span class="chk"><svg viewBox="0 0 12 12"><path d="M2 6l3 3 5-5"/></svg></span>Unlimited simultaneous calls</li>
-        <li><span class="chk"><svg viewBox="0 0 12 12"><path d="M2 6l3 3 5-5"/></svg></span>Handles menu questions &amp; FAQs</li>
-        <li><span class="chk"><svg viewBox="0 0 12 12"><path d="M2 6l3 3 5-5"/></svg></span>English &amp; Spanish support</li>
-        <li><span class="chk"><svg viewBox="0 0 12 12"><path d="M2 6l3 3 5-5"/></svg></span>Smart upselling on every call</li>
-        <li><span class="chk"><svg viewBox="0 0 12 12"><path d="M2 6l3 3 5-5"/></svg></span>Routes to staff when needed</li>
-      </ul>
-    </div>
-    <div class="fc rv d1">
-      <div class="fc-accent"></div>
-      <div class="fc-title">AI Direct Ordering Website</div>
-      <div class="fc-desc">A branded, mobile-optimized ordering site that converts visitors to customers — zero commission on every order.</div>
-      <ul class="fc-list">
-        <li><span class="chk"><svg viewBox="0 0 12 12"><path d="M2 6l3 3 5-5"/></svg></span>Direct pickup &amp; delivery ordering</li>
-        <li><span class="chk"><svg viewBox="0 0 12 12"><path d="M2 6l3 3 5-5"/></svg></span>Fully branded experience</li>
-        <li><span class="chk"><svg viewBox="0 0 12 12"><path d="M2 6l3 3 5-5"/></svg></span>Mobile-first ordering flow</li>
-        <li><span class="chk"><svg viewBox="0 0 12 12"><path d="M2 6l3 3 5-5"/></svg></span>SEO-optimized for local search</li>
-        <li><span class="chk"><svg viewBox="0 0 12 12"><path d="M2 6l3 3 5-5"/></svg></span>Smart upsells to grow ticket size</li>
-        <li><span class="chk"><svg viewBox="0 0 12 12"><path d="M2 6l3 3 5-5"/></svg></span>Integrated payments &amp; POS routing</li>
-      </ul>
-    </div>
-    <div class="fc rv d2">
-      <div class="fc-left">
-        <div class="fc-tag">Supercharges both channels</div>
-        <div class="fc-title">AI Customer Management</div>
-        <div class="fc-desc">Turns one-time customers into loyal regulars using order data and AI-powered outreach campaigns across every channel.</div>
-      </div>
-      <div class="fc-right">
-        <ul class="fc-list" style="margin-top:auto">
-          <li><span class="chk"><svg viewBox="0 0 12 12"><path d="M2 6l3 3 5-5"/></svg></span>Customer profiles from every order</li>
-          <li><span class="chk"><svg viewBox="0 0 12 12"><path d="M2 6l3 3 5-5"/></svg></span>Order history &amp; repeat prompts</li>
-          <li><span class="chk"><svg viewBox="0 0 12 12"><path d="M2 6l3 3 5-5"/></svg></span>SMS marketing campaigns</li>
-          <li><span class="chk"><svg viewBox="0 0 12 12"><path d="M2 6l3 3 5-5"/></svg></span>Loyalty &amp; rewards tracking</li>
-          <li><span class="chk"><svg viewBox="0 0 12 12"><path d="M2 6l3 3 5-5"/></svg></span>Customer insights &amp; analytics</li>
-          <li><span class="chk"><svg viewBox="0 0 12 12"><path d="M2 6l3 3 5-5"/></svg></span>Personalized offers &amp; promotions</li>
-        </ul>
+  <div class="feat-layout">
+
+    <!-- Left: sticky intro -->
+    <div class="feat-intro rv">
+      <h2>Own every<br>ordering channel.</h2>
+      <p class="feat-intro-desc">Three AI products that work together to capture every order, cut third-party commissions, and build direct relationships with your customers.</p>
+      <div class="feat-quote-card">
+        <p class="feat-quote-text">"VoiceBit paid for itself in the first week. Every call answered, every order captured — zero missed revenue."</p>
+        <div class="feat-quote-attr">
+          <div class="feat-quote-name">Ray</div>
+          <div class="feat-quote-biz">Big Apple Pizza</div>
+        </div>
       </div>
     </div>
+
+    <!-- Right: 3 stacked cards -->
+    <div class="feat-cards">
+      <div class="fc2 rv">
+        <div class="fc2-bar" style="background:var(--teal)"></div>
+        <div class="fc2-body">
+          <div class="fc2-title">Never miss another call — <strong>or another order</strong></div>
+          <div class="fc2-desc">AI Voice Employee answers every call instantly, takes orders, handles FAQs, and upsells — in English and Spanish. No hold times. No missed revenue at rush hour.</div>
+          <ul class="fc-list">
+            <li><span class="chk" style="background:rgba(52,92,102,0.08);color:var(--teal)"><svg viewBox="0 0 12 12"><path d="M2 6l3 3 5-5"/></svg></span>24/7 coverage, unlimited simultaneous calls</li>
+            <li><span class="chk" style="background:rgba(52,92,102,0.08);color:var(--teal)"><svg viewBox="0 0 12 12"><path d="M2 6l3 3 5-5"/></svg></span>Smart upselling on every call</li>
+            <li><span class="chk" style="background:rgba(52,92,102,0.08);color:var(--teal)"><svg viewBox="0 0 12 12"><path d="M2 6l3 3 5-5"/></svg></span>Routes to staff when truly needed</li>
+          </ul>
+        </div>
+      </div>
+      <div class="fc2 rv d1">
+        <div class="fc2-bar" style="background:var(--red)"></div>
+        <div class="fc2-body">
+          <div class="fc2-title">Zero-commission ordering — <strong>fully branded</strong></div>
+          <div class="fc2-desc">AI Direct Ordering Website converts online visitors to customers on your own platform. Mobile-first, SEO-optimized, and integrated directly with your POS.</div>
+          <ul class="fc-list">
+            <li><span class="chk" style="background:#FFF1F0;color:var(--red)"><svg viewBox="0 0 12 12"><path d="M2 6l3 3 5-5"/></svg></span>Direct pickup &amp; delivery, $0 commission</li>
+            <li><span class="chk" style="background:#FFF1F0;color:var(--red)"><svg viewBox="0 0 12 12"><path d="M2 6l3 3 5-5"/></svg></span>Smart upsells to grow ticket size</li>
+            <li><span class="chk" style="background:#FFF1F0;color:var(--red)"><svg viewBox="0 0 12 12"><path d="M2 6l3 3 5-5"/></svg></span>Integrated payments &amp; POS routing</li>
+          </ul>
+        </div>
+      </div>
+      <div class="fc2 rv d2">
+        <div class="fc2-bar" style="background:var(--amber)"></div>
+        <div class="fc2-body">
+          <div class="fc2-title">Turn one-time buyers into <strong>loyal regulars</strong></div>
+          <div class="fc2-desc">AI Customer Management uses every order to build guest profiles, then drives repeat visits through SMS campaigns, loyalty rewards, and personalized offers.</div>
+          <ul class="fc-list">
+            <li><span class="chk" style="background:rgba(218,146,26,0.1);color:var(--amber)"><svg viewBox="0 0 12 12"><path d="M2 6l3 3 5-5"/></svg></span>Customer profiles from every order</li>
+            <li><span class="chk" style="background:rgba(218,146,26,0.1);color:var(--amber)"><svg viewBox="0 0 12 12"><path d="M2 6l3 3 5-5"/></svg></span>SMS marketing &amp; loyalty tracking</li>
+            <li><span class="chk" style="background:rgba(218,146,26,0.1);color:var(--amber)"><svg viewBox="0 0 12 12"><path d="M2 6l3 3 5-5"/></svg></span>Personalized offers &amp; repeat prompts</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
   </div>
 
   <!-- Connects with your stack — embedded after the 3 cards -->
