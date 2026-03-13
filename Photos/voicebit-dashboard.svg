@@ -1,0 +1,282 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 731">
+  <defs>
+    <linearGradient id="fadeBottom" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#FFFFFF" stop-opacity="0"/>
+      <stop offset="1" stop-color="#FFFFFF" stop-opacity="0.95"/>
+    </linearGradient>
+<filter id="cardShadow" x="-4%" y="-4%" width="108%" height="116%">
+      <feDropShadow dx="0" dy="2" stdDeviation="4" flood-color="#000" flood-opacity="0.04"/>
+    </filter>
+    <clipPath id="roundClip">
+      <rect width="960" height="731" rx="16"/>
+    </clipPath>
+  </defs>
+
+  <!-- Outer frame -->
+  <rect width="960" height="731" rx="16" fill="#FFFFFF"/>
+
+  <g clip-path="url(#roundClip)">
+
+  <!-- === TOP BAR === -->
+  <rect x="0" y="0" width="960" height="48" fill="#FFFFFF"/>
+  <line x1="0" y1="48" x2="960" y2="48" stroke="#EDEAE8" stroke-width="1"/>
+
+  <!-- Breadcrumb -->
+  <text x="72" y="30" font-family="Inter, sans-serif" font-size="13" font-weight="500" fill="#9CA3AF">Dashboard</text>
+  <text x="142" y="30" font-family="Inter, sans-serif" font-size="13" fill="#D1D5DB">/</text>
+  <text x="154" y="30" font-family="Inter, sans-serif" font-size="13" font-weight="600" fill="#312730">Orders</text>
+
+  <!-- Right side controls -->
+  <!-- Search -->
+  <rect x="700" y="12" width="120" height="26" rx="6" fill="#F5F3F1" stroke="#E8E4E2" stroke-width="0.5"/>
+  <circle cx="714" cy="25" r="5" stroke="#9CA3AF" stroke-width="1.2" fill="none"/>
+  <line x1="718" y1="28" x2="721" y2="31" stroke="#9CA3AF" stroke-width="1.2" stroke-linecap="round"/>
+  <text x="728" y="29" font-family="Inter, sans-serif" font-size="10" fill="#9CA3AF">Search...</text>
+
+  <!-- Notification bell -->
+  <circle cx="848" cy="24" r="12" fill="#F5F3F1"/>
+  <path d="M844 26 L844 22 Q844 18 848 18 Q852 18 852 22 L852 26 Z" stroke="#6B7280" stroke-width="1.2" fill="none"/>
+  <line x1="846" y1="28" x2="850" y2="28" stroke="#6B7280" stroke-width="1.2" stroke-linecap="round"/>
+  <circle cx="852" cy="19" r="3" fill="#F75C30"/>
+
+  <!-- Avatar -->
+  <circle cx="886" cy="24" r="13" fill="#0D1221"/>
+  <text x="886" y="28" font-family="Inter, sans-serif" font-size="10" font-weight="600" fill="#FFFFFF" text-anchor="middle">JR</text>
+
+  <!-- Restaurant name -->
+  <text x="906" y="22" font-family="Inter, sans-serif" font-size="10" font-weight="500" fill="#312730">Joe's Deli</text>
+  <text x="906" y="34" font-family="Inter, sans-serif" font-size="9" fill="#9CA3AF">Manager</text>
+
+  <!-- === MAIN CONTENT AREA === -->
+  <rect x="0" y="48" width="960" height="683" fill="#FAFAF9"/>
+
+  <!-- Page header -->
+  <text x="76" y="88" font-family="Inter, sans-serif" font-size="22" font-weight="700" fill="#312730">Orders</text>
+  <text x="76" y="106" font-family="Inter, sans-serif" font-size="12" fill="#9CA3AF">Manage and track all incoming orders</text>
+
+  <!-- Action buttons -->
+  <rect x="810" y="72" width="36" height="30" rx="8" fill="#FFFFFF" stroke="#E8E4E2" stroke-width="1"/>
+  <line x1="822" y1="82" x2="822" y2="92" stroke="#6B7280" stroke-width="1.5" stroke-linecap="round"/>
+  <line x1="830" y1="82" x2="830" y2="88" stroke="#6B7280" stroke-width="1.5" stroke-linecap="round"/>
+  <line x1="834" y1="82" x2="834" y2="95" stroke="#6B7280" stroke-width="1.5" stroke-linecap="round"/>
+
+  <rect x="854" y="72" width="36" height="30" rx="8" fill="#FFFFFF" stroke="#E8E4E2" stroke-width="1"/>
+  <text x="872" y="91" font-family="Inter, sans-serif" font-size="13" fill="#6B7280" text-anchor="middle">↓</text>
+
+  <rect x="898" y="72" width="42" height="30" rx="8" fill="#F75C30"/>
+  <text x="908" y="91" font-family="Inter, sans-serif" font-size="18" font-weight="300" fill="#FFFFFF">+</text>
+
+  <!-- === STAT CARDS === -->
+  <!-- Card 1: Today's Orders -->
+  <rect x="76" y="122" width="200" height="84" rx="12" fill="#FFFFFF" filter="url(#cardShadow)"/>
+  <text x="92" y="148" font-family="Inter, sans-serif" font-size="11" font-weight="500" fill="#9CA3AF">Today's Orders</text>
+  <text x="92" y="176" font-family="Inter, sans-serif" font-size="26" font-weight="700" fill="#312730">47</text>
+  <rect x="130" y="160" width="42" height="18" rx="9" fill="#DCFCE7"/>
+  <text x="139" y="173" font-family="Inter, sans-serif" font-size="9" font-weight="600" fill="#16A34A">+12.3%</text>
+  <!-- Mini sparkline -->
+  <polyline points="200,182 210,176 220,178 230,170 240,168 250,172 260,164" fill="none" stroke="#16A34A" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" opacity="0.5"/>
+
+  <!-- Card 2: Revenue -->
+  <rect x="292" y="122" width="200" height="84" rx="12" fill="#FFFFFF" filter="url(#cardShadow)"/>
+  <text x="308" y="148" font-family="Inter, sans-serif" font-size="11" font-weight="500" fill="#9CA3AF">Revenue Today</text>
+  <text x="308" y="176" font-family="Inter, sans-serif" font-size="26" font-weight="700" fill="#312730">$1,247</text>
+  <rect x="392" y="160" width="42" height="18" rx="9" fill="#DCFCE7"/>
+  <text x="401" y="173" font-family="Inter, sans-serif" font-size="9" font-weight="600" fill="#16A34A">+8.7%</text>
+  <polyline points="416,182 426,178 436,174 446,176 456,168 466,170 476,162" fill="none" stroke="#16A34A" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" opacity="0.5"/>
+
+  <!-- Card 3: Avg Order Value -->
+  <rect x="508" y="122" width="200" height="84" rx="12" fill="#FFFFFF" filter="url(#cardShadow)"/>
+  <text x="524" y="148" font-family="Inter, sans-serif" font-size="11" font-weight="500" fill="#9CA3AF">Avg Order Value</text>
+  <text x="524" y="176" font-family="Inter, sans-serif" font-size="26" font-weight="700" fill="#312730">$26.53</text>
+  <rect x="616" y="160" width="42" height="18" rx="9" fill="#FEF3C7"/>
+  <text x="626" y="173" font-family="Inter, sans-serif" font-size="9" font-weight="600" fill="#D97706">+2.1%</text>
+  <polyline points="632,182 642,178 652,180 662,176 672,178 682,174 692,176" fill="none" stroke="#D97706" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" opacity="0.5"/>
+
+  <!-- Card 4: Active Now -->
+  <rect x="724" y="122" width="216" height="84" rx="12" fill="#FFFFFF" filter="url(#cardShadow)"/>
+  <text x="740" y="148" font-family="Inter, sans-serif" font-size="11" font-weight="500" fill="#9CA3AF">Active Now</text>
+  <circle cx="740" cy="173" r="4" fill="#16A34A">
+    <animate attributeName="opacity" values="1;0.4;1" dur="2s" repeatCount="indefinite"/>
+  </circle>
+  <text x="752" y="178" font-family="Inter, sans-serif" font-size="26" font-weight="700" fill="#312730">6</text>
+  <text x="770" y="178" font-family="Inter, sans-serif" font-size="12" fill="#9CA3AF">orders in progress</text>
+
+  <!-- === TABLE CARD === -->
+  <rect x="76" y="222" width="864" height="440" rx="12" fill="#FFFFFF" filter="url(#cardShadow)"/>
+
+  <!-- Table toolbar -->
+  <text x="96" y="250" font-family="Inter, sans-serif" font-size="14" font-weight="600" fill="#312730">Recent Orders</text>
+
+  <!-- Filter pills -->
+  <rect x="220" y="236" width="40" height="22" rx="11" fill="#0D1221"/>
+  <text x="232" y="251" font-family="Inter, sans-serif" font-size="10" font-weight="500" fill="#FFFFFF">All</text>
+
+  <rect x="268" y="236" width="52" height="22" rx="11" fill="#F5F3F1"/>
+  <text x="282" y="251" font-family="Inter, sans-serif" font-size="10" font-weight="500" fill="#6B7280">Active</text>
+
+  <rect x="328" y="236" width="72" height="22" rx="11" fill="#F5F3F1"/>
+  <text x="342" y="251" font-family="Inter, sans-serif" font-size="10" font-weight="500" fill="#6B7280">Completed</text>
+
+  <rect x="408" y="236" width="66" height="22" rx="11" fill="#F5F3F1"/>
+  <text x="422" y="251" font-family="Inter, sans-serif" font-size="10" font-weight="500" fill="#6B7280">Pending</text>
+
+  <!-- Table header -->
+  <rect x="76" y="268" width="864" height="32" fill="#FAFAF9" rx="0"/>
+  <line x1="76" y1="300" x2="940" y2="300" stroke="#F0EDEB" stroke-width="1"/>
+
+  <text x="96" y="289" font-family="Inter, sans-serif" font-size="10" font-weight="600" fill="#9CA3AF" letter-spacing="0.5">ORDER</text>
+  <text x="196" y="289" font-family="Inter, sans-serif" font-size="10" font-weight="600" fill="#9CA3AF" letter-spacing="0.5">CUSTOMER</text>
+  <text x="340" y="289" font-family="Inter, sans-serif" font-size="10" font-weight="600" fill="#9CA3AF" letter-spacing="0.5">ITEMS</text>
+  <text x="510" y="289" font-family="Inter, sans-serif" font-size="10" font-weight="600" fill="#9CA3AF" letter-spacing="0.5">STATUS</text>
+  <text x="630" y="289" font-family="Inter, sans-serif" font-size="10" font-weight="600" fill="#9CA3AF" letter-spacing="0.5">TYPE</text>
+  <text x="730" y="289" font-family="Inter, sans-serif" font-size="10" font-weight="600" fill="#9CA3AF" letter-spacing="0.5">TOTAL</text>
+  <text x="830" y="289" font-family="Inter, sans-serif" font-size="10" font-weight="600" fill="#9CA3AF" letter-spacing="0.5">TIME</text>
+
+  <!-- === ROW 1 (highlighted/active) === -->
+  <rect x="77" y="301" width="862" height="48" fill="#FFF7F5"/>
+  <rect x="76" y="301" width="3" height="48" fill="#F75C30"/>
+  <line x1="76" y1="349" x2="940" y2="349" stroke="#F0EDEB" stroke-width="1"/>
+
+  <text x="96" y="322" font-family="Inter, sans-serif" font-size="12" font-weight="600" fill="#312730">#4763</text>
+  <text x="96" y="338" font-family="Inter, sans-serif" font-size="9" fill="#9CA3AF">Just now</text>
+
+  <circle cx="206" cy="322" r="12" fill="#FEE2E2"/>
+  <text x="206" y="326" font-family="Inter, sans-serif" font-size="10" font-weight="600" fill="#F75C30" text-anchor="middle">SM</text>
+  <text x="224" y="322" font-family="Inter, sans-serif" font-size="12" font-weight="500" fill="#312730">Sarah Miller</text>
+  <text x="224" y="338" font-family="Inter, sans-serif" font-size="9" fill="#9CA3AF">(504) 460-****</text>
+
+  <text x="340" y="328" font-family="Inter, sans-serif" font-size="11" fill="#312730">2x Margherita, 1x Caesar Salad</text>
+
+  <rect x="510" y="314" width="68" height="22" rx="11" fill="#FEF3C7"/>
+  <circle cx="522" cy="325" r="3" fill="#D97706"/>
+  <text x="530" y="329" font-family="Inter, sans-serif" font-size="10" font-weight="500" fill="#D97706">Preparing</text>
+
+  <rect x="630" y="316" width="20" height="18" rx="4" fill="#E0F2FE"/>
+  <text x="640" y="329" font-family="Inter, sans-serif" font-size="9" fill="#0284C7" text-anchor="middle">D</text>
+  <text x="656" y="329" font-family="Inter, sans-serif" font-size="11" fill="#6B7280">Delivery</text>
+
+  <text x="730" y="329" font-family="Inter, sans-serif" font-size="12" font-weight="600" fill="#312730">$42.97</text>
+
+  <text x="830" y="322" font-family="Inter, sans-serif" font-size="11" fill="#312730">5:41 PM</text>
+  <text x="830" y="338" font-family="Inter, sans-serif" font-size="9" fill="#9CA3AF">Today</text>
+
+  <!-- === ROW 2 === -->
+  <line x1="76" y1="397" x2="940" y2="397" stroke="#F0EDEB" stroke-width="1"/>
+
+  <text x="96" y="370" font-family="Inter, sans-serif" font-size="12" font-weight="600" fill="#312730">#4762</text>
+  <text x="96" y="386" font-family="Inter, sans-serif" font-size="9" fill="#9CA3AF">12 min ago</text>
+
+  <circle cx="206" cy="370" r="12" fill="#DBEAFE"/>
+  <text x="206" y="374" font-family="Inter, sans-serif" font-size="10" font-weight="600" fill="#2563EB" text-anchor="middle">MJ</text>
+  <text x="224" y="370" font-family="Inter, sans-serif" font-size="12" font-weight="500" fill="#312730">Mike Johnson</text>
+  <text x="224" y="386" font-family="Inter, sans-serif" font-size="9" fill="#9CA3AF">(650) 656-****</text>
+
+  <text x="340" y="376" font-family="Inter, sans-serif" font-size="11" fill="#312730">1x BBQ Chicken, 2x Garlic Knots</text>
+
+  <rect x="510" y="362" width="56" height="22" rx="11" fill="#DCFCE7"/>
+  <circle cx="522" cy="373" r="3" fill="#16A34A"/>
+  <text x="530" y="377" font-family="Inter, sans-serif" font-size="10" font-weight="500" fill="#16A34A">Ready</text>
+
+  <rect x="630" y="364" width="20" height="18" rx="4" fill="#F0FDF4"/>
+  <text x="640" y="377" font-family="Inter, sans-serif" font-size="9" fill="#16A34A" text-anchor="middle">P</text>
+  <text x="656" y="377" font-family="Inter, sans-serif" font-size="11" fill="#6B7280">Pickup</text>
+
+  <text x="730" y="377" font-family="Inter, sans-serif" font-size="12" font-weight="600" fill="#312730">$26.93</text>
+
+  <text x="830" y="370" font-family="Inter, sans-serif" font-size="11" fill="#312730">5:29 PM</text>
+  <text x="830" y="386" font-family="Inter, sans-serif" font-size="9" fill="#9CA3AF">Today</text>
+
+  <!-- === ROW 3 === -->
+  <line x1="76" y1="445" x2="940" y2="445" stroke="#F0EDEB" stroke-width="1"/>
+
+  <text x="96" y="418" font-family="Inter, sans-serif" font-size="12" font-weight="600" fill="#312730">#4761</text>
+  <text x="96" y="434" font-family="Inter, sans-serif" font-size="9" fill="#9CA3AF">28 min ago</text>
+
+  <circle cx="206" cy="418" r="12" fill="#E8DEF8"/>
+  <text x="206" y="422" font-family="Inter, sans-serif" font-size="10" font-weight="600" fill="#7C3AED" text-anchor="middle">LS</text>
+  <text x="224" y="418" font-family="Inter, sans-serif" font-size="12" font-weight="500" fill="#312730">Lisa Chen</text>
+  <text x="224" y="434" font-family="Inter, sans-serif" font-size="9" fill="#9CA3AF">(231) 341-****</text>
+
+  <text x="340" y="424" font-family="Inter, sans-serif" font-size="11" fill="#312730">1x Family Meal, 3x Drinks</text>
+
+  <rect x="510" y="410" width="72" height="22" rx="11" fill="#DBEAFE"/>
+  <circle cx="522" cy="421" r="3" fill="#2563EB"/>
+  <text x="530" y="425" font-family="Inter, sans-serif" font-size="10" font-weight="500" fill="#2563EB">Out for delivery</text>
+
+  <rect x="630" y="412" width="20" height="18" rx="4" fill="#E0F2FE"/>
+  <text x="640" y="425" font-family="Inter, sans-serif" font-size="9" fill="#0284C7" text-anchor="middle">D</text>
+  <text x="656" y="425" font-family="Inter, sans-serif" font-size="11" fill="#6B7280">Delivery</text>
+
+  <text x="730" y="425" font-family="Inter, sans-serif" font-size="12" font-weight="600" fill="#312730">$85.02</text>
+
+  <text x="830" y="418" font-family="Inter, sans-serif" font-size="11" fill="#312730">5:13 PM</text>
+  <text x="830" y="434" font-family="Inter, sans-serif" font-size="9" fill="#9CA3AF">Today</text>
+
+  <!-- === ROW 4 === -->
+  <line x1="76" y1="493" x2="940" y2="493" stroke="#F0EDEB" stroke-width="1"/>
+
+  <text x="96" y="466" font-family="Inter, sans-serif" font-size="12" font-weight="600" fill="#312730">#4760</text>
+  <text x="96" y="482" font-family="Inter, sans-serif" font-size="9" fill="#9CA3AF">45 min ago</text>
+
+  <circle cx="206" cy="466" r="12" fill="#FEF3C7"/>
+  <text x="206" y="470" font-family="Inter, sans-serif" font-size="10" font-weight="600" fill="#D97706" text-anchor="middle">TP</text>
+  <text x="224" y="466" font-family="Inter, sans-serif" font-size="12" font-weight="500" fill="#312730">Tom Park</text>
+  <text x="224" y="482" font-family="Inter, sans-serif" font-size="9" fill="#9CA3AF">(650) 893-****</text>
+
+  <text x="340" y="472" font-family="Inter, sans-serif" font-size="11" fill="#312730">4x Pepperoni, 2x Breadsticks</text>
+
+  <rect x="510" y="458" width="72" height="22" rx="11" fill="#F3F4F6"/>
+  <circle cx="522" cy="469" r="3" fill="#16A34A"/>
+  <text x="530" y="473" font-family="Inter, sans-serif" font-size="10" font-weight="500" fill="#6B7280">Completed</text>
+
+  <rect x="630" y="460" width="20" height="18" rx="4" fill="#F0FDF4"/>
+  <text x="640" y="473" font-family="Inter, sans-serif" font-size="9" fill="#16A34A" text-anchor="middle">P</text>
+  <text x="656" y="473" font-family="Inter, sans-serif" font-size="11" fill="#6B7280">Pickup</text>
+
+  <text x="730" y="473" font-family="Inter, sans-serif" font-size="12" font-weight="600" fill="#312730">$143.13</text>
+
+  <text x="830" y="466" font-family="Inter, sans-serif" font-size="11" fill="#312730">4:56 PM</text>
+  <text x="830" y="482" font-family="Inter, sans-serif" font-size="9" fill="#9CA3AF">Today</text>
+
+  <!-- === ROW 5 === -->
+  <line x1="76" y1="541" x2="940" y2="541" stroke="#F0EDEB" stroke-width="1"/>
+
+  <text x="96" y="514" font-family="Inter, sans-serif" font-size="12" font-weight="600" fill="#312730">#4759</text>
+  <text x="96" y="530" font-family="Inter, sans-serif" font-size="9" fill="#9CA3AF">1 hr ago</text>
+
+  <circle cx="206" cy="514" r="12" fill="#DCFCE7"/>
+  <text x="206" y="518" font-family="Inter, sans-serif" font-size="10" font-weight="600" fill="#16A34A" text-anchor="middle">RD</text>
+  <text x="224" y="514" font-family="Inter, sans-serif" font-size="12" font-weight="500" fill="#312730">Rosa Davis</text>
+  <text x="224" y="530" font-family="Inter, sans-serif" font-size="9" fill="#9CA3AF">(661) 436-****</text>
+
+  <text x="340" y="520" font-family="Inter, sans-serif" font-size="11" fill="#312730">Catering - 20 person lunch</text>
+
+  <rect x="510" y="506" width="72" height="22" rx="11" fill="#F3F4F6"/>
+  <circle cx="522" cy="517" r="3" fill="#16A34A"/>
+  <text x="530" y="521" font-family="Inter, sans-serif" font-size="10" font-weight="500" fill="#6B7280">Completed</text>
+
+  <rect x="630" y="508" width="20" height="18" rx="4" fill="#E0F2FE"/>
+  <text x="640" y="521" font-family="Inter, sans-serif" font-size="9" fill="#0284C7" text-anchor="middle">D</text>
+  <text x="656" y="521" font-family="Inter, sans-serif" font-size="11" fill="#6B7280">Delivery</text>
+
+  <text x="730" y="521" font-family="Inter, sans-serif" font-size="12" font-weight="600" fill="#312730">$374.00</text>
+
+  <text x="830" y="514" font-family="Inter, sans-serif" font-size="11" fill="#312730">4:12 PM</text>
+  <text x="830" y="530" font-family="Inter, sans-serif" font-size="9" fill="#9CA3AF">Today</text>
+
+  <!-- === ROW 6 (fading) === -->
+  <text x="96" y="562" font-family="Inter, sans-serif" font-size="12" font-weight="600" fill="#D1D5DB">#4758</text>
+  <circle cx="206" cy="560" r="12" fill="#F3F4F6"/>
+  <text x="206" y="564" font-family="Inter, sans-serif" font-size="10" font-weight="600" fill="#D1D5DB" text-anchor="middle">AW</text>
+  <text x="224" y="562" font-family="Inter, sans-serif" font-size="12" font-weight="500" fill="#D1D5DB">Alex Wong</text>
+  <text x="340" y="562" font-family="Inter, sans-serif" font-size="11" fill="#D1D5DB">2x Combo Meal, 1x Lemonade</text>
+  <text x="730" y="562" font-family="Inter, sans-serif" font-size="12" font-weight="600" fill="#D1D5DB">$33.47</text>
+
+  <!-- Bottom fade -->
+  <rect x="0" y="580" width="960" height="151" fill="url(#fadeBottom)"/>
+
+  <!-- Pagination hint -->
+  <text x="500" y="650" font-family="Inter, sans-serif" font-size="11" fill="#D1D5DB" text-anchor="middle">Showing 1-10 of 47 orders</text>
+
+  </g>
+</svg>
