@@ -160,19 +160,29 @@ h1 em{font-style:italic;color:var(--red);font-family:'Playfair Display',serif}
 /* ─── HERO TYPEWRITER CURSOR ─── */
 .hero-input-area{caret-color:var(--teal)}
 @keyframes blink-cursor{0%,100%{opacity:1}50%{opacity:0}}
-/* Example chips row */
-.hero-examples{display:flex;align-items:center;gap:8px;padding:10px 18px;
+/* "We'll build" row */
+.hero-builds-row{display:flex;align-items:center;gap:10px;padding:12px 20px;
+  background:rgba(52,92,102,0.04);border-bottom:1px solid var(--border);flex-wrap:wrap}
+.hero-builds-label{font-size:0.62rem;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;
+  color:var(--ink-3);white-space:nowrap}
+.hero-build-badge{display:inline-flex;align-items:center;gap:6px;
+  background:var(--teal);color:#fff;border-radius:100px;
+  padding:5px 12px 5px 9px;font-family:'Oswald',sans-serif;font-size:0.68rem;
+  font-weight:600;letter-spacing:0.06em;text-transform:uppercase;white-space:nowrap}
+.hero-build-badge svg{width:12px;height:12px;flex-shrink:0}
+.hero-builds-sep{font-weight:700;color:var(--ink-3);font-size:0.8rem}
+/* Suggestion chips row */
+.hero-examples{display:flex;align-items:center;gap:10px;padding:10px 18px;
   border-top:1px solid var(--border);flex-wrap:wrap}
 .hero-examples-label{font-size:0.62rem;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;
   color:var(--ink-4);white-space:nowrap}
 .hero-ex-chip{display:inline-flex;align-items:center;gap:6px;
-  background:#fff;border:1px solid var(--border-md);border-radius:100px;
-  padding:5px 12px 5px 8px;font-size:0.72rem;font-weight:600;color:var(--ink-2);
-  cursor:pointer;transition:all 0.18s;white-space:nowrap;text-decoration:none}
-.hero-ex-chip:hover{border-color:var(--teal);color:var(--teal);
-  background:var(--teal-light);transform:translateY(-1px)}
-.hero-ex-chip img{width:14px;height:14px;object-fit:contain;border-radius:2px;flex-shrink:0}
-.hero-ex-chip-dot{width:8px;height:8px;border-radius:50%;flex-shrink:0}
+  background:transparent;border:none;border-radius:100px;
+  padding:4px 10px 4px 6px;font-size:0.75rem;font-weight:500;color:var(--ink-2);
+  cursor:pointer;transition:all 0.18s;white-space:nowrap;
+  font-family:'DM Sans',sans-serif;outline:none}
+.hero-ex-chip:hover{color:var(--teal);background:rgba(52,92,102,0.07);transform:translateY(-1px)}
+.hero-ex-chip svg{flex-shrink:0;border-radius:3px}
 
 /* ─── TRUSTED BY (Restaurant Logos) ─── */
 .trusted-section{position:relative;z-index:1;
@@ -915,28 +925,45 @@ nav{background:linear-gradient(135deg,rgba(42,74,82,0.97) 0%,rgba(52,92,102,0.97
   </div>
 
   <div class="hero-input-card">
-    <!-- Product type selector -->
-    <div class="hero-input-pills" id="heroPills">
-      <button class="hero-input-pill active">
-        <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+    <!-- What we build for you -->
+    <div class="hero-builds-row">
+      <span class="hero-builds-label">We'll build you:</span>
+      <span class="hero-build-badge">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
         AI Restaurant Website
-      </button>
-      <button class="hero-input-pill">
-        <svg viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.6 1.27h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 9a16 16 0 0 0 6 6l1.27-.95a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+      </span>
+      <span class="hero-builds-sep">+</span>
+      <span class="hero-build-badge">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.6 1.27h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 9a16 16 0 0 0 6 6l1.27-.95a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
         AI Phone Agent
-      </button>
+      </span>
     </div>
     <div class="hero-input-top">
       <div class="hero-input-label">Your restaurant</div>
       <textarea id="heroTextarea" class="hero-input-area" placeholder="" rows="2"></textarea>
     </div>
-    <!-- Example chips -->
+    <!-- Suggestions -->
     <div class="hero-examples">
-      <span class="hero-examples-label">Try:</span>
-      <button class="hero-ex-chip" data-val="https://www.doordash.com/store/big-apple-pizza-livermore/"><span class="hero-ex-chip-dot" style="background:#FF3008"></span>DoorDash link</button>
-      <button class="hero-ex-chip" data-val="https://www.ubereats.com/store/chandos-tacos/"><span class="hero-ex-chip-dot" style="background:#06C167"></span>Uber Eats link</button>
-      <button class="hero-ex-chip" data-val="https://order.slice.pizza/store/sensiores-pizza"><span class="hero-ex-chip-dot" style="background:#FF6B35"></span>Slice link</button>
-      <button class="hero-ex-chip" data-val="Family pizza spot in Sacramento, CA — 3 locations, open daily 11am–10pm"><span class="hero-ex-chip-dot" style="background:var(--teal)"></span>Describe it</button>
+      <span class="hero-examples-label">Try with:</span>
+      <span class="hero-ex-chip" data-val="https://www.doordash.com/store/big-apple-pizza-livermore/">
+        <!-- DoorDash logo -->
+        <svg width="16" height="16" viewBox="0 0 32 32" fill="none"><circle cx="16" cy="16" r="16" fill="#FF3008"/><path d="M8 13.5C8 11 10 9 12.5 9H20c2.8 0 5 2.2 5 5s-2.2 5-5 5h-1v3.5H16V19h-3.5C10 19 8 17 8 14.5v-1z" fill="#fff"/><circle cx="12.5" cy="14" r="1.5" fill="#FF3008"/></svg>
+        DoorDash
+      </span>
+      <span class="hero-ex-chip" data-val="https://www.ubereats.com/store/chandos-tacos/">
+        <!-- Uber Eats logo -->
+        <svg width="16" height="16" viewBox="0 0 32 32" fill="none"><circle cx="16" cy="16" r="16" fill="#06C167"/><text x="7" y="22" font-family="Arial" font-weight="900" font-size="14" fill="#fff">Ue</text></svg>
+        Uber Eats
+      </span>
+      <span class="hero-ex-chip" data-val="https://order.slice.pizza/store/sensiores-pizza">
+        <!-- Slice logo -->
+        <svg width="16" height="16" viewBox="0 0 32 32" fill="none"><circle cx="16" cy="16" r="16" fill="#FF6B35"/><polygon points="16,6 26,24 6,24" fill="#fff"/><circle cx="16" cy="19" r="2" fill="#FF6B35"/></svg>
+        Slice
+      </span>
+      <span class="hero-ex-chip" data-val="Family pizza spot in Sacramento, CA — 3 locations, open daily 11am–10pm">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--teal)" stroke-width="2.5" stroke-linecap="round"><path d="M12 20h9"/><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"/></svg>
+        Describe it
+      </span>
     </div>
     <div class="hero-input-footer">
       <label class="hero-upload-btn">
@@ -1551,13 +1578,6 @@ const cobs=new IntersectionObserver(e=>{
 },{threshold:0.3});
 const ps=document.getElementById('proof-stats');
 if(ps)cobs.observe(ps);
-// Hero product pills
-document.querySelectorAll('#heroPills .hero-input-pill').forEach(pill => {
-  pill.addEventListener('click', () => {
-    document.querySelectorAll('#heroPills .hero-input-pill').forEach(p => p.classList.remove('active'));
-    pill.classList.add('active');
-  });
-});
 // Problems section tabs (vertical)
 document.querySelectorAll('.prob-tab-v').forEach(tab => {
   tab.addEventListener('click', () => {
@@ -1605,8 +1625,8 @@ setTimeout(typeStep,900);
 heroTA.addEventListener('focus',()=>{clearTimeout(twTimer);if(!heroTA.value||typeExamples.includes(heroTA.value))heroTA.value='';});
 heroTA.addEventListener('blur',()=>{if(!heroTA.value){twChar=0;twDeleting=false;setTimeout(typeStep,600);}});
 
-// ── Example chips click ──
-document.querySelectorAll('.hero-ex-chip').forEach(chip=>{
+// ── Suggestion chips click ──
+document.querySelectorAll('.hero-ex-chip[data-val]').forEach(chip=>{
   chip.addEventListener('click',()=>{
     clearTimeout(twTimer);
     const val=chip.dataset.val;
