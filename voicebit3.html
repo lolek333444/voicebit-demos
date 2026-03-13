@@ -492,13 +492,12 @@ h2 em{font-style:italic;color:var(--red)}
 .cta-line2{font-family:'Oswald',sans-serif;font-size:clamp(3rem,6vw,5.6rem);font-weight:700;
   color:var(--amber);text-align:left;line-height:1;text-transform:uppercase;letter-spacing:-0.01em;
   font-style:italic;display:block;margin-top:4px}
-.cta-sub{font-size:0.95rem;color:rgba(255,239,219,0.42);font-weight:300;line-height:1.72;
-  text-align:center;max-width:460px;margin:20px auto 0}
+.cta-sub{display:none}
 /* big tablet */
 .cta-tablet-wrap{position:relative;z-index:1;max-width:1100px;margin:0 auto}
-.cta-tablet-frame{background:#1a1a1a;border-radius:20px 20px 0 0;padding:12px 12px 0;
-  box-shadow:0 -16px 80px rgba(0,0,0,0.4)}
-.cta-tablet-screen{background:#fff;border-radius:12px 12px 0 0;overflow:hidden;line-height:0}
+.cta-tablet-frame{background:#1a1a1a;border-radius:20px;padding:12px 12px 12px;
+  box-shadow:0 -16px 80px rgba(0,0,0,0.4),0 16px 80px rgba(0,0,0,0.4)}
+.cta-tablet-screen{background:#fff;border-radius:12px;overflow:hidden;line-height:0}
 .cta-tablet-screen img,.cta-tablet-screen svg{width:100%;height:auto;display:block;
   animation:dashZoom 18s ease-in-out infinite;transform-origin:top left}
 @keyframes dashZoom{
@@ -513,10 +512,9 @@ h2 em{font-style:italic;color:var(--red)}
   100% {transform:scale(1) translate(0,0)}
 }
 /* buttons below tablet */
-.cta-tablet-actions{position:relative;z-index:1;max-width:960px;margin:0 auto;
-  display:flex;align-items:stretch;gap:0;
-  background:rgba(0,0,0,0.28);border-radius:0 0 20px 20px;overflow:hidden}
-.btn-red{background:var(--red);color:#fff;padding:20px 40px;border-radius:0;flex:1;
+.cta-tablet-actions{position:relative;z-index:1;max-width:960px;margin:40px auto 0;
+  display:flex;align-items:stretch;gap:16px}
+.btn-red{background:var(--red);color:#fff;padding:20px 40px;border-radius:14px;flex:1;
   font-family:'Oswald',sans-serif;font-size:1.15rem;font-weight:700;text-decoration:none;
   letter-spacing:0.06em;text-transform:uppercase;
   display:inline-flex;align-items:center;justify-content:center;gap:10px;
@@ -524,8 +522,8 @@ h2 em{font-style:italic;color:var(--red)}
 .btn-red:hover{background:var(--red-light)}
 .btn-red svg{width:16px;height:16px;stroke-width:2.5;fill:none;stroke:currentColor;stroke-linecap:round;stroke-linejoin:round}
 .btn-ghost-light{color:rgba(255,239,219,0.85);background:rgba(255,255,255,0.07);padding:20px 40px;flex:1;
-  border-radius:0;font-family:'Oswald',sans-serif;font-size:1.15rem;font-weight:600;text-decoration:none;
-  letter-spacing:0.06em;text-transform:uppercase;border:none;border-left:1px solid rgba(255,255,255,0.1);
+  border-radius:14px;font-family:'Oswald',sans-serif;font-size:1.15rem;font-weight:600;text-decoration:none;
+  letter-spacing:0.06em;text-transform:uppercase;border:1.5px solid rgba(255,255,255,0.15);
   display:inline-flex;align-items:center;justify-content:center;gap:8px;transition:all 0.2s}
 .btn-ghost-light:hover{background:rgba(255,255,255,0.13);color:var(--cream)}
 .cta-email{font-size:0.76rem;color:rgba(255,239,219,0.22);margin-top:16px;
