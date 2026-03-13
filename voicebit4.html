@@ -1625,7 +1625,7 @@ function typeStep(){
   twTimer=setTimeout(typeStep,twDeleting?28:58);
 }
 setTimeout(typeStep,900);
-heroTA.addEventListener('focus',()=>{stopAll();if(!heroTA.value||typeExamples.includes(heroTA.value))heroTA.value='';});
+heroTA.addEventListener('focus',()=>{stopAll();heroTA.value='';});
 heroTA.addEventListener('blur',()=>{if(!heroTA.value){twChar=0;twDeleting=false;setTimeout(typeStep,600);}});
 
 // ── Suggestion chips click ──
