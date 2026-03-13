@@ -463,54 +463,59 @@ h2 em{font-style:italic;color:var(--red)}
 .fi.open .fa{max-height:220px;padding:0 24px 20px}
 
 /* ─── CTA ─── */
-.cta-bg{background:var(--teal);padding:96px 40px 0;text-align:center;position:relative;z-index:1;overflow:hidden}
+.cta-bg{background:var(--teal);padding:96px 60px 0;position:relative;z-index:1;overflow:hidden}
 .cta-bg::before{content:'';position:absolute;inset:0;pointer-events:none;z-index:0;
   background-image:url('Photos/background_photo.png');background-size:600px auto;background-repeat:repeat;
   opacity:0.06;filter:brightness(0) invert(1)}
-.cta-tablet-wrap{position:relative;z-index:1;margin-top:56px;max-width:640px;
-  margin-left:auto;margin-right:auto;max-height:300px;overflow:hidden}
-.cta-tablet-frame{background:#1a1a1a;border-radius:20px 20px 0 0;padding:10px 10px 0;
-  box-shadow:0 -12px 60px rgba(0,0,0,0.35)}
+/* staggered heading block */
+.cta-heading-block{position:relative;z-index:1;max-width:1160px;margin:0 auto 48px}
+.cta-line1{font-family:'Oswald',sans-serif;font-size:clamp(3rem,6vw,5.6rem);font-weight:700;
+  color:#fff;text-align:right;line-height:1;text-transform:uppercase;letter-spacing:-0.01em;
+  display:block}
+.cta-line2{font-family:'Oswald',sans-serif;font-size:clamp(3rem,6vw,5.6rem);font-weight:700;
+  color:var(--amber);text-align:left;line-height:1;text-transform:uppercase;letter-spacing:-0.01em;
+  font-style:italic;display:block;margin-top:4px}
+.cta-sub{font-size:0.95rem;color:rgba(255,239,219,0.42);font-weight:300;line-height:1.72;
+  text-align:center;max-width:460px;margin:20px auto 0}
+/* big tablet */
+.cta-tablet-wrap{position:relative;z-index:1;max-width:960px;margin:0 auto;
+  max-height:480px;overflow:hidden}
+.cta-tablet-frame{background:#1a1a1a;border-radius:20px 20px 0 0;padding:12px 12px 0;
+  box-shadow:0 -16px 80px rgba(0,0,0,0.4)}
 .cta-tablet-screen{background:#fff;border-radius:12px 12px 0 0;overflow:hidden;line-height:0}
 .cta-tablet-screen img,.cta-tablet-screen svg{width:100%;height:auto;display:block;
   animation:dashZoom 18s ease-in-out infinite;transform-origin:top left}
 @keyframes dashZoom{
   0%   {transform:scale(1) translate(0,0)}
   12%  {transform:scale(1) translate(0,0)}
-  25%  {transform:scale(2.2) translate(-8%,-4%)}   /* zoom: metric cards row */
+  25%  {transform:scale(2.2) translate(-8%,-4%)}
   40%  {transform:scale(2.2) translate(-8%,-4%)}
-  52%  {transform:scale(2.4) translate(-38%,-4%)}  /* pan right: $1,247 revenue */
+  52%  {transform:scale(2.4) translate(-38%,-4%)}
   65%  {transform:scale(2.4) translate(-38%,-4%)}
-  75%  {transform:scale(1.9) translate(-5%,-22%)}  /* zoom: recent orders list */
+  75%  {transform:scale(1.9) translate(-5%,-22%)}
   88%  {transform:scale(1.9) translate(-5%,-22%)}
   100% {transform:scale(1) translate(0,0)}
 }
-.cta-glow{position:absolute;top:-200px;left:50%;transform:translateX(-50%);width:900px;height:600px;
-  background:radial-gradient(ellipse,rgba(52,92,102,0.35) 0%,transparent 62%);pointer-events:none}
-.cta-tag{display:inline-flex;align-items:center;gap:7px;
-  background:rgba(255,239,219,0.08);border:1px solid rgba(255,239,219,0.15);
-  border-radius:100px;padding:5px 14px;font-size:0.66rem;font-weight:700;color:rgba(255,239,219,0.6);
-  letter-spacing:0.1em;text-transform:uppercase;margin-bottom:22px;position:relative;z-index:1}
-.cta-bg h2{color:#fff;position:relative;z-index:1;max-width:820px;margin:0 auto 14px;
-  font-size:clamp(2.8rem,5.5vw,5rem)}
-.cta-bg h2 em{color:var(--amber);font-style:italic}
-.cta-bg p{color:rgba(255,239,219,0.38);font-size:0.95rem;max-width:440px;margin:0 auto 40px;
-  line-height:1.72;font-weight:300;position:relative;z-index:1}
-.cta-actions{display:flex;align-items:center;justify-content:center;gap:16px;position:relative;z-index:1;flex-wrap:wrap}
-.btn-red{background:var(--red);color:#fff;padding:18px 40px;border-radius:100px;
-  font-family:'Oswald',sans-serif;font-size:1.1rem;font-weight:700;text-decoration:none;
-  letter-spacing:0.05em;text-transform:uppercase;
-  display:inline-flex;align-items:center;gap:10px;
-  box-shadow:0 6px 32px rgba(169,17,0,0.45);transition:background 0.2s,transform 0.15s,box-shadow 0.2s}
-.btn-red:hover{background:var(--red-light);transform:translateY(-3px);box-shadow:0 10px 48px rgba(169,17,0,0.5)}
+/* buttons below tablet */
+.cta-tablet-actions{position:relative;z-index:1;max-width:960px;margin:0 auto;
+  display:flex;align-items:stretch;gap:0;
+  background:rgba(0,0,0,0.28);border-radius:0 0 20px 20px;overflow:hidden}
+.btn-red{background:var(--red);color:#fff;padding:20px 40px;border-radius:0;flex:1;
+  font-family:'Oswald',sans-serif;font-size:1.15rem;font-weight:700;text-decoration:none;
+  letter-spacing:0.06em;text-transform:uppercase;
+  display:inline-flex;align-items:center;justify-content:center;gap:10px;
+  box-shadow:none;transition:background 0.2s,transform 0.15s}
+.btn-red:hover{background:var(--red-light)}
 .btn-red svg{width:16px;height:16px;stroke-width:2.5;fill:none;stroke:currentColor;stroke-linecap:round;stroke-linejoin:round}
-.btn-ghost-light{color:rgba(255,239,219,0.75);background:rgba(255,255,255,0.06);padding:17px 32px;
-  border-radius:100px;font-family:'Oswald',sans-serif;font-size:1.1rem;font-weight:600;text-decoration:none;
-  letter-spacing:0.05em;text-transform:uppercase;
-  border:1.5px solid rgba(255,255,255,0.18);display:inline-flex;align-items:center;gap:8px;transition:all 0.2s}
-.btn-ghost-light:hover{background:rgba(255,255,255,0.12);color:var(--cream);border-color:rgba(255,255,255,0.3)}
-.cta-email{font-size:0.76rem;color:rgba(255,239,219,0.22);margin-top:16px;position:relative;z-index:1}
+.btn-ghost-light{color:rgba(255,239,219,0.85);background:rgba(255,255,255,0.07);padding:20px 40px;flex:1;
+  border-radius:0;font-family:'Oswald',sans-serif;font-size:1.15rem;font-weight:600;text-decoration:none;
+  letter-spacing:0.06em;text-transform:uppercase;border:none;border-left:1px solid rgba(255,255,255,0.1);
+  display:inline-flex;align-items:center;justify-content:center;gap:8px;transition:all 0.2s}
+.btn-ghost-light:hover{background:rgba(255,255,255,0.13);color:var(--cream)}
+.cta-email{font-size:0.76rem;color:rgba(255,239,219,0.22);margin-top:16px;
+  position:relative;z-index:1;text-align:center}
 .cta-email a{color:rgba(255,239,219,0.42);text-decoration:underline}
+.cta-glow{display:none}
 
 /* ─── FOOTER ─── */
 footer{background:var(--teal-dark);border-top:1px solid rgba(255,255,255,0.08);padding:56px 40px 28px;position:relative;z-index:1}
@@ -1008,27 +1013,29 @@ footer{background:var(--teal-dark);border-top:1px solid rgba(255,255,255,0.08);p
 
 <!-- CTA -->
 <div id="demo" class="cta-bg">
-  <div class="cta-glow"></div>
-  <div class="rv">
-    <h2>Ready to Take Back<br><em>Control of Your Orders?</em></h2>
-    <p>See how VoiceBit can eliminate missed calls, cut third-party fees, and turn every phone call into revenue.</p>
-    <div class="cta-actions">
-      <a href="#" class="btn-red">
-        Book a Free Demo
-        <svg viewBox="0 0 16 16"><path d="M3 8h10M8 3l5 5-5 5"/></svg>
-      </a>
-      <a href="#contact" class="btn-ghost-light">Contact Us</a>
-    </div>
-    <p class="cta-email">Or email us directly at <a href="mailto:hello@voicebit.ai">hello@voicebit.ai</a></p>
+  <!-- staggered heading -->
+  <div class="cta-heading-block rv">
+    <span class="cta-line1">Ready to Take Back</span>
+    <span class="cta-line2">Control of Your Orders?</span>
+    <p class="cta-sub">See how VoiceBit eliminates missed calls, cuts third-party fees, and turns every phone call into revenue.</p>
   </div>
-  <!-- Dashboard tablet mockup -->
+  <!-- Big dashboard tablet -->
   <div class="cta-tablet-wrap">
     <div class="cta-tablet-frame">
       <div class="cta-tablet-screen">
         <img src="Photos/voicebit-dashboard.svg" alt="VoiceBit Dashboard" style="display:block;width:100%;height:auto">
       </div>
     </div>
+    <!-- buttons fused to bottom of tablet -->
+    <div class="cta-tablet-actions">
+      <a href="#" class="btn-red">
+        Book a Free Demo
+        <svg viewBox="0 0 16 16"><path d="M3 8h10M8 3l5 5-5 5"/></svg>
+      </a>
+      <a href="#contact" class="btn-ghost-light">Contact Us</a>
+    </div>
   </div>
+  <p class="cta-email" style="padding-bottom:32px">Or email us directly at <a href="mailto:hello@voicebit.ai">hello@voicebit.ai</a></p>
 </div>
 
 <!-- FAQ -->
