@@ -1663,6 +1663,14 @@ document.querySelectorAll('.hero-ex-chip[data-val]').forEach(chip=>{
     chipTimer=setInterval(()=>{heroTA.value=val.slice(0,++i);if(i===val.length){clearInterval(chipTimer);chipTimer=null;}},40);
   });
 });
+
+// Prevent horizontal scroll on mobile
+document.addEventListener('touchstart', function(e){ window._tsX = e.touches[0].clientX; window._tsY = e.touches[0].clientY; }, {passive:true});
+document.addEventListener('touchmove', function(e){
+  var dx = Math.abs(e.touches[0].clientX - window._tsX);
+  var dy = Math.abs(e.touches[0].clientY - window._tsY);
+  if(dx > dy){ e.preventDefault(); }
+}, {passive:false});
 </script>
 </div><!-- /page-wrap -->
 </body>
