@@ -151,29 +151,29 @@ h2 em{font-style:italic;color:var(--red)}
 .prob-bg h2{color:#fff;margin-bottom:0}
 .prob-heading-row{display:grid;grid-template-columns:1fr 1fr;align-items:end;gap:40px;margin-bottom:0}
 .prob-heading-sub{font-size:1.1rem;font-weight:300;color:rgba(255,255,255,0.55);line-height:1.55;padding-bottom:6px}
-.prob-layout{display:grid;grid-template-columns:240px 1fr;gap:0;background:rgba(255,255,255,0.04);
-  border:1px solid rgba(255,255,255,0.08);border-radius:var(--r);margin-top:48px;overflow:hidden;text-align:left}
+.prob-layout{display:grid;grid-template-columns:280px 1fr;gap:0;background:rgba(255,255,255,0.04);
+  border:1px solid rgba(255,255,255,0.08);border-radius:var(--r);margin-top:40px;overflow:hidden;text-align:left}
 /* Vertical tab list */
 .prob-tabs-v{border-right:1px solid rgba(255,255,255,0.08);display:flex;flex-direction:column}
-.prob-tab-v{background:none;border:none;cursor:pointer;padding:26px 24px;font-family:'Playfair Display',serif;
-  font-size:1.05rem;font-weight:700;color:rgba(255,255,255,0.35);text-align:left;
-  display:flex;flex-direction:column;gap:5px;transition:color 0.2s,background 0.2s;
+.prob-tab-v{background:none;border:none;cursor:pointer;padding:32px 28px;font-family:'Playfair Display',serif;
+  font-size:1.2rem;font-weight:700;color:rgba(255,255,255,0.35);text-align:left;
+  display:flex;flex-direction:column;gap:6px;transition:color 0.2s,background 0.2s;
   border-bottom:1px solid rgba(255,255,255,0.05);border-left:3px solid transparent;line-height:1.2}
 .prob-tab-v:last-child{border-bottom:none}
 .prob-tab-v:hover{color:rgba(255,255,255,0.75);background:rgba(255,255,255,0.03)}
 .prob-tab-v.active{color:#fff;background:rgba(255,255,255,0.06);font-weight:700;border-left-color:var(--amber)}
-.prob-tab-num{font-size:0.58rem;font-weight:700;letter-spacing:0.1em;opacity:0.45;font-family:'DM Sans',sans-serif}
+.prob-tab-num{font-size:0.6rem;font-weight:700;letter-spacing:0.1em;opacity:0.45;font-family:'DM Sans',sans-serif}
 /* Right content panels */
 .prob-panels{display:flex;flex-direction:column}
 .prob-panel{display:none;flex-direction:column}
 .prob-panel.active{display:flex}
-.prob-panel-issue{padding:32px 36px;border-bottom:1px solid rgba(255,255,255,0.08)}
-.prob-panel-solve{padding:24px 36px 32px}
+.prob-panel-issue{padding:40px 44px;border-bottom:1px solid rgba(255,255,255,0.08)}
+.prob-panel-solve{padding:32px 44px 40px}
 .prob-solve-label{font-size:0.62rem;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;
   color:var(--red-light);margin-bottom:10px}
 .prob-card-label{font-size:0.6rem;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;
   color:rgba(255,255,255,0.35);margin-bottom:14px}
-.prob-panel-issue p,.prob-panel-solve p{font-size:0.9rem;color:rgba(255,255,255,0.8);line-height:1.7;font-weight:300}
+.prob-panel-issue p,.prob-panel-solve p{font-size:1.05rem;color:rgba(255,255,255,0.8);line-height:1.75;font-weight:300}
 .prob-card-icon{width:44px;height:44px;border-radius:10px;background:rgba(169,17,0,0.22);
   display:flex;align-items:center;justify-content:center;margin-bottom:16px;stroke:var(--amber);fill:none;stroke-width:1.5;stroke-linecap:round;stroke-linejoin:round}
 .prob-card-icon svg{width:22px;height:22px}
@@ -291,11 +291,12 @@ h2 em{font-style:italic;color:var(--red)}
 .stats-partner-text{font-family:'Playfair Display',serif;font-size:clamp(1.3rem,2.2vw,1.75rem);
   font-weight:700;color:var(--ink);text-align:center;margin-bottom:36px;font-style:italic}
 .logo-marquee-wrap{overflow:hidden;margin-top:40px;position:relative;
-  width:100vw;left:50%;transform:translateX(-50%)}
+  width:100vw;left:50%;transform:translateX(-50%);display:flex;flex-direction:column;gap:12px}
 .logo-marquee-wrap::before,.logo-marquee-wrap::after{content:'';position:absolute;top:0;bottom:0;width:100px;z-index:2;pointer-events:none}
 .logo-marquee-wrap::before{left:0;background:linear-gradient(to right,var(--cream),transparent)}
 .logo-marquee-wrap::after{right:0;background:linear-gradient(to left,var(--cream),transparent)}
 .logo-marquee-track{display:flex;align-items:center;animation:logoMarquee 36s linear infinite;width:max-content}
+.logo-marquee-track.reverse{animation-direction:reverse}
 .logo-marquee-track:hover{animation-play-state:paused}
 @keyframes logoMarquee{from{transform:translateX(0)}to{transform:translateX(-50%)}}
 .logo-m-box{width:180px;height:100px;display:flex;align-items:center;justify-content:center;
@@ -591,11 +592,6 @@ footer{background:var(--teal-dark);border-top:1px solid rgba(255,255,255,0.08);p
 <div class="prob-bg">
   <div class="prob-inner">
     <h2 class="rv" style="text-align:left;color:#fff">Running a restaurant has never been harder…</h2>
-    <div class="rv" style="margin-top:20px;margin-bottom:4px">
-      <svg width="28" height="52" viewBox="0 0 28 52" fill="none" xmlns="http://www.w3.org/2000/svg" style="opacity:0.5">
-        <path d="M14 2 C14 2 14 38 14 44 M14 44 L6 36 M14 44 L22 36" stroke="rgba(255,255,255,0.7)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-      </svg>
-    </div>
 
     <div class="prob-layout rv">
       <!-- Left: vertical tabs -->
@@ -697,6 +693,30 @@ footer{background:var(--teal-dark);border-top:1px solid rgba(255,255,255,0.08);p
         <div class="logo-m-box"><img src="Photos/Restaurant Logos/Rayos.png" alt="Rayos"></div>
         <div class="logo-m-box"><img src="Photos/Restaurant Logos/Seniore_s_Logo-removebg-preview.png" alt="Seniore's"></div>
         <div class="logo-m-box"><img src="Photos/Restaurant Logos/falafel boy.webp" alt="Falafel Boy"></div>
+      </div>
+      <!-- Row 2 — same logos, reverse direction -->
+      <div class="logo-marquee-track reverse">
+        <div class="logo-m-box"><img src="Photos/Restaurant Logos/JJ Fish & Chicken.png" alt="JJ Fish & Chicken"></div>
+        <div class="logo-m-box"><img src="Photos/Restaurant Logos/Pizza Ponte.jpeg" alt="Pizza Ponte"></div>
+        <div class="logo-m-box"><img src="Photos/Restaurant Logos/Rayos.png" alt="Rayos"></div>
+        <div class="logo-m-box"><img src="Photos/Restaurant Logos/Seniore_s_Logo-removebg-preview.png" alt="Seniore's"></div>
+        <div class="logo-m-box"><img src="Photos/Restaurant Logos/falafel boy.webp" alt="Falafel Boy"></div>
+        <div class="logo-m-box"><img src="Photos/Restaurant Logos/A-town.jpg" alt="A-town"></div>
+        <div class="logo-m-box"><img src="Photos/Restaurant Logos/BAP Livermore.avif" alt="BAP Livermore"></div>
+        <div class="logo-m-box"><img src="Photos/Restaurant Logos/BAP San Ramon.png" alt="BAP San Ramon"></div>
+        <div class="logo-m-box"><img src="Photos/Restaurant Logos/Danville.avif" alt="Danville"></div>
+        <div class="logo-m-box"><img src="Photos/Restaurant Logos/NYPNP Pleasant Hill.png" alt="NYPNP Pleasant Hill"></div>
+        <!-- duplicate for seamless loop -->
+        <div class="logo-m-box"><img src="Photos/Restaurant Logos/JJ Fish & Chicken.png" alt="JJ Fish & Chicken"></div>
+        <div class="logo-m-box"><img src="Photos/Restaurant Logos/Pizza Ponte.jpeg" alt="Pizza Ponte"></div>
+        <div class="logo-m-box"><img src="Photos/Restaurant Logos/Rayos.png" alt="Rayos"></div>
+        <div class="logo-m-box"><img src="Photos/Restaurant Logos/Seniore_s_Logo-removebg-preview.png" alt="Seniore's"></div>
+        <div class="logo-m-box"><img src="Photos/Restaurant Logos/falafel boy.webp" alt="Falafel Boy"></div>
+        <div class="logo-m-box"><img src="Photos/Restaurant Logos/A-town.jpg" alt="A-town"></div>
+        <div class="logo-m-box"><img src="Photos/Restaurant Logos/BAP Livermore.avif" alt="BAP Livermore"></div>
+        <div class="logo-m-box"><img src="Photos/Restaurant Logos/BAP San Ramon.png" alt="BAP San Ramon"></div>
+        <div class="logo-m-box"><img src="Photos/Restaurant Logos/Danville.avif" alt="Danville"></div>
+        <div class="logo-m-box"><img src="Photos/Restaurant Logos/NYPNP Pleasant Hill.png" alt="NYPNP Pleasant Hill"></div>
       </div>
     </div>
 
