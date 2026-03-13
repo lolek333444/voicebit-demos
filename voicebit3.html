@@ -150,15 +150,27 @@ h1 em{font-style:italic;color:var(--red);font-family:'Playfair Display',serif}
 
 /* ─── STATS ─── */
 .stats-outer{max-width:1160px;margin:64px auto 0;padding:0 40px}
-.stats-band{display:grid;grid-template-columns:repeat(4,1fr);border:1px solid var(--border);
-  border-radius:var(--r);background:rgba(255,255,255,0.5);overflow:hidden}
-.stat-cell{padding:44px 40px;border-right:1px solid var(--border);position:relative}
-.stat-cell:last-child{border-right:none}
-.stat-cell::before{content:'';position:absolute;top:0;left:0;width:28px;height:2px;background:var(--red)}
-.stat-num{font-family:'Playfair Display',serif;font-size:3.2rem;font-weight:700;
-  letter-spacing:-0.03em;line-height:1;color:var(--ink);margin-bottom:10px}
-.stat-num em{font-style:normal;color:var(--red)}
-.stat-lbl{font-size:0.92rem;color:var(--ink-3);font-weight:300;line-height:1.55}
+.stats-band{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}
+.stat-cell{padding:40px 36px 36px;position:relative;border-radius:16px;
+  background:var(--teal);overflow:hidden;
+  box-shadow:0 4px 24px rgba(52,92,102,0.22);
+  transition:transform 0.25s,box-shadow 0.25s}
+.stat-cell:hover{transform:translateY(-6px);box-shadow:0 16px 48px rgba(52,92,102,0.3)}
+/* food texture overlay on each card */
+.stat-cell::after{content:'';position:absolute;inset:0;pointer-events:none;
+  background-image:url('Photos/background_photo.png');background-size:400px auto;
+  opacity:0.07;filter:brightness(0) invert(1)}
+/* alternating accent colors on top edge */
+.stat-cell:nth-child(1){border-top:4px solid var(--amber)}
+.stat-cell:nth-child(2){border-top:4px solid var(--cream);background:var(--teal-dark)}
+.stat-cell:nth-child(3){border-top:4px solid var(--red)}
+.stat-cell:nth-child(4){border-top:4px solid var(--amber);background:var(--teal-dark)}
+.stat-num{font-family:'Oswald',sans-serif;font-size:4rem;font-weight:700;
+  letter-spacing:-0.02em;line-height:1;color:var(--cream);margin-bottom:12px;
+  position:relative;z-index:1}
+.stat-num em{font-style:normal;color:var(--amber)}
+.stat-lbl{font-size:0.82rem;color:rgba(255,239,219,0.65);font-weight:400;line-height:1.5;
+  position:relative;z-index:1;text-transform:uppercase;letter-spacing:0.04em;font-size:0.72rem}
 
 /* ─── SECTIONS ─── */
 .section{max-width:1160px;margin:0 auto;padding:64px 40px 96px;position:relative;z-index:1}
