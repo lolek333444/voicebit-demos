@@ -29,9 +29,8 @@
   --r-sm: 10px;
 }
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
-html{scroll-behavior:smooth}
-body{font-family:'DM Sans',sans-serif;background:var(--cream);color:var(--ink);overscroll-behavior:none;touch-action:pan-y}
-.page-wrap{overflow-x:hidden;width:100%}
+html{scroll-behavior:smooth;overflow-x:hidden}
+body{font-family:'DM Sans',sans-serif;background:var(--cream);color:var(--ink);overflow-x:hidden}
 body::after{content:'';position:fixed;inset:0;pointer-events:none;z-index:0;
   background-image:url('Photos/background_photo.png');
   background-size:600px auto;background-repeat:repeat;background-position:top left;
@@ -892,7 +891,6 @@ nav{background:linear-gradient(135deg,rgba(42,74,82,0.97) 0%,rgba(52,92,102,0.97
 </style>
 </head>
 <body>
-<div class="page-wrap">
 
 <!-- NAV -->
 <nav>
@@ -1665,6 +1663,5 @@ document.querySelectorAll('.hero-ex-chip[data-val]').forEach(chip=>{
 });
 
 </script>
-</div><!-- /page-wrap -->
 </body>
 </html>
