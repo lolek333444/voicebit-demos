@@ -161,9 +161,7 @@ h1 em{font-style:italic;color:var(--red);font-family:'Playfair Display',serif}
 .stat-cell::after{content:'';position:absolute;inset:0;pointer-events:none;
   background-image:url('Photos/background_photo.png');background-size:400px auto;
   opacity:0.07;filter:brightness(0) invert(1)}
-/* alternating dark bg, no borders — shadow only */
-.stat-cell:nth-child(2){background:var(--teal-dark)}
-.stat-cell:nth-child(4){background:var(--teal-dark)}
+/* all same color — shadow only, no alternating */
 .stat-num{font-family:'Oswald',sans-serif;font-size:4rem;font-weight:700;
   letter-spacing:-0.02em;line-height:1;color:var(--cream);margin-bottom:12px;
   position:relative;z-index:1}
@@ -654,20 +652,26 @@ footer{background:var(--teal-dark);border-top:1px solid rgba(255,255,255,0.08);p
   .prob-bg{padding:48px 16px 56px;margin-top:40px}
   .prob-heading-row{grid-template-columns:1fr;gap:12px}
   .prob-layout{grid-template-columns:1fr;margin-top:32px;border-radius:16px}
-  /* tabs become horizontal scrollable row */
+  /* tabs: horizontal scrollable, visible text */
   .prob-tabs-v{flex-direction:row;overflow-x:auto;border-right:none;
     border-bottom:2px solid rgba(0,0,0,0.08);-webkit-overflow-scrolling:touch;
-    scrollbar-width:none}
+    scrollbar-width:none;background:#fff}
   .prob-tabs-v::-webkit-scrollbar{display:none}
-  .prob-tab-v{min-height:auto;padding:18px 20px;font-size:1rem;
+  .prob-tab-v{min-height:auto;padding:16px 18px;font-size:0.9rem;
     white-space:nowrap;border-left:none;border-bottom:3px solid transparent;
-    flex-shrink:0}
-  .prob-tab-v.active{border-left:none;border-bottom:3px solid var(--red);background:rgba(169,17,0,0.04)}
+    flex-shrink:0;color:var(--ink);text-align:center}
+  .prob-tab-v.active{border-left:none;border-bottom:3px solid var(--red);
+    color:var(--red);background:rgba(169,17,0,0.04)}
   /* panels stack vertically */
   .prob-panel.active{grid-template-columns:1fr}
-  .prob-panel-issue{padding:28px 20px;border-right:none;border-bottom:1px solid rgba(0,0,0,0.07)}
-  .prob-panel-solve{padding:28px 20px}
-  .prob-impact-num,.prob-solve-num{font-size:2.6rem}
+  .prob-panel-issue{padding:24px 18px;border-right:none;border-bottom:1px solid rgba(0,0,0,0.07)}
+  .prob-panel-solve{padding:24px 18px}
+  .prob-impact-num,.prob-solve-num{font-size:2.4rem}
+  .prob-issue-label,.prob-solve-label{font-size:0.82rem;padding:6px 12px 6px 9px}
+
+  /* TESTIMONIALS — stamp shrinks on mobile */
+  .trust-stamp{width:80px;height:80px;top:-16px;right:-10px}
+  .trust-stamp-flag{font-size:1.4rem}
 
   /* TESTIMONIALS CAROUSEL */
   .case-wrap{padding:48px 0 0}
@@ -677,6 +681,15 @@ footer{background:var(--teal-dark);border-top:1px solid rgba(255,255,255,0.08);p
   .cc-stage::before,.cc-stage::after{display:none}
   .cc-carousel-track .cc{width:280px;min-height:420px}
   .cc-carousel-wrap{padding:24px 0 40px}
+
+  /* STORY CARDS — stack vertically, photo on top capped height */
+  .story-card{grid-template-columns:1fr!important;grid-template-rows:220px auto;min-height:auto}
+  .story-photo{height:220px;position:relative}
+  .story-photo img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center 20%}
+  .story-left{padding:28px 20px 32px}
+  .story-read-btn{position:static;margin-top:20px;align-self:flex-start}
+  .stories-bg{padding:56px 16px 40px}
+  .stories-inner{gap:24px}
 
   /* FEATURES — use .feat-cards (the actual class) */
   .feat-cards{grid-template-columns:1fr}
