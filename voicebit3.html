@@ -148,29 +148,42 @@ h2 em{font-style:italic;color:var(--red)}
 .prob-bg{background:var(--teal);
   background-image:linear-gradient(rgba(255,255,255,0.04) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,0.04) 1px,transparent 1px);
   background-size:48px 48px;padding:96px 40px 80px;position:relative;z-index:1;margin-top:72px}
-.prob-inner{max-width:1160px;margin:0 auto}
-.prob-bg h2{color:#fff}.prob-bg .eyebrow{color:var(--amber)}.prob-bg .eyebrow::before{background:var(--amber)}
-.prob-tabs{display:flex;gap:0;margin-top:48px;border-bottom:1px solid rgba(255,255,255,0.1)}
-.prob-tab{background:none;border:none;cursor:pointer;padding:14px 32px;font-family:'DM Sans',sans-serif;
-  font-size:0.82rem;font-weight:500;color:rgba(255,255,255,0.42);position:relative;transition:color 0.2s;
-  display:flex;align-items:center;gap:8px;border-bottom:2px solid transparent;margin-bottom:-1px}
-.prob-tab:hover{color:rgba(255,255,255,0.75)}
-.prob-tab.active{color:#fff;border-bottom-color:var(--amber);font-weight:600}
-.prob-tab-num{font-size:0.6rem;font-weight:700;letter-spacing:0.1em;opacity:0.45}
-.prob-card{display:none;background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.08);
-  border-radius:var(--r);margin-top:24px;overflow:hidden;
-  display:none;grid-template-columns:1fr 1fr;min-height:200px}
-.prob-card.active{display:grid}
-.prob-card-issue{padding:36px 40px;border-right:1px solid rgba(255,255,255,0.07)}
-.prob-card-solve{padding:36px 40px;background:rgba(218,146,26,0.06)}
+.prob-inner{max-width:1160px;margin:0 auto;text-align:center}
+.prob-bg h2{color:#fff;margin-bottom:0}
+.prob-layout{display:grid;grid-template-columns:240px 1fr;gap:0;background:rgba(255,255,255,0.04);
+  border:1px solid rgba(255,255,255,0.08);border-radius:var(--r);margin-top:48px;overflow:hidden;text-align:left}
+/* Vertical tab list */
+.prob-tabs-v{border-right:1px solid rgba(255,255,255,0.08);display:flex;flex-direction:column}
+.prob-tab-v{background:none;border:none;cursor:pointer;padding:22px 24px;font-family:'DM Sans',sans-serif;
+  font-size:0.8rem;font-weight:500;color:rgba(255,255,255,0.4);text-align:left;
+  display:flex;flex-direction:column;gap:4px;transition:color 0.2s,background 0.2s;
+  border-bottom:1px solid rgba(255,255,255,0.05);border-left:3px solid transparent}
+.prob-tab-v:last-child{border-bottom:none}
+.prob-tab-v:hover{color:rgba(255,255,255,0.75);background:rgba(255,255,255,0.03)}
+.prob-tab-v.active{color:#fff;background:rgba(255,255,255,0.06);font-weight:600;border-left-color:var(--amber)}
+.prob-tab-num{font-size:0.58rem;font-weight:700;letter-spacing:0.1em;opacity:0.45}
+/* Right content panels */
+.prob-panels{display:flex;flex-direction:column}
+.prob-panel{display:none;flex-direction:column}
+.prob-panel.active{display:flex}
+.prob-panel-issue{padding:32px 36px;border-bottom:1px solid rgba(255,255,255,0.08)}
+.prob-panel-solve{padding:24px 36px 32px}
+.prob-solve-label{font-size:0.62rem;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;
+  color:var(--red-light);margin-bottom:10px}
 .prob-card-label{font-size:0.6rem;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;
   color:rgba(255,255,255,0.35);margin-bottom:14px}
-.prob-card-label.solve{color:var(--amber)}
-.prob-card-issue p,.prob-card-solve p{font-size:0.95rem;color:rgba(255,255,255,0.8);line-height:1.7;font-weight:300}
+.prob-panel-issue p,.prob-panel-solve p{font-size:0.9rem;color:rgba(255,255,255,0.8);line-height:1.7;font-weight:300}
 .prob-card-icon{width:44px;height:44px;border-radius:10px;background:rgba(169,17,0,0.22);
-  display:flex;align-items:center;justify-content:center;margin-bottom:20px;stroke:var(--amber);fill:none;stroke-width:1.5;stroke-linecap:round;stroke-linejoin:round}
+  display:flex;align-items:center;justify-content:center;margin-bottom:16px;stroke:var(--amber);fill:none;stroke-width:1.5;stroke-linecap:round;stroke-linejoin:round}
 .prob-card-icon svg{width:22px;height:22px}
-.prob-card-title{font-family:'Playfair Display',serif;font-size:1.4rem;font-weight:700;color:#fff;margin-bottom:12px}
+.prob-card-title{font-family:'Playfair Display',serif;font-size:1.3rem;font-weight:700;color:#fff;margin-bottom:10px}
+
+/* ─── INTEGRATION LOGO BOXES ─── */
+.int-logos-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;max-width:820px;margin:48px auto 0}
+.int-logo-box{border-radius:18px;aspect-ratio:1;display:flex;align-items:center;justify-content:center;
+  overflow:hidden;transition:transform 0.2s,box-shadow 0.2s}
+.int-logo-box:hover{transform:translateY(-4px);box-shadow:0 12px 32px rgba(0,0,0,0.18)}
+.int-logo-box img{width:72%;height:72%;object-fit:contain}
 
 /* ─── FEATURES ─── */
 .feat-grid{display:grid;grid-template-columns:1fr 1fr;grid-template-rows:auto auto;gap:16px;margin-top:48px}
@@ -430,7 +443,10 @@ footer{background:var(--teal-dark);border-top:1px solid rgba(255,255,255,0.08);p
 <!-- CASE STUDIES / TESTIMONIALS -->
 <div id="cases" class="case-wrap">
   <div class="case-inner">
-    <h2 class="rv" style="text-align:center">Real restaurants.<br><em>Real results.</em></h2>
+    <h2 style="text-align:center;line-height:1.15">
+      <span class="rv" style="display:block">Real restaurants.</span>
+      <span class="rv d2" style="display:block"><em>Real results.</em></span>
+    </h2>
     <div class="cc-carousel-wrap">
       <div class="cc-carousel-track">
         <!-- Set 1 (8 cards: Ray, Chando alternating x4) -->
@@ -539,55 +555,63 @@ footer{background:var(--teal-dark);border-top:1px solid rgba(255,255,255,0.08);p
 <!-- PROBLEMS -->
 <div class="prob-bg">
   <div class="prob-inner">
-    <div class="eyebrow rv">The Reality</div>
     <h2 class="rv">Running a restaurant<br>has never been harder</h2>
 
-    <div class="prob-tabs rv">
-      <button class="prob-tab active" data-tab="0">
-        <span class="prob-tab-num">01</span> Shrinking Margins
-      </button>
-      <button class="prob-tab" data-tab="1">
-        <span class="prob-tab-num">02</span> Missed Calls &amp; Staffing
-      </button>
-      <button class="prob-tab" data-tab="2">
-        <span class="prob-tab-num">03</span> The AI Ordering Shift
-      </button>
-    </div>
+    <div class="prob-layout rv">
+      <!-- Left: vertical tabs -->
+      <div class="prob-tabs-v">
+        <button class="prob-tab-v active" data-tab="0">
+          <span class="prob-tab-num">01</span>
+          Shrinking Margins
+        </button>
+        <button class="prob-tab-v" data-tab="1">
+          <span class="prob-tab-num">02</span>
+          Missed Calls &amp; Staffing
+        </button>
+        <button class="prob-tab-v" data-tab="2">
+          <span class="prob-tab-num">03</span>
+          The AI Ordering Shift
+        </button>
+      </div>
 
-    <div class="prob-card active" data-content="0">
-      <div class="prob-card-issue">
-        <div class="prob-card-icon"><svg viewBox="0 0 24 24"><path d="M12 2v4M12 18v4M4.93 4.93l2.83 2.83M16.24 16.24l2.83 2.83M2 12h4M18 12h4M4.93 19.07l2.83-2.83M16.24 7.76l2.83-2.83"/></svg></div>
-        <div class="prob-card-title">Shrinking Margins</div>
-        <div class="prob-card-label">The Issue</div>
-        <p>Third-party delivery apps take 25–30% of every order, cutting directly into your profits and pushing customers toward their platforms instead of yours.</p>
-      </div>
-      <div class="prob-card-solve">
-        <div class="prob-card-label solve">✦ VoiceBit solves this</div>
-        <p>Capture every order through your own channels — phone and web. Zero commissions. 100% of revenue stays in your restaurant, every single time.</p>
-      </div>
-    </div>
-    <div class="prob-card" data-content="1">
-      <div class="prob-card-issue">
-        <div class="prob-card-icon"><svg viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.81a19.79 19.79 0 01-3.07-8.68A2 2 0 012 .18h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.09 7.91a16 16 0 006 6l1.09-1.09a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg></div>
-        <div class="prob-card-title">Missed Calls &amp; Staffing</div>
-        <div class="prob-card-label">The Issue</div>
-        <p>Hiring and retaining staff is harder than ever. Phones go unanswered during rush hour, costing you real orders and loyal customers every single day.</p>
-      </div>
-      <div class="prob-card-solve">
-        <div class="prob-card-label solve">✦ VoiceBit solves this</div>
-        <p>AI handles every call automatically — consistent, fast, and accurate — without pulling a single staff member off the floor, even at peak hours.</p>
-      </div>
-    </div>
-    <div class="prob-card" data-content="2">
-      <div class="prob-card-issue">
-        <div class="prob-card-icon"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 8v4l3 3"/></svg></div>
-        <div class="prob-card-title">The AI Ordering Shift</div>
-        <div class="prob-card-label">The Issue</div>
-        <p>Customers are ordering through AI assistants and smart devices. Restaurants still on traditional or third-party channels risk falling permanently behind.</p>
-      </div>
-      <div class="prob-card-solve">
-        <div class="prob-card-label solve">✦ VoiceBit solves this</div>
-        <p>VoiceBit puts your restaurant at the center of the AI ordering ecosystem — direct, commission-free, and built for the way customers order today and tomorrow.</p>
+      <!-- Right: stacked issue + solve panels -->
+      <div class="prob-panels">
+        <div class="prob-panel active" data-content="0">
+          <div class="prob-panel-issue">
+            <div class="prob-card-icon"><svg viewBox="0 0 24 24"><path d="M12 2v4M12 18v4M4.93 4.93l2.83 2.83M16.24 16.24l2.83 2.83M2 12h4M18 12h4M4.93 19.07l2.83-2.83M16.24 7.76l2.83-2.83"/></svg></div>
+            <div class="prob-card-title">Shrinking Margins</div>
+            <div class="prob-card-label">The Issue</div>
+            <p>Third-party delivery apps take 25–30% of every order, cutting directly into your profits and pushing customers toward their platforms instead of yours.</p>
+          </div>
+          <div class="prob-panel-solve">
+            <div class="prob-solve-label">✦ VoiceBit Solves This</div>
+            <p>By capturing every order through your own channels — phone and web. Zero commissions. 100% of revenue stays in your restaurant, every single time.</p>
+          </div>
+        </div>
+        <div class="prob-panel" data-content="1">
+          <div class="prob-panel-issue">
+            <div class="prob-card-icon"><svg viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.81a19.79 19.79 0 01-3.07-8.68A2 2 0 012 .18h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.09 7.91a16 16 0 006 6l1.09-1.09a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg></div>
+            <div class="prob-card-title">Missed Calls &amp; Staffing</div>
+            <div class="prob-card-label">The Issue</div>
+            <p>Hiring and retaining staff is harder than ever. Phones go unanswered during rush hour, costing you real orders and loyal customers every single day.</p>
+          </div>
+          <div class="prob-panel-solve">
+            <div class="prob-solve-label">✦ VoiceBit Solves This</div>
+            <p>By handling every call automatically — consistent, fast, and accurate — without pulling a single staff member off the floor, even at peak hours.</p>
+          </div>
+        </div>
+        <div class="prob-panel" data-content="2">
+          <div class="prob-panel-issue">
+            <div class="prob-card-icon"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 8v4l3 3"/></svg></div>
+            <div class="prob-card-title">The AI Ordering Shift</div>
+            <div class="prob-card-label">The Issue</div>
+            <p>Customers are ordering through AI assistants and smart devices. Restaurants still on traditional or third-party channels risk falling permanently behind.</p>
+          </div>
+          <div class="prob-panel-solve">
+            <div class="prob-solve-label">✦ VoiceBit Solves This</div>
+            <p>By putting your restaurant at the center of the AI ordering ecosystem — direct, commission-free, and built for the way customers order today and tomorrow.</p>
+          </div>
+        </div>
       </div>
     </div>
 
@@ -616,21 +640,6 @@ footer{background:var(--teal-dark);border-top:1px solid rgba(255,255,255,0.08);p
       </div>
     </div>
 
-    <div class="rv" style="margin-top:48px;text-align:center">
-      <p style="font-size:0.78rem;color:var(--ink-3);letter-spacing:0.06em;text-transform:uppercase;font-weight:600;margin-bottom:28px">Trusted by restaurants across the country</p>
-      <div class="trusted-grid" style="border-top:1px solid var(--border)">
-        <div class="trusted-logo"><img src="Photos/Restaurant%20Logos/A-town.jpg" alt="A-town"></div>
-        <div class="trusted-logo"><img src="Photos/Restaurant%20Logos/BAP%20Livermore.avif" alt="BAP Livermore"></div>
-        <div class="trusted-logo"><img src="Photos/Restaurant%20Logos/BAP%20San%20Ramon.png" alt="BAP San Ramon"></div>
-        <div class="trusted-logo"><img src="Photos/Restaurant%20Logos/Danville.avif" alt="Danville"></div>
-        <div class="trusted-logo"><img src="Photos/Restaurant%20Logos/JJ%20Fish%20%26%20Chicken.png" alt="JJ Fish &amp; Chicken"></div>
-        <div class="trusted-logo"><img src="Photos/Restaurant%20Logos/NYPNP%20Pleasant%20Hill.png" alt="NYPNP Pleasant Hill"></div>
-        <div class="trusted-logo"><img src="Photos/Restaurant%20Logos/Pizza%20Ponte.jpeg" alt="Pizza Ponte"></div>
-        <div class="trusted-logo"><img src="Photos/Restaurant%20Logos/Rayos.png" alt="Rayos"></div>
-        <div class="trusted-logo"><img src="Photos/Restaurant%20Logos/Seniore_s_Logo-removebg-preview.png" alt="Seniore's"></div>
-        <div class="trusted-logo"><img src="Photos/Restaurant%20Logos/falafel%20boy.webp" alt="Falafel Boy"></div>
-      </div>
-    </div>
   </div>
 </div>
 
@@ -693,6 +702,59 @@ footer{background:var(--teal-dark);border-top:1px solid rgba(255,255,255,0.08);p
 <div id="integrations" class="int-bg">
   <div class="int-inner" style="text-align:center">
     <h2 class="rv">Connects with your stack</h2>
+    <div class="int-logos-grid rv d1">
+      <!-- Row 1 -->
+      <div class="int-logo-box" style="background:#31A13E">
+        <svg viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <circle cx="27" cy="27" r="14" fill="white" opacity="0.9"/>
+          <circle cx="53" cy="27" r="14" fill="white" opacity="0.9"/>
+          <circle cx="27" cy="53" r="14" fill="white" opacity="0.9"/>
+          <circle cx="53" cy="53" r="14" fill="white" opacity="0.9"/>
+        </svg>
+      </div>
+      <div class="int-logo-box" style="background:#000000">
+        <svg viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <rect x="16" y="16" width="48" height="48" rx="8" fill="white" opacity="0.9"/>
+          <rect x="28" y="28" width="24" height="24" rx="4" fill="#000"/>
+        </svg>
+      </div>
+      <div class="int-logo-box" style="background:#E8431F">
+        <svg viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <rect x="14" y="26" width="52" height="8" rx="4" fill="white" opacity="0.9"/>
+          <path d="M24 34 Q24 54 40 58 Q56 54 56 34" fill="white" opacity="0.9"/>
+          <rect x="36" y="14" width="8" height="18" rx="4" fill="white" opacity="0.9"/>
+        </svg>
+      </div>
+      <div class="int-logo-box" style="background:#1A2035">
+        <svg viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M20 55 L40 25 L60 55" stroke="white" stroke-width="8" stroke-linecap="round" stroke-linejoin="round" opacity="0.9"/>
+          <circle cx="40" cy="25" r="6" fill="white" opacity="0.9"/>
+        </svg>
+      </div>
+      <!-- Row 2 -->
+      <div class="int-logo-box" style="background:#FF3008">
+        <svg viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <circle cx="40" cy="36" r="14" fill="white" opacity="0.9"/>
+          <rect x="32" y="48" width="16" height="18" rx="3" fill="white" opacity="0.9"/>
+        </svg>
+      </div>
+      <div class="int-logo-box" style="background:#4353FF">
+        <svg viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <circle cx="40" cy="40" r="22" stroke="white" stroke-width="6" opacity="0.9"/>
+          <path d="M40 22 L44 34 L58 34 L47 42 L51 55 L40 47 L29 55 L33 42 L22 34 L36 34 Z" fill="white" opacity="0.9"/>
+        </svg>
+      </div>
+      <div class="int-logo-box" style="background:#00A5C8">
+        <svg viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <text x="12" y="52" font-family="Arial" font-size="28" font-weight="700" fill="white" opacity="0.95">o|o</text>
+        </svg>
+      </div>
+      <div class="int-logo-box" style="background:#111111">
+        <svg viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <text x="10" y="48" font-family="Arial" font-size="22" font-weight="700" fill="white" opacity="0.9">Otter</text>
+        </svg>
+      </div>
+    </div>
   </div>
 </div>
 
@@ -795,14 +857,14 @@ const cobs=new IntersectionObserver(e=>{
 },{threshold:0.3});
 const ps=document.getElementById('proof-stats');
 if(ps)cobs.observe(ps);
-// Problems section tabs
-document.querySelectorAll('.prob-tab').forEach(tab => {
+// Problems section tabs (vertical)
+document.querySelectorAll('.prob-tab-v').forEach(tab => {
   tab.addEventListener('click', () => {
     const idx = tab.dataset.tab;
-    document.querySelectorAll('.prob-tab').forEach(t => t.classList.remove('active'));
-    document.querySelectorAll('.prob-card').forEach(c => c.classList.remove('active'));
+    document.querySelectorAll('.prob-tab-v').forEach(t => t.classList.remove('active'));
+    document.querySelectorAll('.prob-panel').forEach(c => c.classList.remove('active'));
     tab.classList.add('active');
-    document.querySelector('.prob-card[data-content="' + idx + '"]').classList.add('active');
+    document.querySelector('.prob-panel[data-content="' + idx + '"]').classList.add('active');
   });
 });
 </script>
