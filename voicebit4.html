@@ -212,9 +212,19 @@ h2 em{font-style:italic;color:var(--red)}
 .prob-bg h2{color:var(--red);margin-bottom:0}
 .prob-heading-row{display:grid;grid-template-columns:1fr 1fr;align-items:end;gap:40px;margin-bottom:0}
 .prob-heading-sub{font-size:1.1rem;font-weight:300;color:var(--ink-2);line-height:1.55;padding-bottom:6px}
-.prob-layout{display:grid;grid-template-columns:360px 1fr;gap:0;background:#fff;
-  border:none;border-radius:20px;margin-top:48px;overflow:hidden;text-align:left;
-  box-shadow:0 8px 28px rgba(0,0,0,0.18),0 2px 8px rgba(0,0,0,0.10)}
+.prob-layout{display:grid;grid-template-columns:360px 1fr;gap:0;
+  background:linear-gradient(#fff,#fff) padding-box,
+             linear-gradient(135deg,var(--teal) 0%,var(--amber) 50%,var(--red) 100%) border-box;
+  border:2px solid transparent;
+  border-radius:20px;margin-top:48px;overflow:hidden;text-align:left;
+  box-shadow:0 24px 64px rgba(52,92,102,0.18),0 4px 16px rgba(52,92,102,0.10),
+             0 0 0 1px rgba(52,92,102,0.04);
+  position:relative}
+/* subtle dot-grid inside the box */
+.prob-layout::after{content:'';position:absolute;inset:0;pointer-events:none;z-index:0;
+  background-image:radial-gradient(circle,rgba(52,92,102,0.06) 1px,transparent 1px);
+  background-size:22px 22px}
+.prob-tabs-v,.prob-panels{position:relative;z-index:1}
 /* Vertical tab list */
 .prob-tabs-v{border-right:2px solid var(--border);display:flex;flex-direction:column}
 .prob-tab-v{background:none;border:none;cursor:pointer;padding:0 28px;min-height:150px;
