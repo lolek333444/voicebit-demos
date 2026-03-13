@@ -43,9 +43,9 @@ nav{position:fixed;top:18px;left:50%;transform:translateX(-50%);z-index:300;
   border-radius:100px;padding:7px 7px 7px 20px;
   box-shadow:0 4px 32px rgba(52,92,102,0.28);white-space:nowrap;gap:0}
 .nav-logo{display:flex;align-items:center;text-decoration:none;margin-right:24px}
-.nav-logo img{height:28px;width:auto;filter:brightness(0) saturate(100%) invert(70%) sepia(60%) saturate(600%) hue-rotate(5deg) brightness(1.1)}
+.nav-logo img{height:28px;width:auto;filter:brightness(0) invert(1) sepia(1) saturate(0) brightness(1.15)}
 .nav-links{display:flex;align-items:center;gap:1px;list-style:none}
-.nav-links a{text-decoration:none;color:rgba(255,255,255,0.85);font-size:0.83rem;font-weight:400;
+.nav-links a{text-decoration:none;color:var(--cream);font-size:0.83rem;font-weight:400;
   padding:7px 15px;border-radius:100px;transition:color 0.2s,background 0.2s}
 .nav-links a:hover{color:var(--cream);background:rgba(255,255,255,0.1)}
 .nav-cta{background:var(--red)!important;color:#fff!important;font-weight:600!important;
@@ -169,8 +169,10 @@ h2 em{font-style:italic;color:var(--red)}
 .prob-panel.active{display:grid;grid-template-columns:1fr 1fr}
 .prob-panel-issue{padding:40px 36px 40px 44px;border-right:1px solid rgba(255,255,255,0.08)}
 .prob-panel-solve{padding:40px 44px 40px 36px}
-.prob-solve-label{font-family:'Oswald',sans-serif;font-size:0.72rem;font-weight:700;letter-spacing:0.12em;
-  text-transform:uppercase;color:var(--red-light);margin-bottom:12px}
+.prob-issue-label{font-family:'Playfair Display',serif;font-size:1.2rem;font-weight:700;
+  color:var(--red-light);margin-bottom:14px;line-height:1}
+.prob-solve-label{font-family:'Playfair Display',serif;font-size:1.2rem;font-weight:700;
+  color:var(--amber);margin-bottom:14px;line-height:1}
 .prob-card-label{font-size:0.6rem;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;
   color:rgba(255,255,255,0.35);margin-bottom:14px}
 .prob-panel-issue p,.prob-panel-solve p{font-size:1.05rem;color:rgba(255,255,255,0.8);line-height:1.75;font-weight:300}
@@ -376,7 +378,7 @@ h2 em{font-style:italic;color:var(--red)}
 .fi.open .fa{max-height:220px;padding:0 22px 18px}
 
 /* ─── CTA ─── */
-.cta-bg{background:var(--teal);padding:96px 40px 0;text-align:center;position:relative;z-index:1;overflow:visible}
+.cta-bg{background:var(--teal);padding:96px 40px 0;text-align:center;position:relative;z-index:1;overflow:hidden}
 .cta-bg::before{content:'';position:absolute;inset:0;pointer-events:none;z-index:0;
   background-image:url('Photos/background_photo.png');background-size:600px auto;background-repeat:repeat;
   opacity:0.06;filter:brightness(0) invert(1)}
@@ -627,28 +629,31 @@ footer{background:var(--teal-dark);border-top:1px solid rgba(255,255,255,0.08);p
       <div class="prob-panels">
         <div class="prob-panel active" data-content="0">
           <div class="prob-panel-issue">
+            <div class="prob-issue-label">Problem</div>
             <p>Third-party delivery apps take 25–30% of every order, cutting directly into your profits and pushing customers toward their platforms instead of yours.</p>
           </div>
           <div class="prob-panel-solve">
-            <div class="prob-solve-label">✦ VoiceBit Solves This</div>
+            <div class="prob-solve-label">VoiceBit Solves This</div>
             <p>By capturing every order through your own channels — phone and web. Zero commissions. 100% of revenue stays in your restaurant, every single time.</p>
           </div>
         </div>
         <div class="prob-panel" data-content="1">
           <div class="prob-panel-issue">
+            <div class="prob-issue-label">Problem</div>
             <p>Hiring and retaining staff is harder than ever. Phones go unanswered during rush hour, costing you real orders and loyal customers every single day.</p>
           </div>
           <div class="prob-panel-solve">
-            <div class="prob-solve-label">✦ VoiceBit Solves This</div>
+            <div class="prob-solve-label">VoiceBit Solves This</div>
             <p>By handling every call automatically — consistent, fast, and accurate — without pulling a single staff member off the floor, even at peak hours.</p>
           </div>
         </div>
         <div class="prob-panel" data-content="2">
           <div class="prob-panel-issue">
+            <div class="prob-issue-label">Problem</div>
             <p>Customers are ordering through AI assistants and smart devices. Restaurants still on traditional or third-party channels risk falling permanently behind.</p>
           </div>
           <div class="prob-panel-solve">
-            <div class="prob-solve-label">✦ VoiceBit Solves This</div>
+            <div class="prob-solve-label">VoiceBit Solves This</div>
             <p>By putting your restaurant at the center of the AI ordering ecosystem — direct, commission-free, and built for the way customers order today and tomorrow.</p>
           </div>
         </div>
@@ -873,7 +878,6 @@ footer{background:var(--teal-dark);border-top:1px solid rgba(255,255,255,0.08);p
 <div id="demo" class="cta-bg">
   <div class="cta-glow"></div>
   <div class="rv">
-    <div class="cta-tag">Get Started</div>
     <h2>Ready to Take Back<br><em>Control of Your Orders?</em></h2>
     <p>See how VoiceBit can eliminate missed calls, cut third-party fees, and turn every phone call into revenue.</p>
     <div class="cta-actions">
@@ -898,7 +902,6 @@ footer{background:var(--teal-dark);border-top:1px solid rgba(255,255,255,0.08);p
 <!-- FAQ -->
 <div id="faq" class="faq-bg">
   <div class="faq-inner">
-    <div class="eyebrow rv" style="justify-content:center">FAQ</div>
     <h2 class="rv">Frequently asked questions</h2>
     <p class="s-desc rv" style="margin:0 auto">Everything restaurant owners ask before getting started with VoiceBit.</p>
     <div class="faq-list">
