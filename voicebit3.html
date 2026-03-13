@@ -189,14 +189,11 @@ h2 em{font-style:italic;color:var(--red)}
 
 /* ─── FEAT STACK BLOCK (integrations embedded in features) ─── */
 .feat-stack-block{position:relative;margin-top:16px;border-radius:var(--r);overflow:hidden;
-  background:var(--teal);min-height:180px;display:flex;align-items:center;justify-content:center}
-.feat-stack-block::before{content:'';position:absolute;inset:0;pointer-events:none;z-index:0;
-  background-image:url('Photos/background_photo.png');background-size:600px auto;background-repeat:repeat;
-  opacity:0.07;filter:brightness(0) invert(1)}
-.feat-stack-marquee-bg{position:absolute;inset:0;display:flex;align-items:center;overflow:hidden;opacity:0.38}
-.feat-stack-marquee-track{display:flex;gap:0;animation:intMarquee 20s linear infinite;width:max-content;white-space:nowrap}
-.feat-stack-marquee-track span{font-family:'DM Sans',sans-serif;font-size:1.6rem;font-weight:700;
-  color:#fff;padding:0 36px;border-right:1px solid rgba(255,255,255,0.2);letter-spacing:0.02em}
+  background:var(--teal);min-height:200px;display:flex;align-items:center;justify-content:center}
+.feat-stack-logos-bg{position:absolute;inset:0;display:flex;align-items:center;justify-content:space-around;
+  padding:0 40px;pointer-events:none;z-index:0}
+.feat-stack-logos-bg .pos-logo{font-family:'DM Sans',sans-serif;font-size:2.2rem;font-weight:800;
+  color:#fff;opacity:0.09;letter-spacing:-0.02em;white-space:nowrap;user-select:none}
 .feat-stack-content{position:relative;z-index:2;text-align:center;padding:48px 40px}
 .feat-stack-content h2{color:#fff;margin-bottom:10px}
 .feat-stack-content h2 em{color:var(--amber)}
@@ -363,7 +360,7 @@ h2 em{font-style:italic;color:var(--red)}
 .fi.open .fa{max-height:220px;padding:0 22px 18px}
 
 /* ─── CTA ─── */
-.cta-bg{background:var(--teal);padding:96px 40px 0;text-align:center;position:relative;z-index:1;overflow:hidden}
+.cta-bg{background:var(--teal);padding:96px 40px 0;text-align:center;position:relative;z-index:1;overflow:visible}
 .cta-bg::before{content:'';position:absolute;inset:0;pointer-events:none;z-index:0;
   background-image:url('Photos/background_photo.png');background-size:600px auto;background-repeat:repeat;
   opacity:0.06;filter:brightness(0) invert(1)}
@@ -774,10 +771,13 @@ footer{background:var(--teal-dark);border-top:1px solid rgba(255,255,255,0.08);p
 
   <!-- Connects with your stack — embedded after the 3 cards -->
   <div id="integrations" class="feat-stack-block rv d2">
-    <div class="feat-stack-marquee-bg">
-      <div class="feat-stack-marquee-track">
-        <span>Square</span><span>Clover</span><span>Toast POS</span><span>Square</span><span>Clover</span><span>Toast POS</span><span>Square</span><span>Clover</span><span>Toast POS</span><span>Square</span><span>Clover</span><span>Toast POS</span><span>Square</span><span>Clover</span><span>Toast POS</span><span>Square</span><span>Clover</span><span>Toast POS</span>
-      </div>
+    <div class="feat-stack-logos-bg">
+      <span class="pos-logo">Square</span>
+      <span class="pos-logo">Clover</span>
+      <span class="pos-logo">Toast</span>
+      <span class="pos-logo">Square</span>
+      <span class="pos-logo">Clover</span>
+      <span class="pos-logo">Toast</span>
     </div>
     <div class="feat-stack-content">
       <h2>Connects with your <em>stack</em></h2>
@@ -870,10 +870,10 @@ footer{background:var(--teal-dark);border-top:1px solid rgba(255,255,255,0.08);p
     <p class="cta-email">Or email us directly at <a href="mailto:hello@voicebit.ai">hello@voicebit.ai</a></p>
   </div>
   <!-- Dashboard tablet mockup -->
-  <div class="cta-tablet-wrap rv">
+  <div class="cta-tablet-wrap">
     <div class="cta-tablet-frame">
       <div class="cta-tablet-screen">
-        <img src="Photos/voicebit-dashboard.svg" alt="VoiceBit Dashboard">
+        <img src="Photos/voicebit-dashboard.svg" alt="VoiceBit Dashboard" style="display:block;width:100%;height:auto">
       </div>
     </div>
   </div>
