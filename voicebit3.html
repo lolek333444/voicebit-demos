@@ -179,9 +179,9 @@ h1 em{font-style:italic;color:var(--red);font-family:'Playfair Display',serif}
   transition:transform 0.25s,box-shadow 0.25s;
   display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center}
 .stat-cell:hover{transform:translateY(-6px);box-shadow:0 16px 48px rgba(52,92,102,0.3)}
-/* amber brush stroke behind each stat */
+/* amber brush stroke — turbulence displacement for real bristle texture */
 .stat-cell::before{content:'';position:absolute;inset:-4px;pointer-events:none;z-index:0;
-  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 280 130'%3E%3Cpath d='M5,95 C10,75 18,65 28,68 Q36,50 48,60 Q56,38 70,50 Q78,26 92,38 Q102,16 116,28 Q126,8 140,20 Q150,4 164,14 Q174,0 188,10 Q198,2 212,12 Q222,5 238,16 Q248,10 260,22 C266,26 272,32 274,40 C276,50 272,58 264,62 Q255,70 244,58 Q234,68 222,56 Q212,66 200,54 Q190,62 178,50 Q168,58 156,46 Q146,54 134,42 Q124,50 112,38 Q102,46 90,35 Q80,42 68,32 Q56,40 44,32 Q32,42 20,52 C12,60 5,76 5,95 Z' fill='rgba(218,146,26,0.42)'/%3E%3C/svg%3E");
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 280 130'%3E%3Cdefs%3E%3Cfilter id='b' x='-20' y='-28' width='320' height='186' filterUnits='userSpaceOnUse'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.055 0.12' numOctaves='4' seed='8' result='noise'/%3E%3CfeDisplacementMap in='SourceGraphic' in2='noise' scale='16' xChannelSelector='R' yChannelSelector='G'/%3E%3C/filter%3E%3C/defs%3E%3Cpath d='M8,96 L22,28 L272,18 L258,86 Z' fill='rgba(218,146,26,0.58)' filter='url(%23b)'/%3E%3Cpath d='M14,88 L26,36 L266,26 L253,80 Z' fill='rgba(218,146,26,0.32)' filter='url(%23b)'/%3E%3C/svg%3E");
   background-size:100% 100%;background-repeat:no-repeat}
 .stat-cell::after{content:none}
 /* all same color — shadow only, no alternating */
