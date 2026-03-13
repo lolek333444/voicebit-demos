@@ -281,17 +281,27 @@ h2 em{font-style:italic;color:var(--red)}
 .stats-section{background:var(--cream);padding:80px 40px;position:relative;z-index:1}
 .stats-section-inner{max-width:1160px;margin:0 auto}
 
-/* ─── SOCIAL PROOF ─── */
-.proof-bg{background:var(--teal-dark);padding:80px 40px;position:relative;z-index:1}
-.proof-inner{max-width:1160px;margin:0 auto;display:grid;grid-template-columns:1fr 2fr;gap:64px;align-items:center}
-.proof-bg h2{color:#fff;margin-bottom:10px}
-.proof-bg .eyebrow{color:var(--amber)}.proof-bg .eyebrow::before{background:var(--amber)}
-.proof-bg p{font-size:0.88rem;color:rgba(255,239,219,0.38);font-weight:300;line-height:1.7}
-.proof-stats{display:grid;grid-template-columns:1fr 1fr;gap:12px}
-.ps{background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.08);border-radius:var(--r-sm);padding:22px 18px}
-.ps-val{font-family:'Playfair Display',serif;font-size:2.1rem;font-weight:700;color:#fff;line-height:1;margin-bottom:5px}
-.ps-val em{font-style:normal;color:var(--amber)}
-.ps-lbl{font-size:0.74rem;color:rgba(255,239,219,0.35);font-weight:300;line-height:1.5}
+/* ─── STORY CARDS ─── */
+.stories-bg{background:#fff;padding:80px 40px;position:relative;z-index:1;border-top:1px solid var(--border);border-bottom:1px solid var(--border)}
+.stories-inner{max-width:1160px;margin:0 auto;display:flex;flex-direction:column;gap:20px}
+.story-card{background:var(--cream);border-radius:20px;overflow:hidden;display:grid;grid-template-columns:1fr 1.15fr;min-height:400px;border:1px solid var(--border);position:relative}
+.story-left{padding:36px;display:flex;flex-direction:column}
+.story-read-btn{position:absolute;top:24px;right:24px;display:inline-flex;align-items:center;gap:6px;background:#111;color:#fff;padding:9px 16px;border-radius:100px;font-size:0.74rem;font-weight:600;text-decoration:none;transition:background 0.2s;z-index:3}
+.story-read-btn:hover{background:var(--teal)}
+.story-read-btn svg{width:11px;height:11px;fill:none;stroke:currentColor;stroke-width:2.5;stroke-linecap:round;stroke-linejoin:round}
+.story-name{font-family:'Playfair Display',serif;font-size:1.55rem;font-weight:800;color:var(--ink);line-height:1.15;margin-bottom:3px}
+.story-title{font-size:0.76rem;color:var(--ink-3);font-weight:400;margin-bottom:22px}
+.story-quote{font-size:0.9rem;color:var(--ink-2);font-style:italic;line-height:1.65;margin-bottom:auto;font-weight:300;max-width:300px}
+.story-quote::before{content:'\201C'}.story-quote::after{content:'\201D'}
+.story-metrics{display:flex;flex-direction:column;gap:14px;margin-top:28px}
+.story-metric{border-top:1px solid var(--border);padding-top:14px}
+.story-metric-val{font-family:'Playfair Display',serif;font-size:2rem;font-weight:800;color:var(--teal);line-height:1;margin-bottom:3px}
+.story-metric-lbl{font-size:0.7rem;color:var(--ink-3);font-weight:300;line-height:1.4}
+.story-photo{position:relative;overflow:hidden}
+.story-photo img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center top}
+.story-photo-tag{position:absolute;bottom:20px;left:20px;z-index:2;display:flex;align-items:center;gap:8px;background:rgba(0,0,0,0.55);backdrop-filter:blur(6px);padding:8px 14px;border-radius:100px}
+.story-photo-tag-label{color:rgba(255,255,255,0.65);font-size:0.65rem;font-weight:400}
+.story-photo-tag-name{color:#fff;font-size:0.78rem;font-weight:600}
 
 /* ─── INTEGRATIONS ─── */
 .int-bg{background:var(--cream);padding:72px 40px;position:relative;z-index:1}
@@ -702,76 +712,114 @@ footer{background:var(--teal-dark);border-top:1px solid rgba(255,255,255,0.08);p
 <div id="integrations" class="int-bg">
   <div class="int-inner" style="text-align:center">
     <h2 class="rv">Connects with your stack</h2>
-    <div class="int-logos-grid rv d1">
-      <!-- Row 1 -->
-      <div class="int-logo-box" style="background:#31A13E">
-        <svg viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <circle cx="27" cy="27" r="14" fill="white" opacity="0.9"/>
-          <circle cx="53" cy="27" r="14" fill="white" opacity="0.9"/>
-          <circle cx="27" cy="53" r="14" fill="white" opacity="0.9"/>
-          <circle cx="53" cy="53" r="14" fill="white" opacity="0.9"/>
-        </svg>
-      </div>
-      <div class="int-logo-box" style="background:#000000">
-        <svg viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <rect x="16" y="16" width="48" height="48" rx="8" fill="white" opacity="0.9"/>
-          <rect x="28" y="28" width="24" height="24" rx="4" fill="#000"/>
-        </svg>
-      </div>
-      <div class="int-logo-box" style="background:#E8431F">
-        <svg viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <rect x="14" y="26" width="52" height="8" rx="4" fill="white" opacity="0.9"/>
-          <path d="M24 34 Q24 54 40 58 Q56 54 56 34" fill="white" opacity="0.9"/>
-          <rect x="36" y="14" width="8" height="18" rx="4" fill="white" opacity="0.9"/>
-        </svg>
-      </div>
-      <div class="int-logo-box" style="background:#1A2035">
-        <svg viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <path d="M20 55 L40 25 L60 55" stroke="white" stroke-width="8" stroke-linecap="round" stroke-linejoin="round" opacity="0.9"/>
-          <circle cx="40" cy="25" r="6" fill="white" opacity="0.9"/>
-        </svg>
-      </div>
-      <!-- Row 2 -->
-      <div class="int-logo-box" style="background:#FF3008">
-        <svg viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <circle cx="40" cy="36" r="14" fill="white" opacity="0.9"/>
-          <rect x="32" y="48" width="16" height="18" rx="3" fill="white" opacity="0.9"/>
-        </svg>
-      </div>
-      <div class="int-logo-box" style="background:#4353FF">
-        <svg viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <circle cx="40" cy="40" r="22" stroke="white" stroke-width="6" opacity="0.9"/>
-          <path d="M40 22 L44 34 L58 34 L47 42 L51 55 L40 47 L29 55 L33 42 L22 34 L36 34 Z" fill="white" opacity="0.9"/>
-        </svg>
-      </div>
-      <div class="int-logo-box" style="background:#00A5C8">
-        <svg viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <text x="12" y="52" font-family="Arial" font-size="28" font-weight="700" fill="white" opacity="0.95">o|o</text>
-        </svg>
-      </div>
-      <div class="int-logo-box" style="background:#111111">
-        <svg viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <text x="10" y="48" font-family="Arial" font-size="22" font-weight="700" fill="white" opacity="0.9">Otter</text>
-        </svg>
+    <div class="int-marquee-wrap rv d1">
+      <div class="int-marquee-track">
+        <div class="int-m-item">Square</div>
+        <div class="int-m-item">Clover</div>
+        <div class="int-m-item">Toast POS</div>
+        <div class="int-m-item">Square</div>
+        <div class="int-m-item">Clover</div>
+        <div class="int-m-item">Toast POS</div>
+        <div class="int-m-item">Square</div>
+        <div class="int-m-item">Clover</div>
+        <div class="int-m-item">Toast POS</div>
+        <!-- duplicate set for seamless loop -->
+        <div class="int-m-item">Square</div>
+        <div class="int-m-item">Clover</div>
+        <div class="int-m-item">Toast POS</div>
+        <div class="int-m-item">Square</div>
+        <div class="int-m-item">Clover</div>
+        <div class="int-m-item">Toast POS</div>
+        <div class="int-m-item">Square</div>
+        <div class="int-m-item">Clover</div>
+        <div class="int-m-item">Toast POS</div>
       </div>
     </div>
   </div>
 </div>
 
-<!-- SOCIAL PROOF -->
-<div class="proof-bg">
-  <div class="proof-inner">
-    <div class="rv">
-      <div class="eyebrow">By the Numbers</div>
-      <h2>Trusted by 500+<br>Restaurants</h2>
-      <p>Join restaurant owners who trust VoiceBit to capture every order and keep revenue in-house.</p>
+<!-- STORY CARDS -->
+<div class="stories-bg">
+  <div class="stories-inner">
+
+    <!-- Card 1: Ray / Big Apple Pizza -->
+    <div class="story-card rv">
+      <div class="story-left">
+        <div class="story-name">Ray</div>
+        <div class="story-title">Owner at Big Apple Pizza</div>
+        <p class="story-quote">VoiceBit changed everything. Every call gets answered, every order gets captured. We're not losing revenue to missed calls anymore — and we're keeping 100% of it instead of giving 30% away to DoorDash.</p>
+        <div class="story-metrics">
+          <div class="story-metric">
+            <div class="story-metric-val">+42%</div>
+            <div class="story-metric-lbl">More orders captured — zero missed calls</div>
+          </div>
+          <div class="story-metric">
+            <div class="story-metric-val">$0</div>
+            <div class="story-metric-lbl">Commission on every direct order</div>
+          </div>
+        </div>
+      </div>
+      <div class="story-photo">
+        <img src="Photos/Ray%20BAP.avif" alt="Ray, Big Apple Pizza">
+        <div class="story-photo-tag">
+          <span class="story-photo-tag-label">See the story</span>
+          <span class="story-photo-tag-name">Big Apple Pizza</span>
+        </div>
+      </div>
+      <a href="#" class="story-read-btn">
+        Read the full story
+        <svg viewBox="0 0 16 16" stroke-linecap="round" stroke-linejoin="round"><path d="M3 8h10M8 3l5 5-5 5"/></svg>
+      </a>
     </div>
-    <div class="proof-stats rv d1" id="proof-stats">
-      <div class="ps"><div class="ps-val" id="c1"><em>500</em>+</div><div class="ps-lbl">Restaurants using VoiceBit to own their ordering</div></div>
-      <div class="ps"><div class="ps-val" id="c2"><em>4.9</em> ★</div><div class="ps-lbl">Average customer satisfaction rating</div></div>
-      <div class="ps"><div class="ps-val" id="c3"><em>0</em>%</div><div class="ps-lbl">Commission on direct orders — ever</div></div>
-      <div class="ps"><div class="ps-val" id="c4"><em>222</em>+</div><div class="ps-lbl">Cities with active VoiceBit restaurants</div></div>
+
+    <!-- Card 2: Chando / Chando's Tacos -->
+    <div class="story-card rv d1">
+      <div class="story-left">
+        <div class="story-name">Chando</div>
+        <div class="story-title">Founder at Chando's Tacos</div>
+        <p class="story-quote">I built this restaurant on personal service — knowing every customer by name, making them feel at home. VoiceBit clones that hospitality across every single call, even when I'm not there. It's like having me on every phone line.</p>
+        <div class="story-metrics">
+          <div class="story-metric">
+            <div class="story-metric-val">5★</div>
+            <div class="story-metric-lbl">Founder-level service, replicated on every call</div>
+          </div>
+          <div class="story-metric">
+            <div class="story-metric-val">24/7</div>
+            <div class="story-metric-lbl">AI coverage — no staff needed on the phones</div>
+          </div>
+        </div>
+      </div>
+      <div class="story-photo">
+        <img src="Photos/Chando.avif" alt="Chando's Tacos">
+        <div class="story-photo-tag">
+          <span class="story-photo-tag-label">See the story</span>
+          <span class="story-photo-tag-name">Chando's Tacos</span>
+        </div>
+      </div>
+      <a href="#" class="story-read-btn">
+        Read the full story
+        <svg viewBox="0 0 16 16" stroke-linecap="round" stroke-linejoin="round"><path d="M3 8h10M8 3l5 5-5 5"/></svg>
+      </a>
     </div>
+
+  </div>
+</div>
+
+<!-- CTA -->
+<div id="demo" class="cta-bg">
+  <div class="cta-glow"></div>
+  <div class="rv">
+    <div class="cta-tag">Get Started</div>
+    <h2>Ready to Take Back<br><em>Control of Your Orders?</em></h2>
+    <p>See how VoiceBit can eliminate missed calls, cut third-party fees, and turn every phone call into revenue.</p>
+    <div class="cta-actions">
+      <a href="#" class="btn-red">
+        Book a Free Demo
+        <svg viewBox="0 0 16 16"><path d="M3 8h10M8 3l5 5-5 5"/></svg>
+      </a>
+      <a href="#contact" class="btn-ghost-light">Contact Us</a>
+    </div>
+    <p class="cta-email">Or email us directly at <a href="mailto:hello@voicebit.ai">hello@voicebit.ai</a></p>
   </div>
 </div>
 
@@ -790,24 +838,6 @@ footer{background:var(--teal-dark);border-top:1px solid rgba(255,255,255,0.08);p
       <div class="fi rv d3"><div class="fq" onclick="tf(this)">Can I cancel anytime?<span class="fi-toggle"><svg viewBox="0 0 12 12"><path d="M6 2v8M2 6h8"/></svg></span></div><div class="fa">Yes — month-to-month, no long-term contracts, no cancellation penalties. We're confident you'll love the results, and we want you to stay because VoiceBit works.</div></div>
     <div class="fi rv d3"><div class="fq" onclick="tf(this)">Can I offer delivery to my customers?<span class="fi-toggle"><svg viewBox="0 0 12 12"><path d="M6 2v8M2 6h8"/></svg></span></div><div class="fa">Yes, VoiceBit provides you with the ability to offer direct delivery across phone and web to your customers without shedding any margin and retaining 100% of the food revenue. The system captures orders, collects payments and routes delivery without you having to lift a finger.</div></div>
     </div>
-  </div>
-</div>
-
-<!-- CTA -->
-<div id="demo" class="cta-bg">
-  <div class="cta-glow"></div>
-  <div class="rv">
-    <div class="cta-tag">Get Started</div>
-    <h2>Ready to Take Back<br><em>Control of Your Orders?</em></h2>
-    <p>See how VoiceBit can eliminate missed calls, cut third-party fees, and turn every phone call into revenue.</p>
-    <div class="cta-actions">
-      <a href="#" class="btn-red">
-        Book a Free Demo
-        <svg viewBox="0 0 16 16"><path d="M3 8h10M8 3l5 5-5 5"/></svg>
-      </a>
-      <a href="#contact" class="btn-ghost-light">Contact Us</a>
-    </div>
-    <p class="cta-email">Or email us directly at <a href="/cdn-cgi/l/email-protection#6e070008012e1801070d0b0c071a400f07"><span class="__cf_email__" data-cfemail="7910171f16390f16101a1c1b100d571810">[email&#160;protected]</span></a></p>
   </div>
 </div>
 
