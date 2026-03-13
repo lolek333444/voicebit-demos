@@ -194,12 +194,12 @@ h2 em{font-style:italic;color:var(--red)}
 .prob-heading-row{display:grid;grid-template-columns:1fr 1fr;align-items:end;gap:40px;margin-bottom:0}
 .prob-heading-sub{font-size:1.1rem;font-weight:300;color:rgba(255,255,255,0.55);line-height:1.55;padding-bottom:6px}
 .prob-layout{display:grid;grid-template-columns:360px 1fr;gap:0;background:#fff;
-  border:1px solid var(--border-md);border-radius:var(--r);margin-top:40px;overflow:hidden;text-align:left;
-  box-shadow:0 8px 48px rgba(52,92,102,0.12)}
+  border:none;border-radius:20px;margin-top:48px;overflow:hidden;text-align:left;
+  box-shadow:0 24px 80px rgba(0,0,0,0.32),0 4px 16px rgba(0,0,0,0.2)}
 /* Vertical tab list */
 .prob-tabs-v{border-right:2px solid var(--border);display:flex;flex-direction:column}
-.prob-tab-v{background:none;border:none;cursor:pointer;padding:0 28px;min-height:120px;
-  font-family:'Oswald',sans-serif;font-size:1.55rem;font-weight:600;
+.prob-tab-v{background:none;border:none;cursor:pointer;padding:0 28px;min-height:150px;
+  font-family:'Oswald',sans-serif;font-size:1.6rem;font-weight:600;
   text-transform:uppercase;letter-spacing:0.03em;
   color:var(--ink-3);text-align:center;
   display:flex;flex-direction:column;align-items:center;justify-content:center;gap:0;
@@ -258,6 +258,11 @@ h2 em{font-style:italic;color:var(--red)}
 .int-logo-box img{width:72%;height:72%;object-fit:contain}
 
 /* ─── FEATURES ─── */
+#features{position:relative}
+#features::before{content:'';position:absolute;inset:0;pointer-events:none;
+  background-image:url('Photos/background_photo.png');background-size:600px auto;background-repeat:repeat;
+  opacity:0.07;z-index:0}
+#features>*{position:relative;z-index:1}
 .feat-intro{text-align:center;max-width:760px;margin:0 auto 56px}
 .feat-intro h2{line-height:1.08;margin-bottom:16px;font-size:clamp(2.4rem,4.5vw,3.6rem)}
 .feat-intro-desc{font-size:1.08rem;color:var(--ink-2);font-weight:300;line-height:1.7}
@@ -361,7 +366,10 @@ h2 em{font-style:italic;color:var(--red)}
 
 /* ─── STATS SECTION (standalone) ─── */
 .stats-section{background:var(--cream);padding:56px 40px 24px;position:relative;z-index:1}
-.stats-section-inner{max-width:1400px;margin:0 auto}
+.stats-section::before{content:'';position:absolute;inset:0;pointer-events:none;
+  background-image:url('Photos/background_photo.png');background-size:600px auto;background-repeat:repeat;
+  opacity:0.07}
+.stats-section-inner{max-width:1400px;margin:0 auto;position:relative;z-index:1}
 
 /* ─── LOGO MARQUEE (restaurant trust bar) ─── */
 .stats-partner-text{font-family:'Oswald',sans-serif;font-size:clamp(2rem,3.2vw,3rem);
