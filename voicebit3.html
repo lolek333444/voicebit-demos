@@ -147,6 +147,8 @@ h2 em{font-style:italic;color:var(--red)}
   background-size:48px 48px;padding:96px 40px 80px;position:relative;z-index:1;margin-top:72px}
 .prob-inner{max-width:1160px;margin:0 auto;text-align:left}
 .prob-bg h2{color:#fff;margin-bottom:0}
+.prob-heading-row{display:grid;grid-template-columns:1fr 1fr;align-items:end;gap:40px;margin-bottom:0}
+.prob-heading-sub{font-size:1.1rem;font-weight:300;color:rgba(255,255,255,0.55);line-height:1.55;padding-bottom:6px}
 .prob-layout{display:grid;grid-template-columns:240px 1fr;gap:0;background:rgba(255,255,255,0.04);
   border:1px solid rgba(255,255,255,0.08);border-radius:var(--r);margin-top:48px;overflow:hidden;text-align:left}
 /* Vertical tab list */
@@ -182,6 +184,18 @@ h2 em{font-style:italic;color:var(--red)}
   transition:background 0.2s,transform 0.2s}
 .prob-logo-box:hover{background:rgba(255,255,255,0.12);transform:translateY(-2px)}
 .prob-logo-box img{width:70%;height:70%;object-fit:contain;filter:brightness(0) invert(1);opacity:0.8}
+
+/* ─── FEAT STACK BLOCK (integrations embedded in features) ─── */
+.feat-stack-block{position:relative;margin-top:16px;border-radius:var(--r);overflow:hidden;
+  background:var(--teal);min-height:180px;display:flex;align-items:center;justify-content:center}
+.feat-stack-marquee-bg{position:absolute;inset:0;display:flex;align-items:center;overflow:hidden;opacity:0.18}
+.feat-stack-marquee-track{display:flex;gap:0;animation:intMarquee 20s linear infinite;width:max-content;white-space:nowrap}
+.feat-stack-marquee-track span{font-family:'DM Sans',sans-serif;font-size:1.6rem;font-weight:700;
+  color:#fff;padding:0 36px;border-right:1px solid rgba(255,255,255,0.2);letter-spacing:0.02em}
+.feat-stack-content{position:relative;z-index:2;text-align:center;padding:48px 40px}
+.feat-stack-content h2{color:#fff;margin-bottom:10px}
+.feat-stack-content h2 em{color:var(--amber)}
+.feat-stack-content p{color:rgba(255,255,255,0.55);font-size:0.95rem;font-weight:300;max-width:420px;margin:0 auto}
 
 /* ─── INTEGRATION LOGO BOXES ─── */
 .int-logos-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;max-width:820px;margin:48px auto 0}
@@ -580,7 +594,10 @@ footer{background:var(--teal-dark);border-top:1px solid rgba(255,255,255,0.08);p
 <!-- PROBLEMS -->
 <div class="prob-bg">
   <div class="prob-inner">
-    <h2 class="rv" style="text-align:left">Running a restaurant has never been harder…</h2>
+    <div class="prob-heading-row rv">
+      <h2 style="text-align:left;color:#fff">Running a restaurant has never been harder…</h2>
+      <p class="prob-heading-sub">…so choosing the right partner is even more important.</p>
+    </div>
 
     <div class="prob-layout rv">
       <!-- Left: vertical tabs -->
@@ -633,7 +650,6 @@ footer{background:var(--teal-dark);border-top:1px solid rgba(255,255,255,0.08);p
 
     <!-- Restaurant logos below the tablet -->
     <div class="prob-logos rv" style="margin-top:48px;text-align:center">
-      <p style="font-size:0.72rem;font-weight:600;letter-spacing:0.1em;text-transform:uppercase;color:rgba(255,255,255,0.35);margin-bottom:20px">Trusted by restaurants across California</p>
       <div class="prob-logos-grid">
         <div class="prob-logo-box"><img src="Photos/Restaurant Logos/A-town.jpg" alt="A-town"></div>
         <div class="prob-logo-box"><img src="Photos/Restaurant Logos/BAP Livermore.avif" alt="BAP Livermore"></div>
@@ -753,37 +769,20 @@ footer{background:var(--teal-dark);border-top:1px solid rgba(255,255,255,0.08);p
       </div>
     </div>
   </div>
-</section>
 
-<!-- INTEGRATIONS -->
-<div id="integrations" class="int-bg">
-  <div class="int-inner" style="text-align:center">
-    <h2 class="rv">Connects with your <em>stack</em></h2>
-    <div class="int-marquee-wrap rv d1">
-      <div class="int-marquee-track">
-        <div class="int-m-item">Square</div>
-        <div class="int-m-item">Clover</div>
-        <div class="int-m-item">Toast POS</div>
-        <div class="int-m-item">Square</div>
-        <div class="int-m-item">Clover</div>
-        <div class="int-m-item">Toast POS</div>
-        <div class="int-m-item">Square</div>
-        <div class="int-m-item">Clover</div>
-        <div class="int-m-item">Toast POS</div>
-        <!-- duplicate set for seamless loop -->
-        <div class="int-m-item">Square</div>
-        <div class="int-m-item">Clover</div>
-        <div class="int-m-item">Toast POS</div>
-        <div class="int-m-item">Square</div>
-        <div class="int-m-item">Clover</div>
-        <div class="int-m-item">Toast POS</div>
-        <div class="int-m-item">Square</div>
-        <div class="int-m-item">Clover</div>
-        <div class="int-m-item">Toast POS</div>
+  <!-- Connects with your stack — embedded after the 3 cards -->
+  <div id="integrations" class="feat-stack-block rv d2">
+    <div class="feat-stack-marquee-bg">
+      <div class="feat-stack-marquee-track">
+        <span>Square</span><span>Clover</span><span>Toast POS</span><span>Square</span><span>Clover</span><span>Toast POS</span><span>Square</span><span>Clover</span><span>Toast POS</span><span>Square</span><span>Clover</span><span>Toast POS</span><span>Square</span><span>Clover</span><span>Toast POS</span><span>Square</span><span>Clover</span><span>Toast POS</span>
       </div>
     </div>
+    <div class="feat-stack-content">
+      <h2>Connects with your <em>stack</em></h2>
+      <p>Works natively with the POS and tools you already run — no rip-and-replace required.</p>
+    </div>
   </div>
-</div>
+</section>
 
 <!-- STORY CARDS -->
 <div class="stories-bg">
@@ -819,8 +818,15 @@ footer{background:var(--teal-dark);border-top:1px solid rgba(255,255,255,0.08);p
       </a>
     </div>
 
-    <!-- Card 2: Chando / Chando's Tacos -->
-    <div class="story-card rv d1">
+    <!-- Card 2: Chando / Chando's Tacos (photo left, text right) -->
+    <div class="story-card rv d1" style="grid-template-columns:1.15fr 1fr">
+      <div class="story-photo">
+        <img src="Photos/Chando.avif" alt="Chando's Tacos">
+        <div class="story-photo-tag">
+          <span class="story-photo-tag-label">See the story</span>
+          <span class="story-photo-tag-name">Chando's Tacos</span>
+        </div>
+      </div>
       <div class="story-left">
         <div class="story-name">Chando</div>
         <div class="story-title">Founder at Chando's Tacos</div>
@@ -834,13 +840,6 @@ footer{background:var(--teal-dark);border-top:1px solid rgba(255,255,255,0.08);p
             <div class="story-metric-val">24/7</div>
             <div class="story-metric-lbl">AI coverage — no staff needed on the phones</div>
           </div>
-        </div>
-      </div>
-      <div class="story-photo">
-        <img src="Photos/Chando.avif" alt="Chando's Tacos">
-        <div class="story-photo-tag">
-          <span class="story-photo-tag-label">See the story</span>
-          <span class="story-photo-tag-name">Chando's Tacos</span>
         </div>
       </div>
       <a href="#" class="story-read-btn">
