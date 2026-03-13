@@ -595,7 +595,14 @@ h2 em{font-style:italic;color:var(--red);font-family:'Playfair Display',serif;fo
 
 /* ─── FAQ ─── */
 .faq-bg{background:var(--cream);
-  padding:48px 40px 96px;position:relative;z-index:1}
+  padding:24px 40px 96px;position:relative;z-index:1}
+.faq-eyebrow{display:inline-flex;align-items:center;gap:8px;
+  background:var(--teal);color:#fff;border-radius:100px;
+  padding:5px 16px;font-family:'Oswald',sans-serif;font-size:0.68rem;
+  font-weight:700;letter-spacing:0.12em;text-transform:uppercase;margin-bottom:16px}
+.faq-heading-wrap{text-align:center;margin-bottom:0}
+.faq-heading-wrap h2{font-size:clamp(2.4rem,4vw,3.6rem);margin-bottom:0}
+.faq-heading-wrap h2 span{color:var(--amber)}
 .faq-bg::after{content:'';position:absolute;inset:0;pointer-events:none;z-index:0;
   background-image:url('Photos/background_photo.png');background-size:600px auto;background-repeat:repeat;
   opacity:0.07}
@@ -1523,7 +1530,13 @@ nav{background:linear-gradient(135deg,rgba(42,74,82,0.97) 0%,rgba(52,92,102,0.97
 <!-- FAQ -->
 <div id="faq" class="faq-bg">
   <div class="faq-inner">
-    <h2 class="rv">Frequently asked questions</h2>
+    <div class="faq-heading-wrap rv">
+      <div class="faq-eyebrow">
+        <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><circle cx="12" cy="12" r="10"/><path d="M12 8v4l3 3"/></svg>
+        Got questions?
+      </div>
+      <h2>Frequently asked <span>questions</span></h2>
+    </div>
     <div class="faq-list">
       <div class="fi rv"><div class="fq" onclick="tf(this)">How quickly can VoiceBit be set up for my restaurant?<span class="fi-toggle"><svg viewBox="0 0 12 12"><path d="M6 2v8M2 6h8"/></svg></span></div><div class="fa">Phone AI: as little as 3 hours. Web ordering: 1–5 days. We configure your menu, train the AI on your offerings, and ensure everything works before going live — with zero disruption to your operations.</div></div>
       <div class="fi rv d1"><div class="fq" onclick="tf(this)">What happens if VoiceBit can't handle a customer's request?<span class="fi-toggle"><svg viewBox="0 0 12 12"><path d="M6 2v8M2 6h8"/></svg></span></div><div class="fa">VoiceBit seamlessly transfers calls to your staff when needed — with full context so the customer never has to repeat themselves. You stay in complete control.</div></div>
