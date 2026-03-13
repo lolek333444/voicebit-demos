@@ -275,7 +275,7 @@ h2 em{font-style:italic;color:var(--red)}
 .prob-logo-box img{width:70%;height:70%;object-fit:contain;filter:brightness(0) invert(1);opacity:0.8}
 
 /* ─── FEAT STACK BLOCK (integrations — full-width between features and receipts) ─── */
-.feat-stack-block{position:relative;overflow:hidden;
+.feat-stack-block{position:relative;overflow:hidden;margin-top:40px;
   background:linear-gradient(135deg,var(--teal-dark) 0%,var(--teal) 60%,#1e3a42 100%);
   min-height:260px;display:flex;align-items:center;justify-content:center;cursor:default}
 /* dark vignette overlay so center content stays readable */
@@ -351,12 +351,13 @@ h2 em{font-style:italic;color:var(--red)}
 .chk svg{width:10px;height:10px;stroke-width:2.5;stroke-linecap:round;stroke-linejoin:round;fill:none}
 
 /* ─── TRUST STAMP ─── */
-.trust-stamp{position:absolute;bottom:-36px;right:-10px;width:110px;height:110px;z-index:10;
-  display:flex;align-items:center;justify-content:center}
+.trust-stamp{position:absolute;bottom:-32px;right:-8px;width:100px;height:100px;z-index:10;
+  display:flex;align-items:center;justify-content:center;
+  background:#fff;border-radius:50%}
 .trust-stamp-ring{position:absolute;inset:0;animation:stampSpin 18s linear infinite}
 .trust-stamp-ring svg{width:100%;height:100%}
 @keyframes stampSpin{from{transform:rotate(0deg)}to{transform:rotate(360deg)}}
-.trust-stamp-flag{position:relative;z-index:2;font-size:2.4rem;line-height:1}
+.trust-stamp-flag{position:relative;z-index:2;font-size:2rem;line-height:1}
 /* heading row — relative so stamp can anchor to corner */
 .case-heading-row{position:relative;display:inline-block;overflow:visible}
 
@@ -464,9 +465,7 @@ h2 em{font-style:italic;color:var(--red)}
 .logo-m-box img{width:100%;height:100%;object-fit:contain}
 
 /* ─── STORY CARDS ─── */
-.stories-bg{background:var(--teal);padding:80px 40px 48px;position:relative;z-index:2;
-  margin-top:-2px;
-  clip-path:polygon(0 52px,100% 0,100% 100%,0 100%)}
+.stories-bg{background:var(--teal);padding:72px 40px 48px;position:relative;z-index:2}
 .stories-bg::before{content:'';position:absolute;inset:0;pointer-events:none;
   background-image:url('Photos/background_photo.png');background-size:600px auto;background-repeat:repeat;
   opacity:0.06;filter:brightness(0) invert(1)}
@@ -724,8 +723,8 @@ footer{background:var(--teal-dark);border-top:1px solid rgba(255,255,255,0.08);p
   .prob-issue-label,.prob-solve-label{font-size:0.82rem;padding:6px 12px 6px 9px}
 
   /* TESTIMONIALS — stamp shrinks on mobile */
-  .trust-stamp{width:76px;height:76px;bottom:-32px;right:-8px;top:auto}
-  .trust-stamp-flag{font-size:1.4rem}
+  .trust-stamp{width:72px;height:72px;bottom:-28px;right:-6px;top:auto}
+  .trust-stamp-flag{font-size:1.3rem}
 
   /* TESTIMONIALS CAROUSEL */
   .case-wrap{padding:48px 0 0}
