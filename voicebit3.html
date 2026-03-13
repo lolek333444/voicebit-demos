@@ -104,18 +104,18 @@ h1 em{font-style:italic;color:var(--red)}
 .hero-send-btn:hover{background:var(--teal-dark);transform:translateY(-1px)}
 .hero-send-btn svg{width:13px;height:13px;flex-shrink:0}
 
-/* ─── MARQUEE (Integration Strip) ─── */
-.marquee-section{position:relative;z-index:1;border-top:1px solid var(--border);border-bottom:1px solid var(--border);
-  overflow:hidden;background:rgba(255,255,255,0.5);padding:20px 0}
-.marquee-label-bg{position:absolute;left:0;top:0;bottom:0;background:var(--cream);
-  border-right:1px solid var(--border);z-index:2;display:flex;align-items:center;padding:0 22px}
-.marquee-label-txt{font-size:0.63rem;font-weight:600;color:var(--ink-3);letter-spacing:0.1em;text-transform:uppercase;white-space:nowrap}
-.marquee-track{display:flex;padding:0 0 0 170px;animation:marquee 26s linear infinite;width:max-content}
-.marquee-track:hover{animation-play-state:paused}
-@keyframes marquee{from{transform:translateX(0)}to{transform:translateX(-50%)}}
-.m-item{display:flex;align-items:center;gap:8px;padding:0 32px;font-size:0.8rem;font-weight:500;
-  color:#b8cdd2;white-space:nowrap;border-right:1px solid rgba(52,92,102,0.08)}
-.m-item img,.m-item svg{height:18px;width:auto;opacity:0.45;filter:grayscale(1)}
+/* ─── TRUSTED BY (Restaurant Logos) ─── */
+.trusted-section{position:relative;z-index:1;border-top:1px solid var(--border);border-bottom:1px solid var(--border);
+  background:rgba(255,255,255,0.55);padding:52px 40px 48px;text-align:center}
+.trusted-label{font-size:0.88rem;color:var(--ink-3);font-weight:400;margin-bottom:36px}
+.trusted-grid{display:flex;flex-wrap:wrap;justify-content:center;align-items:center;
+  max-width:920px;margin:0 auto}
+.trusted-logo{display:flex;align-items:center;justify-content:center;
+  padding:18px 36px;border-right:1px solid var(--border)}
+.trusted-logo:last-child{border-right:none}
+.trusted-logo img{height:38px;width:auto;max-width:130px;object-fit:contain;
+  filter:grayscale(1);opacity:0.4;transition:opacity 0.25s,filter 0.25s}
+.trusted-logo:hover img{filter:grayscale(0);opacity:1}
 
 /* ─── STATS ─── */
 .stats-outer{max-width:1160px;margin:64px auto 0;padding:0 40px}
@@ -402,68 +402,20 @@ footer{background:var(--teal-dark);border-top:1px solid rgba(255,255,255,0.08);p
   </div>
 </section>
 
-<!-- MARQUEE / INTEGRATIONS STRIP -->
-<div class="marquee-section">
-  <div class="marquee-label-bg"><span class="marquee-label-txt">Integrates with</span></div>
-  <div class="marquee-track">
-    <!-- Set 1 -->
-    <div class="m-item">
-      <svg viewBox="0 0 24 24" height="18"><rect x="3" y="3" width="18" height="18" rx="4" fill="#888"/><path d="M7 8h10M7 12h6M7 16h8" stroke="#fff" stroke-width="1.5" stroke-linecap="round"/></svg>
-      Toast POS
-    </div>
-    <div class="m-item">
-      <svg viewBox="0 0 24 24" height="18"><rect x="2" y="2" width="20" height="20" rx="3" fill="#888"/><rect x="7" y="7" width="10" height="10" rx="1" fill="#fff"/></svg>
-      Square
-    </div>
-    <div class="m-item">
-      <svg viewBox="0 0 24 24" height="18"><circle cx="8" cy="8" r="4" fill="#888"/><circle cx="16" cy="8" r="4" fill="#888"/><circle cx="8" cy="16" r="4" fill="#888"/><circle cx="16" cy="16" r="4" fill="#888"/></svg>
-      Clover
-    </div>
-    <div class="m-item">
-      <svg viewBox="0 0 24 24" height="18"><rect width="24" height="24" rx="5" fill="#888"/><text x="4" y="16" font-family="Georgia" font-size="11" font-weight="700" fill="#fff">stripe</text></svg>
-      Stripe
-    </div>
-    <div class="m-item">
-      <svg viewBox="0 0 24 24" height="18"><circle cx="12" cy="12" r="11" fill="#888"/><path d="M8 12l3 3 5-5" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
-      Uber Eats
-    </div>
-    <div class="m-item">
-      <svg viewBox="0 0 24 24" height="18"><circle cx="12" cy="12" r="11" fill="#888"/><path d="M8 12l3 3 5-5" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
-      DoorDash
-    </div>
-    <div class="m-item">
-      <svg viewBox="0 0 24 24" height="18"><rect width="24" height="24" rx="4" fill="#888"/><circle cx="12" cy="12" r="5" fill="#fff" opacity=".8"/></svg>
-      Google
-    </div>
-    <!-- Set 2 duplicate -->
-    <div class="m-item">
-      <svg viewBox="0 0 24 24" height="18"><rect x="3" y="3" width="18" height="18" rx="4" fill="#888"/><path d="M7 8h10M7 12h6M7 16h8" stroke="#fff" stroke-width="1.5" stroke-linecap="round"/></svg>
-      Toast POS
-    </div>
-    <div class="m-item">
-      <svg viewBox="0 0 24 24" height="18"><rect x="2" y="2" width="20" height="20" rx="3" fill="#888"/><rect x="7" y="7" width="10" height="10" rx="1" fill="#fff"/></svg>
-      Square
-    </div>
-    <div class="m-item">
-      <svg viewBox="0 0 24 24" height="18"><circle cx="8" cy="8" r="4" fill="#888"/><circle cx="16" cy="8" r="4" fill="#888"/><circle cx="8" cy="16" r="4" fill="#888"/><circle cx="16" cy="16" r="4" fill="#888"/></svg>
-      Clover
-    </div>
-    <div class="m-item">
-      <svg viewBox="0 0 24 24" height="18"><rect width="24" height="24" rx="5" fill="#888"/><text x="4" y="16" font-family="Georgia" font-size="11" font-weight="700" fill="#fff">stripe</text></svg>
-      Stripe
-    </div>
-    <div class="m-item">
-      <svg viewBox="0 0 24 24" height="18"><circle cx="12" cy="12" r="11" fill="#888"/><path d="M8 12l3 3 5-5" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
-      Uber Eats
-    </div>
-    <div class="m-item">
-      <svg viewBox="0 0 24 24" height="18"><circle cx="12" cy="12" r="11" fill="#888"/><path d="M8 12l3 3 5-5" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
-      DoorDash
-    </div>
-    <div class="m-item">
-      <svg viewBox="0 0 24 24" height="18"><rect width="24" height="24" rx="4" fill="#888"/><circle cx="12" cy="12" r="5" fill="#fff" opacity=".8"/></svg>
-      Google
-    </div>
+<!-- TRUSTED BY RESTAURANTS -->
+<div class="trusted-section rv">
+  <p class="trusted-label">Trusted by restaurants taking back control of their orders</p>
+  <div class="trusted-grid">
+    <div class="trusted-logo"><img src="Photos/Restaurant%20Logos/A-town.jpg" alt="A-town"></div>
+    <div class="trusted-logo"><img src="Photos/Restaurant%20Logos/BAP%20Livermore.avif" alt="BAP Livermore"></div>
+    <div class="trusted-logo"><img src="Photos/Restaurant%20Logos/BAP%20San%20Ramon.png" alt="BAP San Ramon"></div>
+    <div class="trusted-logo"><img src="Photos/Restaurant%20Logos/Danville.avif" alt="Danville"></div>
+    <div class="trusted-logo"><img src="Photos/Restaurant%20Logos/JJ%20Fish%20%26%20Chicken.png" alt="JJ Fish &amp; Chicken"></div>
+    <div class="trusted-logo"><img src="Photos/Restaurant%20Logos/NYPNP%20Pleasant%20Hill.png" alt="NYPNP Pleasant Hill"></div>
+    <div class="trusted-logo"><img src="Photos/Restaurant%20Logos/Pizza%20Ponte.jpeg" alt="Pizza Ponte"></div>
+    <div class="trusted-logo"><img src="Photos/Restaurant%20Logos/Rayos.png" alt="Rayos"></div>
+    <div class="trusted-logo"><img src="Photos/Restaurant%20Logos/Seniore_s_Logo-removebg-preview.png" alt="Seniore's"></div>
+    <div class="trusted-logo"><img src="Photos/Restaurant%20Logos/falafel%20boy.webp" alt="Falafel Boy"></div>
   </div>
 </div>
 
