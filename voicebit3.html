@@ -161,11 +161,9 @@ h1 em{font-style:italic;color:var(--red);font-family:'Playfair Display',serif}
 .stat-cell::after{content:'';position:absolute;inset:0;pointer-events:none;
   background-image:url('Photos/background_photo.png');background-size:400px auto;
   opacity:0.07;filter:brightness(0) invert(1)}
-/* alternating accent colors on top edge */
-.stat-cell:nth-child(1){border-top:4px solid var(--amber)}
-.stat-cell:nth-child(2){border-top:4px solid var(--cream);background:var(--teal-dark)}
-.stat-cell:nth-child(3){border-top:4px solid var(--red)}
-.stat-cell:nth-child(4){border-top:4px solid var(--amber);background:var(--teal-dark)}
+/* alternating dark bg, no borders — shadow only */
+.stat-cell:nth-child(2){background:var(--teal-dark)}
+.stat-cell:nth-child(4){background:var(--teal-dark)}
 .stat-num{font-family:'Oswald',sans-serif;font-size:4rem;font-weight:700;
   letter-spacing:-0.02em;line-height:1;color:var(--cream);margin-bottom:12px;
   position:relative;z-index:1}
