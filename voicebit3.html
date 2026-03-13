@@ -119,8 +119,8 @@ h1 em{font-style:italic;color:var(--red)}
   padding:18px 36px;border-right:1px solid var(--border)}
 .trusted-logo:last-child{border-right:none}
 .trusted-logo img{height:38px;width:auto;max-width:130px;object-fit:contain;
-  filter:grayscale(1);opacity:0.4;transition:opacity 0.25s,filter 0.25s}
-.trusted-logo:hover img{filter:grayscale(0);opacity:1}
+  filter:var(--logo-filter, grayscale(1));opacity:var(--logo-opacity, 0.4);transition:opacity 0.25s,filter 0.25s}
+.trusted-logo:hover img{filter:grayscale(0) !important;opacity:0.85 !important}
 
 /* ─── STATS ─── */
 .stats-outer{max-width:1160px;margin:64px auto 0;padding:0 40px}
@@ -147,52 +147,65 @@ h2 em{font-style:italic;color:var(--red)}
 /* ─── PROBLEMS ─── */
 .prob-bg{background:var(--teal);
   background-image:linear-gradient(rgba(255,255,255,0.04) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,0.04) 1px,transparent 1px);
-  background-size:48px 48px;padding:96px 40px;position:relative;z-index:1;margin-top:72px}
+  background-size:48px 48px;padding:96px 40px 80px;position:relative;z-index:1;margin-top:72px}
 .prob-inner{max-width:1160px;margin:0 auto}
 .prob-bg h2{color:#fff}.prob-bg .eyebrow{color:var(--amber)}.prob-bg .eyebrow::before{background:var(--amber)}
-.prob-bg .s-desc{color:rgba(255,239,219,0.38)}
-.prob-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:56px}
-.pc{background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.07);
-  border-radius:var(--r);padding:30px 26px;
-  transition:background 0.3s,border-color 0.3s,transform 0.2s;position:relative;overflow:hidden}
-.pc:hover{background:rgba(255,255,255,0.065);border-color:rgba(255,255,255,0.12);transform:translateY(-3px)}
-.pc-num{font-size:0.58rem;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:rgba(255,255,255,0.18);margin-bottom:18px}
-.pc-icon{width:40px;height:40px;border-radius:9px;background:rgba(169,17,0,0.2);
-  display:flex;align-items:center;justify-content:center;margin-bottom:16px}
-.pc-icon svg{width:21px;height:21px;stroke:#f87171;fill:none;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
-.pc-title{font-family:'Playfair Display',serif;font-size:1.08rem;font-weight:700;color:#fff;margin-bottom:8px;line-height:1.2}
-.pc-desc{font-size:0.78rem;color:rgba(255,255,255,0.34);line-height:1.7;margin-bottom:20px;font-weight:300}
-.pc-divider{height:1px;background:rgba(255,255,255,0.06);margin-bottom:14px}
-.pc-sol-lbl{font-size:0.58rem;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;color:var(--amber);margin-bottom:6px}
-.pc-sol{font-size:0.77rem;color:rgba(255,255,255,0.38);line-height:1.7;font-weight:300}
+.prob-tabs{display:flex;gap:0;margin-top:48px;border-bottom:1px solid rgba(255,255,255,0.1)}
+.prob-tab{background:none;border:none;cursor:pointer;padding:14px 32px;font-family:'DM Sans',sans-serif;
+  font-size:0.82rem;font-weight:500;color:rgba(255,255,255,0.42);position:relative;transition:color 0.2s;
+  display:flex;align-items:center;gap:8px;border-bottom:2px solid transparent;margin-bottom:-1px}
+.prob-tab:hover{color:rgba(255,255,255,0.75)}
+.prob-tab.active{color:#fff;border-bottom-color:var(--amber);font-weight:600}
+.prob-tab-num{font-size:0.6rem;font-weight:700;letter-spacing:0.1em;opacity:0.45}
+.prob-card{display:none;background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.08);
+  border-radius:var(--r);margin-top:24px;overflow:hidden;
+  display:none;grid-template-columns:1fr 1fr;min-height:200px}
+.prob-card.active{display:grid}
+.prob-card-issue{padding:36px 40px;border-right:1px solid rgba(255,255,255,0.07)}
+.prob-card-solve{padding:36px 40px;background:rgba(218,146,26,0.06)}
+.prob-card-label{font-size:0.6rem;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;
+  color:rgba(255,255,255,0.35);margin-bottom:14px}
+.prob-card-label.solve{color:var(--amber)}
+.prob-card-issue p,.prob-card-solve p{font-size:0.95rem;color:rgba(255,255,255,0.8);line-height:1.7;font-weight:300}
+.prob-card-icon{width:44px;height:44px;border-radius:10px;background:rgba(169,17,0,0.22);
+  display:flex;align-items:center;justify-content:center;margin-bottom:20px;stroke:var(--amber);fill:none;stroke-width:1.5;stroke-linecap:round;stroke-linejoin:round}
+.prob-card-icon svg{width:22px;height:22px}
+.prob-card-title{font-family:'Playfair Display',serif;font-size:1.4rem;font-weight:700;color:#fff;margin-bottom:12px}
 
 /* ─── FEATURES ─── */
-.feat-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:56px}
+.feat-grid{display:grid;grid-template-columns:1fr 1fr;grid-template-rows:auto auto;gap:16px;margin-top:48px}
 .fc{background:#fff;border:1px solid var(--border);border-radius:var(--r);
-  padding:30px 26px;position:relative;overflow:hidden;
-  transition:transform 0.2s,box-shadow 0.2s,border-color 0.2s}
-.fc:hover{transform:translateY(-4px);box-shadow:0 20px 48px rgba(52,92,102,0.1);border-color:var(--border-md)}
-.fc-accent{height:2px;width:32px;border-radius:2px;margin-bottom:20px}
-.fc:nth-child(1) .fc-accent{background:var(--red)}
-.fc:nth-child(2) .fc-accent{background:var(--teal)}
-.fc:nth-child(3) .fc-accent{background:var(--amber)}
-.fc-icon{width:42px;height:42px;border-radius:9px;display:flex;align-items:center;justify-content:center;margin-bottom:15px}
+  padding:28px 24px;position:relative;overflow:hidden}
+.fc:nth-child(3){grid-column:1 / -1;display:grid;grid-template-columns:1fr 1fr;gap:24px;
+  background:linear-gradient(135deg,var(--teal) 0%,var(--teal-dark) 100%);border-color:transparent}
+.fc:nth-child(3) .fc-title,.fc:nth-child(3) .fc-desc,.fc:nth-child(3) .fc-list li{color:rgba(255,255,255,0.9)}
+.fc:nth-child(3) .fc-desc{color:rgba(255,255,255,0.65)}
+.fc:nth-child(3) .fc-list li{color:rgba(255,255,255,0.7)}
+.fc:nth-child(3) .fc-tag{display:inline-block;background:rgba(218,146,26,0.25);color:var(--amber);
+  font-size:0.6rem;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;
+  padding:3px 10px;border-radius:100px;border:1px solid rgba(218,146,26,0.35);margin-bottom:14px}
+.fc-left,.fc-right{display:flex;flex-direction:column}
+.fc-accent{position:absolute;top:0;left:0;right:0;height:3px;border-radius:var(--r) var(--r) 0 0}
+.fc:nth-child(3) .fc-accent{display:none}
+.fc-icon{width:40px;height:40px;border-radius:9px;display:flex;align-items:center;justify-content:center;margin-bottom:18px;stroke-width:1.5;stroke-linecap:round;stroke-linejoin:round;fill:none}
+.fc-icon svg{width:20px;height:20px;stroke:inherit}
+.fc:nth-child(1) .fc-accent{background:var(--teal)}
+.fc:nth-child(2) .fc-accent{background:var(--red)}
 .fc:nth-child(1) .fc-icon{background:rgba(52,92,102,0.08)}
 .fc:nth-child(2) .fc-icon{background:#FFF1F0}
-.fc:nth-child(3) .fc-icon{background:#FFFBEB}
-.fc-icon svg{width:21px;height:21px;fill:none;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
+.fc:nth-child(3) .fc-icon{background:rgba(255,255,255,0.12)}
 .fc:nth-child(1) .fc-icon svg{stroke:var(--teal)}
 .fc:nth-child(2) .fc-icon svg{stroke:var(--red)}
-.fc:nth-child(3) .fc-icon svg{stroke:#92400E}
-.fc-title{font-family:'Playfair Display',serif;font-size:1rem;font-weight:700;color:var(--ink);margin-bottom:7px}
-.fc-desc{font-size:0.78rem;color:var(--ink-2);line-height:1.68;font-weight:300;margin-bottom:18px}
+.fc:nth-child(3) .fc-icon svg{stroke:var(--amber)}
+.fc-title{font-size:1.05rem;font-weight:700;color:var(--ink);margin-bottom:8px}
+.fc-desc{font-size:0.82rem;color:var(--ink-2);line-height:1.65;margin-bottom:18px}
 .fc-list{list-style:none;display:flex;flex-direction:column;gap:7px}
-.fc-list li{font-size:0.75rem;color:var(--ink-2);display:flex;align-items:flex-start;gap:8px;line-height:1.45}
-.chk{width:14px;height:14px;border-radius:50%;display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:1px}
+.fc-list li{font-size:0.78rem;color:var(--ink-2);display:flex;align-items:flex-start;gap:8px;line-height:1.4}
+.chk{width:18px;height:18px;border-radius:5px;display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:1px}
+.chk svg{width:9px;height:9px;stroke-width:2.5;stroke-linecap:round;stroke-linejoin:round;fill:none}
 .fc:nth-child(1) .chk{background:rgba(52,92,102,0.08);color:var(--teal)}
 .fc:nth-child(2) .chk{background:#FFF1F0;color:var(--red)}
-.fc:nth-child(3) .chk{background:#FFFBEB;color:#92400E}
-.chk svg{width:8px;height:8px;stroke-width:3;fill:none;stroke:currentColor;stroke-linecap:round;stroke-linejoin:round}
+.fc:nth-child(3) .chk{background:rgba(255,255,255,0.15);color:rgba(255,255,255,0.8)}
 
 /* ─── CASE STUDIES / TESTIMONIALS ─── */
 .case-wrap{background:#fff;border-top:1px solid var(--border);border-bottom:1px solid var(--border);
@@ -254,22 +267,22 @@ h2 em{font-style:italic;color:var(--red)}
 .ps-lbl{font-size:0.74rem;color:rgba(255,239,219,0.35);font-weight:300;line-height:1.5}
 
 /* ─── INTEGRATIONS ─── */
-.int-bg{background:var(--cream);padding:96px 40px;position:relative;z-index:1}
+.int-bg{background:var(--cream);padding:72px 40px;position:relative;z-index:1}
 .int-inner{max-width:1160px;margin:0 auto}
-
-/* Grayscale logo strip style */
-.int-strip{display:flex;flex-wrap:wrap;align-items:center;justify-content:center;
-  gap:0;margin-top:56px;border:1px solid var(--border);border-radius:var(--r);
-  background:#fff;overflow:hidden}
-.int-logo-item{display:flex;align-items:center;gap:9px;padding:28px 36px;
-  border-right:1px solid var(--border);flex:1;min-width:160px;justify-content:center;
-  transition:background 0.2s}
-.int-logo-item:last-child{border-right:none}
-.int-logo-item:hover{background:#F4F7F8}
-.int-logo-item svg,.int-logo-item img{height:22px;width:auto;opacity:0.3;filter:grayscale(1);transition:opacity 0.2s}
-.int-logo-item:hover svg,.int-logo-item:hover img{opacity:0.55}
-.int-logo-label{font-size:0.82rem;font-weight:600;color:#b8cdd2;letter-spacing:0.01em;transition:color 0.2s}
-.int-logo-item:hover .int-logo-label{color:var(--teal)}
+.int-marquee-wrap{overflow:hidden;border-top:1px solid var(--border);border-bottom:1px solid var(--border);
+  background:rgba(255,255,255,0.6);margin-top:40px;position:relative}
+.int-marquee-wrap::before,.int-marquee-wrap::after{content:'';position:absolute;top:0;bottom:0;width:80px;z-index:2;pointer-events:none}
+.int-marquee-wrap::before{left:0;background:linear-gradient(to right,rgba(255,239,219,0.9),transparent)}
+.int-marquee-wrap::after{right:0;background:linear-gradient(to left,rgba(255,239,219,0.9),transparent)}
+.int-marquee-track{display:flex;animation:intMarquee 28s linear infinite;width:max-content}
+.int-marquee-track:hover{animation-play-state:paused}
+@keyframes intMarquee{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+.int-m-item{display:flex;align-items:center;gap:9px;padding:18px 36px;
+  border-right:1px solid var(--border);font-size:0.78rem;font-weight:600;
+  color:var(--ink-3);white-space:nowrap;transition:color 0.2s}
+.int-m-item:hover{color:var(--teal)}
+.int-m-item svg{opacity:0.35;flex-shrink:0;transition:opacity 0.2s}
+.int-m-item:hover svg{opacity:0.65}
 .int-note{text-align:center;margin-top:18px;font-size:0.78rem;color:var(--ink-3);font-weight:300}
 
 /* ─── FAQ ─── */
@@ -350,9 +363,6 @@ footer{background:var(--teal-dark);border-top:1px solid rgba(255,255,255,0.08);p
   .hero{padding:110px 20px 56px}
   .stats-band{grid-template-columns:1fr 1fr}
   .prob-grid,.feat-grid,.case-grid{grid-template-columns:1fr}
-  .int-strip{flex-direction:column}
-  .int-logo-item{border-right:none;border-bottom:1px solid var(--border);width:100%}
-  .int-logo-item:last-child{border-bottom:none}
   .proof-inner{grid-template-columns:1fr}
   .ft{grid-template-columns:1fr 1fr}
   .prob-bg,.case-wrap,.proof-bg,.int-bg,.faq-bg,.cta-bg{padding:64px 20px}
@@ -462,80 +472,98 @@ footer{background:var(--teal-dark);border-top:1px solid rgba(255,255,255,0.08);p
   </div>
 </div>
 
-<!-- TRUSTED BY RESTAURANTS -->
-<div class="trusted-section rv">
-  <p class="trusted-label">Trusted by restaurants taking back control of their orders</p>
-  <div class="trusted-grid">
-    <div class="trusted-logo"><img src="Photos/Restaurant%20Logos/A-town.jpg" alt="A-town"></div>
-    <div class="trusted-logo"><img src="Photos/Restaurant%20Logos/BAP%20Livermore.avif" alt="BAP Livermore"></div>
-    <div class="trusted-logo"><img src="Photos/Restaurant%20Logos/BAP%20San%20Ramon.png" alt="BAP San Ramon"></div>
-    <div class="trusted-logo"><img src="Photos/Restaurant%20Logos/Danville.avif" alt="Danville"></div>
-    <div class="trusted-logo"><img src="Photos/Restaurant%20Logos/JJ%20Fish%20%26%20Chicken.png" alt="JJ Fish &amp; Chicken"></div>
-    <div class="trusted-logo"><img src="Photos/Restaurant%20Logos/NYPNP%20Pleasant%20Hill.png" alt="NYPNP Pleasant Hill"></div>
-    <div class="trusted-logo"><img src="Photos/Restaurant%20Logos/Pizza%20Ponte.jpeg" alt="Pizza Ponte"></div>
-    <div class="trusted-logo"><img src="Photos/Restaurant%20Logos/Rayos.png" alt="Rayos"></div>
-    <div class="trusted-logo"><img src="Photos/Restaurant%20Logos/Seniore_s_Logo-removebg-preview.png" alt="Seniore's"></div>
-    <div class="trusted-logo"><img src="Photos/Restaurant%20Logos/falafel%20boy.webp" alt="Falafel Boy"></div>
-  </div>
-</div>
-
 <!-- PROBLEMS -->
 <div class="prob-bg">
   <div class="prob-inner">
     <div class="eyebrow rv">The Reality</div>
     <h2 class="rv">Running a restaurant<br>has never been harder</h2>
-    <p class="s-desc rv">Third-party apps take 25–30% of every order. Phones go unanswered during rush. Customers drift away. VoiceBit fixes all three.</p>
-    <div class="prob-grid">
-      <div class="pc rv">
-        <div class="pc-num">Problem 01</div>
-        <div class="pc-icon"><svg viewBox="0 0 24 24"><path d="M12 2v4M12 18v4M4.93 4.93l2.83 2.83M16.24 16.24l2.83 2.83M2 12h4M18 12h4M4.93 19.07l2.83-2.83M16.24 7.76l2.83-2.83"/></svg></div>
-        <div class="pc-title">Shrinking Margins</div>
-        <div class="pc-desc">Third-party delivery apps take 25–30% of every order, cutting directly into your profits and pushing customers toward their platforms.</div>
-        <div class="pc-divider"></div>
-        <div class="pc-sol-lbl">✦ VoiceBit solves this</div>
-        <div class="pc-sol">Capture orders through your own channels. Zero commissions. 100% of revenue stays in your restaurant.</div>
-      </div>
-      <div class="pc rv d1">
-        <div class="pc-num">Problem 02</div>
-        <div class="pc-icon"><svg viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.81a19.79 19.79 0 01-3.07-8.68A2 2 0 012 .18h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.09 7.91a16 16 0 006 6l1.09-1.09a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg></div>
-        <div class="pc-title">Missed Calls & Staffing</div>
-        <div class="pc-desc">Hiring and retaining staff is harder than ever. Phones go unanswered during rush hour, costing you orders and customers every single day.</div>
-        <div class="pc-divider"></div>
-        <div class="pc-sol-lbl">✦ VoiceBit solves this</div>
-        <div class="pc-sol">AI handles every call automatically — consistent, fast, and accurate — without pulling staff off the floor.</div>
-      </div>
-      <div class="pc rv d2">
-        <div class="pc-num">Problem 03</div>
-        <div class="pc-icon"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 8v4l3 3"/></svg></div>
-        <div class="pc-title">The AI Ordering Shift</div>
-        <div class="pc-desc">Customers are ordering through AI assistants and smart devices. Restaurants on traditional channels risk falling permanently behind.</div>
-        <div class="pc-divider"></div>
-        <div class="pc-sol-lbl">✦ VoiceBit solves this</div>
-        <div class="pc-sol">VoiceBit puts your restaurant in the AI ordering ecosystem — direct, no third-party commissions eating your margin.</div>
-      </div>
-    </div>
-  </div>
-</div>
 
-<!-- STATS -->
-<div class="stats-outer">
-  <div class="stats-band rv">
-    <div class="stat-cell">
-      <div class="stat-num"><em>$0</em></div>
-      <div class="stat-lbl">Commission on every direct order you capture</div>
+    <div class="prob-tabs rv">
+      <button class="prob-tab active" data-tab="0">
+        <span class="prob-tab-num">01</span> Shrinking Margins
+      </button>
+      <button class="prob-tab" data-tab="1">
+        <span class="prob-tab-num">02</span> Missed Calls &amp; Staffing
+      </button>
+      <button class="prob-tab" data-tab="2">
+        <span class="prob-tab-num">03</span> The AI Ordering Shift
+      </button>
     </div>
-    <div class="stat-cell">
-      <div class="stat-num">24<em>/7</em></div>
-      <div class="stat-lbl">AI phone coverage — no sick days, no overtime</div>
+
+    <div class="prob-card active" data-content="0">
+      <div class="prob-card-issue">
+        <div class="prob-card-icon"><svg viewBox="0 0 24 24"><path d="M12 2v4M12 18v4M4.93 4.93l2.83 2.83M16.24 16.24l2.83 2.83M2 12h4M18 12h4M4.93 19.07l2.83-2.83M16.24 7.76l2.83-2.83"/></svg></div>
+        <div class="prob-card-title">Shrinking Margins</div>
+        <div class="prob-card-label">The Issue</div>
+        <p>Third-party delivery apps take 25–30% of every order, cutting directly into your profits and pushing customers toward their platforms instead of yours.</p>
+      </div>
+      <div class="prob-card-solve">
+        <div class="prob-card-label solve">✦ VoiceBit solves this</div>
+        <p>Capture every order through your own channels — phone and web. Zero commissions. 100% of revenue stays in your restaurant, every single time.</p>
+      </div>
     </div>
-    <div class="stat-cell">
-      <div class="stat-num"><em>3</em> hrs</div>
-      <div class="stat-lbl">Average setup time — live the same day</div>
+    <div class="prob-card" data-content="1">
+      <div class="prob-card-issue">
+        <div class="prob-card-icon"><svg viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.81a19.79 19.79 0 01-3.07-8.68A2 2 0 012 .18h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.09 7.91a16 16 0 006 6l1.09-1.09a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg></div>
+        <div class="prob-card-title">Missed Calls &amp; Staffing</div>
+        <div class="prob-card-label">The Issue</div>
+        <p>Hiring and retaining staff is harder than ever. Phones go unanswered during rush hour, costing you real orders and loyal customers every single day.</p>
+      </div>
+      <div class="prob-card-solve">
+        <div class="prob-card-label solve">✦ VoiceBit solves this</div>
+        <p>AI handles every call automatically — consistent, fast, and accurate — without pulling a single staff member off the floor, even at peak hours.</p>
+      </div>
     </div>
-    <div class="stat-cell">
-      <div class="stat-num">25<em>–30%</em></div>
-      <div class="stat-lbl">Saved per order vs. third-party platforms</div>
+    <div class="prob-card" data-content="2">
+      <div class="prob-card-issue">
+        <div class="prob-card-icon"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 8v4l3 3"/></svg></div>
+        <div class="prob-card-title">The AI Ordering Shift</div>
+        <div class="prob-card-label">The Issue</div>
+        <p>Customers are ordering through AI assistants and smart devices. Restaurants still on traditional or third-party channels risk falling permanently behind.</p>
+      </div>
+      <div class="prob-card-solve">
+        <div class="prob-card-label solve">✦ VoiceBit solves this</div>
+        <p>VoiceBit puts your restaurant at the center of the AI ordering ecosystem — direct, commission-free, and built for the way customers order today and tomorrow.</p>
+      </div>
     </div>
+
+    <!-- Stats inside prob-bg -->
+    <div class="stats-band rv" style="margin-top:48px">
+      <div class="stat-cell">
+        <div class="stat-num"><em>$0</em></div>
+        <div class="stat-lbl">Commission on every direct order you capture</div>
+      </div>
+      <div class="stat-cell">
+        <div class="stat-num">24<em>/7</em></div>
+        <div class="stat-lbl">AI phone coverage — no sick days, no overtime</div>
+      </div>
+      <div class="stat-cell">
+        <div class="stat-num"><em>3</em> hrs</div>
+        <div class="stat-lbl">Average setup time — live the same day</div>
+      </div>
+      <div class="stat-cell">
+        <div class="stat-num">25<em>–30%</em></div>
+        <div class="stat-lbl">Saved per order vs. third-party platforms</div>
+      </div>
+    </div>
+
+    <!-- Trusted by inside prob-bg -->
+    <div class="rv" style="margin-top:48px;text-align:center">
+      <p style="font-size:0.78rem;color:rgba(255,255,255,0.35);letter-spacing:0.06em;text-transform:uppercase;font-weight:600;margin-bottom:28px">Trusted by restaurants across the country</p>
+      <div class="trusted-grid" style="--logo-filter:brightness(0) invert(1);--logo-opacity:0.25;border-top:1px solid rgba(255,255,255,0.07)">
+        <div class="trusted-logo"><img src="Photos/Restaurant%20Logos/A-town.jpg" alt="A-town"></div>
+        <div class="trusted-logo"><img src="Photos/Restaurant%20Logos/BAP%20Livermore.avif" alt="BAP Livermore"></div>
+        <div class="trusted-logo"><img src="Photos/Restaurant%20Logos/BAP%20San%20Ramon.png" alt="BAP San Ramon"></div>
+        <div class="trusted-logo"><img src="Photos/Restaurant%20Logos/Danville.avif" alt="Danville"></div>
+        <div class="trusted-logo"><img src="Photos/Restaurant%20Logos/JJ%20Fish%20%26%20Chicken.png" alt="JJ Fish &amp; Chicken"></div>
+        <div class="trusted-logo"><img src="Photos/Restaurant%20Logos/NYPNP%20Pleasant%20Hill.png" alt="NYPNP Pleasant Hill"></div>
+        <div class="trusted-logo"><img src="Photos/Restaurant%20Logos/Pizza%20Ponte.jpeg" alt="Pizza Ponte"></div>
+        <div class="trusted-logo"><img src="Photos/Restaurant%20Logos/Rayos.png" alt="Rayos"></div>
+        <div class="trusted-logo"><img src="Photos/Restaurant%20Logos/Seniore_s_Logo-removebg-preview.png" alt="Seniore's"></div>
+        <div class="trusted-logo"><img src="Photos/Restaurant%20Logos/falafel%20boy.webp" alt="Falafel Boy"></div>
+      </div>
+    </div>
+
   </div>
 </div>
 
@@ -553,8 +581,8 @@ footer{background:var(--teal-dark);border-top:1px solid rgba(255,255,255,0.08);p
       <ul class="fc-list">
         <li><span class="chk"><svg viewBox="0 0 12 12"><path d="M2 6l3 3 5-5"/></svg></span>24/7 AI phone answering</li>
         <li><span class="chk"><svg viewBox="0 0 12 12"><path d="M2 6l3 3 5-5"/></svg></span>Unlimited simultaneous calls</li>
-        <li><span class="chk"><svg viewBox="0 0 12 12"><path d="M2 6l3 3 5-5"/></svg></span>Handles menu questions & FAQs</li>
-        <li><span class="chk"><svg viewBox="0 0 12 12"><path d="M2 6l3 3 5-5"/></svg></span>English & Spanish support</li>
+        <li><span class="chk"><svg viewBox="0 0 12 12"><path d="M2 6l3 3 5-5"/></svg></span>Handles menu questions &amp; FAQs</li>
+        <li><span class="chk"><svg viewBox="0 0 12 12"><path d="M2 6l3 3 5-5"/></svg></span>English &amp; Spanish support</li>
         <li><span class="chk"><svg viewBox="0 0 12 12"><path d="M2 6l3 3 5-5"/></svg></span>Smart upselling on every call</li>
         <li><span class="chk"><svg viewBox="0 0 12 12"><path d="M2 6l3 3 5-5"/></svg></span>Routes to staff when needed</li>
       </ul>
@@ -565,27 +593,31 @@ footer{background:var(--teal-dark);border-top:1px solid rgba(255,255,255,0.08);p
       <div class="fc-title">AI Direct Ordering Website</div>
       <div class="fc-desc">A branded, mobile-optimized ordering site that converts visitors to customers — zero commission on every order.</div>
       <ul class="fc-list">
-        <li><span class="chk"><svg viewBox="0 0 12 12"><path d="M2 6l3 3 5-5"/></svg></span>Direct pickup & delivery ordering</li>
+        <li><span class="chk"><svg viewBox="0 0 12 12"><path d="M2 6l3 3 5-5"/></svg></span>Direct pickup &amp; delivery ordering</li>
         <li><span class="chk"><svg viewBox="0 0 12 12"><path d="M2 6l3 3 5-5"/></svg></span>Fully branded experience</li>
         <li><span class="chk"><svg viewBox="0 0 12 12"><path d="M2 6l3 3 5-5"/></svg></span>Mobile-first ordering flow</li>
         <li><span class="chk"><svg viewBox="0 0 12 12"><path d="M2 6l3 3 5-5"/></svg></span>SEO-optimized for local search</li>
         <li><span class="chk"><svg viewBox="0 0 12 12"><path d="M2 6l3 3 5-5"/></svg></span>Smart upsells to grow ticket size</li>
-        <li><span class="chk"><svg viewBox="0 0 12 12"><path d="M2 6l3 3 5-5"/></svg></span>Integrated payments & POS routing</li>
+        <li><span class="chk"><svg viewBox="0 0 12 12"><path d="M2 6l3 3 5-5"/></svg></span>Integrated payments &amp; POS routing</li>
       </ul>
     </div>
     <div class="fc rv d2">
-      <div class="fc-accent"></div>
-      <div class="fc-icon"><svg viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87M16 3.13a4 4 0 010 7.75"/></svg></div>
-      <div class="fc-title">AI Customer Management</div>
-      <div class="fc-desc">Turns one-time customers into loyal regulars using order data and AI-powered outreach campaigns.</div>
-      <ul class="fc-list">
-        <li><span class="chk"><svg viewBox="0 0 12 12"><path d="M2 6l3 3 5-5"/></svg></span>Customer profiles from every order</li>
-        <li><span class="chk"><svg viewBox="0 0 12 12"><path d="M2 6l3 3 5-5"/></svg></span>Order history & repeat prompts</li>
-        <li><span class="chk"><svg viewBox="0 0 12 12"><path d="M2 6l3 3 5-5"/></svg></span>SMS marketing campaigns</li>
-        <li><span class="chk"><svg viewBox="0 0 12 12"><path d="M2 6l3 3 5-5"/></svg></span>Loyalty & rewards tracking</li>
-        <li><span class="chk"><svg viewBox="0 0 12 12"><path d="M2 6l3 3 5-5"/></svg></span>Customer insights & analytics</li>
-        <li><span class="chk"><svg viewBox="0 0 12 12"><path d="M2 6l3 3 5-5"/></svg></span>Personalized offers & promotions</li>
-      </ul>
+      <div class="fc-left">
+        <div class="fc-tag">Supercharges both channels</div>
+        <div class="fc-icon"><svg viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87M16 3.13a4 4 0 010 7.75"/></svg></div>
+        <div class="fc-title">AI Customer Management</div>
+        <div class="fc-desc">Turns one-time customers into loyal regulars using order data and AI-powered outreach campaigns across every channel.</div>
+      </div>
+      <div class="fc-right">
+        <ul class="fc-list" style="margin-top:auto">
+          <li><span class="chk"><svg viewBox="0 0 12 12"><path d="M2 6l3 3 5-5"/></svg></span>Customer profiles from every order</li>
+          <li><span class="chk"><svg viewBox="0 0 12 12"><path d="M2 6l3 3 5-5"/></svg></span>Order history &amp; repeat prompts</li>
+          <li><span class="chk"><svg viewBox="0 0 12 12"><path d="M2 6l3 3 5-5"/></svg></span>SMS marketing campaigns</li>
+          <li><span class="chk"><svg viewBox="0 0 12 12"><path d="M2 6l3 3 5-5"/></svg></span>Loyalty &amp; rewards tracking</li>
+          <li><span class="chk"><svg viewBox="0 0 12 12"><path d="M2 6l3 3 5-5"/></svg></span>Customer insights &amp; analytics</li>
+          <li><span class="chk"><svg viewBox="0 0 12 12"><path d="M2 6l3 3 5-5"/></svg></span>Personalized offers &amp; promotions</li>
+        </ul>
+      </div>
     </div>
   </div>
 </section>
@@ -596,35 +628,32 @@ footer{background:var(--teal-dark);border-top:1px solid rgba(255,255,255,0.08);p
     <div class="eyebrow rv">Integrations</div>
     <h2 class="rv">Connects with your stack</h2>
     <p class="s-desc rv">VoiceBit syncs orders directly with your POS and the tools you already use. We handle the entire setup for you.</p>
-
-    <!-- Clean grayscale logo strip -->
-    <div class="int-strip rv">
-      <div class="int-logo-item">
-        <svg viewBox="0 0 32 32" width="28" height="28"><rect width="32" height="32" rx="6" fill="#888"/><path d="M8 10h16M8 16h10M8 22h13" stroke="#fff" stroke-width="2" stroke-linecap="round"/></svg>
-        <span class="int-logo-label">Toast POS</span>
-      </div>
-      <div class="int-logo-item">
-        <svg viewBox="0 0 32 32" width="28" height="28"><rect width="32" height="32" rx="6" fill="#888"/><rect x="9" y="9" width="14" height="14" rx="2" fill="#fff"/></svg>
-        <span class="int-logo-label">Square</span>
-      </div>
-      <div class="int-logo-item">
-        <svg viewBox="0 0 32 32" width="28" height="28"><circle cx="10" cy="10" r="5" fill="#888"/><circle cx="22" cy="10" r="5" fill="#888"/><circle cx="10" cy="22" r="5" fill="#888"/><circle cx="22" cy="22" r="5" fill="#888"/></svg>
-        <span class="int-logo-label">Clover</span>
-      </div>
-      <div class="int-logo-item">
-        <svg viewBox="0 0 32 32" width="28" height="28"><rect width="32" height="32" rx="6" fill="#888"/><text x="5" y="21" font-family="Georgia" font-size="13" font-weight="700" fill="#fff">stripe</text></svg>
-        <span class="int-logo-label">Stripe</span>
-      </div>
-      <div class="int-logo-item">
-        <svg viewBox="0 0 32 32" width="28" height="28"><circle cx="16" cy="16" r="14" fill="#888"/><path d="M10 16l4 4 8-8" stroke="#fff" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
-        <span class="int-logo-label">Uber Eats</span>
-      </div>
-      <div class="int-logo-item">
-        <svg viewBox="0 0 32 32" width="28" height="28"><circle cx="16" cy="16" r="14" fill="#888"/><rect x="9" y="12" width="14" height="9" rx="2" fill="#fff" opacity=".85"/></svg>
-        <span class="int-logo-label">DoorDash</span>
+    <div class="int-marquee-wrap rv">
+      <div class="int-marquee-track">
+        <div class="int-m-item"><svg viewBox="0 0 32 32" width="22" height="22"><rect width="32" height="32" rx="6" fill="currentColor" opacity=".4"/><path d="M8 10h16M8 16h10M8 22h13" stroke="currentColor" stroke-width="2" stroke-linecap="round" opacity="1.5"/></svg>Toast POS</div>
+        <div class="int-m-item"><svg viewBox="0 0 32 32" width="22" height="22"><rect width="32" height="32" rx="6" fill="currentColor" opacity=".4"/><rect x="9" y="9" width="14" height="14" rx="2" fill="white" opacity=".8"/></svg>Square</div>
+        <div class="int-m-item"><svg viewBox="0 0 32 32" width="22" height="22"><circle cx="10" cy="10" r="5" fill="currentColor" opacity=".5"/><circle cx="22" cy="10" r="5" fill="currentColor" opacity=".5"/><circle cx="10" cy="22" r="5" fill="currentColor" opacity=".5"/><circle cx="22" cy="22" r="5" fill="currentColor" opacity=".5"/></svg>Clover</div>
+        <div class="int-m-item"><svg viewBox="0 0 32 32" width="22" height="22"><rect width="32" height="32" rx="6" fill="currentColor" opacity=".4"/><text x="5" y="21" font-family="Georgia" font-size="13" font-weight="700" fill="white" opacity=".8">stripe</text></svg>Stripe</div>
+        <div class="int-m-item"><svg viewBox="0 0 32 32" width="22" height="22"><circle cx="16" cy="16" r="14" fill="currentColor" opacity=".4"/><path d="M10 16l4 4 8-8" stroke="white" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" opacity=".8"/></svg>Uber Eats</div>
+        <div class="int-m-item"><svg viewBox="0 0 32 32" width="22" height="22"><circle cx="16" cy="16" r="14" fill="currentColor" opacity=".4"/><rect x="9" y="12" width="14" height="9" rx="2" fill="white" opacity=".7"/></svg>DoorDash</div>
+        <div class="int-m-item"><svg viewBox="0 0 32 32" width="22" height="22"><rect width="32" height="32" rx="6" fill="currentColor" opacity=".4"/><circle cx="16" cy="16" r="6" fill="white" opacity=".8"/></svg>Google</div>
+        <div class="int-m-item"><svg viewBox="0 0 32 32" width="22" height="22"><rect width="32" height="32" rx="6" fill="currentColor" opacity=".4"/><path d="M8 10h16M8 16h8M8 22h12" stroke="white" stroke-width="2" stroke-linecap="round" opacity=".8"/></svg>Olo</div>
+        <div class="int-m-item"><svg viewBox="0 0 32 32" width="22" height="22"><circle cx="16" cy="16" r="14" fill="currentColor" opacity=".4"/><path d="M12 10h8M12 16h6M12 22h7" stroke="white" stroke-width="2" stroke-linecap="round" opacity=".8"/></svg>ChowNow</div>
+        <div class="int-m-item"><svg viewBox="0 0 32 32" width="22" height="22"><rect width="32" height="32" rx="6" fill="currentColor" opacity=".4"/><circle cx="16" cy="14" r="5" fill="white" opacity=".8"/><path d="M8 24a8 8 0 0116 0" fill="white" opacity=".6"/></svg>Lightspeed</div>
+        <!-- duplicate set for seamless loop -->
+        <div class="int-m-item"><svg viewBox="0 0 32 32" width="22" height="22"><rect width="32" height="32" rx="6" fill="currentColor" opacity=".4"/><path d="M8 10h16M8 16h10M8 22h13" stroke="currentColor" stroke-width="2" stroke-linecap="round" opacity="1.5"/></svg>Toast POS</div>
+        <div class="int-m-item"><svg viewBox="0 0 32 32" width="22" height="22"><rect width="32" height="32" rx="6" fill="currentColor" opacity=".4"/><rect x="9" y="9" width="14" height="14" rx="2" fill="white" opacity=".8"/></svg>Square</div>
+        <div class="int-m-item"><svg viewBox="0 0 32 32" width="22" height="22"><circle cx="10" cy="10" r="5" fill="currentColor" opacity=".5"/><circle cx="22" cy="10" r="5" fill="currentColor" opacity=".5"/><circle cx="10" cy="22" r="5" fill="currentColor" opacity=".5"/><circle cx="22" cy="22" r="5" fill="currentColor" opacity=".5"/></svg>Clover</div>
+        <div class="int-m-item"><svg viewBox="0 0 32 32" width="22" height="22"><rect width="32" height="32" rx="6" fill="currentColor" opacity=".4"/><text x="5" y="21" font-family="Georgia" font-size="13" font-weight="700" fill="white" opacity=".8">stripe</text></svg>Stripe</div>
+        <div class="int-m-item"><svg viewBox="0 0 32 32" width="22" height="22"><circle cx="16" cy="16" r="14" fill="currentColor" opacity=".4"/><path d="M10 16l4 4 8-8" stroke="white" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" opacity=".8"/></svg>Uber Eats</div>
+        <div class="int-m-item"><svg viewBox="0 0 32 32" width="22" height="22"><circle cx="16" cy="16" r="14" fill="currentColor" opacity=".4"/><rect x="9" y="12" width="14" height="9" rx="2" fill="white" opacity=".7"/></svg>DoorDash</div>
+        <div class="int-m-item"><svg viewBox="0 0 32 32" width="22" height="22"><rect width="32" height="32" rx="6" fill="currentColor" opacity=".4"/><circle cx="16" cy="16" r="6" fill="white" opacity=".8"/></svg>Google</div>
+        <div class="int-m-item"><svg viewBox="0 0 32 32" width="22" height="22"><rect width="32" height="32" rx="6" fill="currentColor" opacity=".4"/><path d="M8 10h16M8 16h8M8 22h12" stroke="white" stroke-width="2" stroke-linecap="round" opacity=".8"/></svg>Olo</div>
+        <div class="int-m-item"><svg viewBox="0 0 32 32" width="22" height="22"><circle cx="16" cy="16" r="14" fill="currentColor" opacity=".4"/><path d="M12 10h8M12 16h6M12 22h7" stroke="white" stroke-width="2" stroke-linecap="round" opacity=".8"/></svg>ChowNow</div>
+        <div class="int-m-item"><svg viewBox="0 0 32 32" width="22" height="22"><rect width="32" height="32" rx="6" fill="currentColor" opacity=".4"/><circle cx="16" cy="14" r="5" fill="white" opacity=".8"/><path d="M8 24a8 8 0 0116 0" fill="white" opacity=".6"/></svg>Lightspeed</div>
       </div>
     </div>
-    <p class="int-note rv">Don't see your POS? We likely support it — <a href="#contact" style="color:var(--teal);font-weight:500">contact us</a> to confirm.</p>
+    <p class="int-note rv" style="text-align:center;margin-top:20px">Don't see your POS? We likely support it — <a href="#contact" style="color:var(--teal);font-weight:500">contact us</a> to confirm.</p>
   </div>
 </div>
 
@@ -727,6 +756,16 @@ const cobs=new IntersectionObserver(e=>{
 },{threshold:0.3});
 const ps=document.getElementById('proof-stats');
 if(ps)cobs.observe(ps);
+// Problems section tabs
+document.querySelectorAll('.prob-tab').forEach(tab => {
+  tab.addEventListener('click', () => {
+    const idx = tab.dataset.tab;
+    document.querySelectorAll('.prob-tab').forEach(t => t.classList.remove('active'));
+    document.querySelectorAll('.prob-card').forEach(c => c.classList.remove('active'));
+    tab.classList.add('active');
+    document.querySelector('.prob-card[data-content="' + idx + '"]').classList.add('active');
+  });
+});
 </script>
 </body>
 </html>
