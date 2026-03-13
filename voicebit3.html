@@ -162,14 +162,16 @@ h2 em{font-style:italic;color:var(--red)}
   box-shadow:0 8px 48px rgba(52,92,102,0.12)}
 /* Vertical tab list */
 .prob-tabs-v{border-right:2px solid var(--border);display:flex;flex-direction:column}
-.prob-tab-v{background:none;border:none;cursor:pointer;padding:36px 24px;font-family:'Playfair Display',serif;
-  font-size:1.55rem;font-weight:700;color:var(--ink-3);text-align:center;
+.prob-tab-v{background:none;border:none;cursor:pointer;padding:0 20px;min-height:96px;
+  font-family:'Oswald',sans-serif;font-size:1.15rem;font-weight:600;
+  text-transform:uppercase;letter-spacing:0.04em;
+  color:var(--ink-3);text-align:center;
   display:flex;flex-direction:column;align-items:center;justify-content:center;gap:0;
   transition:color 0.2s,background 0.2s;
-  border-bottom:1px solid var(--border);border-left:4px solid transparent;line-height:1.2}
+  border-bottom:1px solid var(--border);border-left:4px solid transparent;line-height:1.25}
 .prob-tab-v:last-child{border-bottom:none}
-.prob-tab-v:hover{color:var(--teal);background:var(--teal-light)}
-.prob-tab-v.active{color:var(--teal);background:rgba(52,92,102,0.06);font-weight:800;border-left-color:var(--amber)}
+.prob-tab-v:hover{color:var(--teal);background:rgba(52,92,102,0.04)}
+.prob-tab-v.active{color:#fff;background:var(--teal);font-weight:700;border-left-color:var(--amber)}
 .prob-tab-num{display:none}
 /* Right content panels */
 .prob-panels{display:flex;flex-direction:column}
@@ -177,17 +179,18 @@ h2 em{font-style:italic;color:var(--red)}
 .prob-panel.active{display:grid;grid-template-columns:1fr 1fr}
 .prob-panel-issue{padding:44px 40px 44px 48px;border-right:1px solid var(--border)}
 .prob-panel-solve{padding:44px 48px 44px 40px}
-.prob-issue-label{font-family:'Playfair Display',serif;font-size:1.3rem;font-weight:700;
-  color:var(--red-light);margin-bottom:16px;line-height:1}
-.prob-solve-label{font-family:'Playfair Display',serif;font-size:1.3rem;font-weight:700;
-  color:var(--amber);margin-bottom:16px;line-height:1}
+.prob-issue-label{font-family:'Oswald',sans-serif;font-size:0.72rem;font-weight:700;
+  letter-spacing:0.14em;text-transform:uppercase;color:var(--red-light);margin-bottom:16px;line-height:1}
+.prob-solve-label{font-family:'Oswald',sans-serif;font-size:0.72rem;font-weight:700;
+  letter-spacing:0.14em;text-transform:uppercase;color:var(--amber);margin-bottom:16px;line-height:1}
 .prob-card-label{font-size:0.6rem;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;
   color:var(--ink-3);margin-bottom:14px}
-.prob-panel-issue p,.prob-panel-solve p{font-size:1.08rem;color:var(--ink);line-height:1.8;font-weight:400}
+.prob-panel-issue p,.prob-panel-solve p{font-size:1.12rem;color:var(--ink);line-height:1.85;font-weight:400}
+.prob-panel-issue strong,.prob-panel-solve strong{font-weight:700;color:var(--ink)}
 .prob-card-icon{width:44px;height:44px;border-radius:10px;background:var(--teal-light);
   display:flex;align-items:center;justify-content:center;margin-bottom:16px;stroke:var(--teal);fill:none;stroke-width:1.5;stroke-linecap:round;stroke-linejoin:round}
 .prob-card-icon svg{width:22px;height:22px}
-.prob-card-title{font-family:'Playfair Display',serif;font-size:1.3rem;font-weight:700;color:var(--ink);margin-bottom:10px}
+.prob-card-title{font-family:'Oswald',sans-serif;font-size:1.3rem;font-weight:700;text-transform:uppercase;color:var(--ink);margin-bottom:10px}
 
 /* ─── PROB LOGOS GRID ─── */
 .prob-logos-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:10px;max-width:900px;margin:0 auto}
@@ -222,19 +225,28 @@ h2 em{font-style:italic;color:var(--red)}
 .feat-intro-desc{font-size:1.08rem;color:var(--ink-2);font-weight:300;line-height:1.7}
 .feat-cards{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
 .fc2{background:#fff;border:1px solid var(--border);border-radius:var(--r);
-  padding:44px 36px;display:flex;flex-direction:column;gap:0;position:relative;
+  padding:0;display:flex;flex-direction:column;gap:0;position:relative;overflow:hidden;
   transition:transform 0.35s cubic-bezier(.22,.68,0,1.2),box-shadow 0.35s,border-color 0.2s;
   cursor:default}
-.fc2:hover{transform:translateY(-10px);box-shadow:0 32px 80px rgba(52,92,102,0.16);border-color:rgba(52,92,102,0.2)}
-.fc2-bar{height:5px;border-radius:4px;width:48px;margin-bottom:28px}
-.fc2-body{flex:1;display:flex;flex-direction:column}
-.fc2-title{font-size:1.22rem;font-weight:400;color:var(--ink-2);line-height:1.35;margin-bottom:14px}
-.fc2-title strong{font-weight:700;color:var(--ink)}
-.fc2-desc{font-size:0.97rem;color:var(--ink-2);line-height:1.75;margin-bottom:24px;font-weight:300}
-.fc-list{list-style:none;display:flex;flex-direction:column;gap:9px;margin-top:auto}
-.fc-list li{font-size:0.88rem;color:var(--ink-2);display:flex;align-items:flex-start;gap:8px;line-height:1.4}
-.chk{width:18px;height:18px;border-radius:5px;display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:1px}
-.chk svg{width:9px;height:9px;stroke-width:2.5;stroke-linecap:round;stroke-linejoin:round;fill:none}
+.fc2:hover{transform:translateY(-10px);box-shadow:0 32px 80px rgba(52,92,102,0.2)}
+.fc2-header{padding:32px 32px 28px;position:relative;overflow:hidden}
+.fc2-header::after{content:'';position:absolute;inset:0;
+  background-image:url('Photos/background_photo.png');background-size:400px auto;
+  opacity:0.07;pointer-events:none}
+.fc2-product-tag{font-family:'Oswald',sans-serif;font-size:0.62rem;font-weight:600;
+  letter-spacing:0.16em;text-transform:uppercase;color:rgba(255,255,255,0.65);margin-bottom:12px;
+  position:relative;z-index:1}
+.fc2-title{font-family:'Oswald',sans-serif;font-size:1.6rem;font-weight:700;
+  color:#fff;line-height:1.15;margin-bottom:0;text-transform:none;letter-spacing:0.01em;
+  position:relative;z-index:1}
+.fc2-body{flex:1;display:flex;flex-direction:column;padding:28px 32px 32px}
+.fc2-bar{display:none}
+.fc2-desc{font-size:0.95rem;color:var(--ink-2);line-height:1.75;margin-bottom:24px;font-weight:400}
+.fc-list{list-style:none;display:flex;flex-direction:column;gap:10px;margin-top:auto;
+  border-top:1px solid var(--border);padding-top:20px}
+.fc-list li{font-size:0.88rem;color:var(--ink);display:flex;align-items:flex-start;gap:10px;line-height:1.45;font-weight:500}
+.chk{width:20px;height:20px;border-radius:6px;display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:1px}
+.chk svg{width:10px;height:10px;stroke-width:2.5;stroke-linecap:round;stroke-linejoin:round;fill:none}
 
 /* ─── CASE STUDIES / TESTIMONIALS ─── */
 .case-wrap{background:#fff;border-top:1px solid var(--border);border-bottom:1px solid var(--border);
@@ -764,38 +776,44 @@ footer{background:var(--teal-dark);border-top:1px solid rgba(255,255,255,0.08);p
   <!-- 3 cards in a row -->
   <div class="feat-cards">
     <div class="fc2 rv">
-      <div class="fc2-bar" style="background:var(--teal)"></div>
+      <div class="fc2-header" style="background:var(--teal)">
+        <div class="fc2-product-tag">AI Voice Employee</div>
+        <div class="fc2-title">Never miss another call — or another order</div>
+      </div>
       <div class="fc2-body">
-        <div class="fc2-title">Never miss another call — <strong>or another order</strong></div>
-        <div class="fc2-desc">AI Voice Employee answers every call instantly, takes orders, handles FAQs, and upsells — in English and Spanish. No hold times. No missed revenue at rush hour.</div>
+        <div class="fc2-desc">Answers every call instantly, takes orders, handles FAQs, and upsells — in English and Spanish. No hold times. No missed revenue at rush hour.</div>
         <ul class="fc-list">
-          <li><span class="chk" style="background:rgba(52,92,102,0.08);color:var(--teal)"><svg viewBox="0 0 12 12"><path d="M2 6l3 3 5-5"/></svg></span>24/7 coverage, unlimited simultaneous calls</li>
-          <li><span class="chk" style="background:rgba(52,92,102,0.08);color:var(--teal)"><svg viewBox="0 0 12 12"><path d="M2 6l3 3 5-5"/></svg></span>Smart upselling on every call</li>
-          <li><span class="chk" style="background:rgba(52,92,102,0.08);color:var(--teal)"><svg viewBox="0 0 12 12"><path d="M2 6l3 3 5-5"/></svg></span>Routes to staff when truly needed</li>
+          <li><span class="chk" style="background:rgba(52,92,102,0.1);color:var(--teal)"><svg viewBox="0 0 12 12" stroke="currentColor"><path d="M2 6l3 3 5-5"/></svg></span>24/7 coverage, unlimited simultaneous calls</li>
+          <li><span class="chk" style="background:rgba(52,92,102,0.1);color:var(--teal)"><svg viewBox="0 0 12 12" stroke="currentColor"><path d="M2 6l3 3 5-5"/></svg></span>Smart upselling on every call</li>
+          <li><span class="chk" style="background:rgba(52,92,102,0.1);color:var(--teal)"><svg viewBox="0 0 12 12" stroke="currentColor"><path d="M2 6l3 3 5-5"/></svg></span>Routes to staff when truly needed</li>
         </ul>
       </div>
     </div>
     <div class="fc2 rv d1">
-      <div class="fc2-bar" style="background:var(--red)"></div>
+      <div class="fc2-header" style="background:var(--red)">
+        <div class="fc2-product-tag">AI Direct Ordering Website</div>
+        <div class="fc2-title">Zero-commission ordering — fully branded</div>
+      </div>
       <div class="fc2-body">
-        <div class="fc2-title">Zero-commission ordering — <strong>fully branded</strong></div>
-        <div class="fc2-desc">AI Direct Ordering Website converts online visitors to customers on your own platform. Mobile-first, SEO-optimized, and integrated directly with your POS.</div>
+        <div class="fc2-desc">Converts online visitors to customers on your own platform. Mobile-first, SEO-optimized, and integrated directly with your POS.</div>
         <ul class="fc-list">
-          <li><span class="chk" style="background:#FFF1F0;color:var(--red)"><svg viewBox="0 0 12 12"><path d="M2 6l3 3 5-5"/></svg></span>Direct pickup &amp; delivery, $0 commission</li>
-          <li><span class="chk" style="background:#FFF1F0;color:var(--red)"><svg viewBox="0 0 12 12"><path d="M2 6l3 3 5-5"/></svg></span>Smart upsells to grow ticket size</li>
-          <li><span class="chk" style="background:#FFF1F0;color:var(--red)"><svg viewBox="0 0 12 12"><path d="M2 6l3 3 5-5"/></svg></span>Integrated payments &amp; POS routing</li>
+          <li><span class="chk" style="background:#FFF1F0;color:var(--red)"><svg viewBox="0 0 12 12" stroke="currentColor"><path d="M2 6l3 3 5-5"/></svg></span>Direct pickup &amp; delivery, $0 commission</li>
+          <li><span class="chk" style="background:#FFF1F0;color:var(--red)"><svg viewBox="0 0 12 12" stroke="currentColor"><path d="M2 6l3 3 5-5"/></svg></span>Smart upsells to grow ticket size</li>
+          <li><span class="chk" style="background:#FFF1F0;color:var(--red)"><svg viewBox="0 0 12 12" stroke="currentColor"><path d="M2 6l3 3 5-5"/></svg></span>Integrated payments &amp; POS routing</li>
         </ul>
       </div>
     </div>
     <div class="fc2 rv d2">
-      <div class="fc2-bar" style="background:var(--amber)"></div>
+      <div class="fc2-header" style="background:var(--amber)">
+        <div class="fc2-product-tag">AI Customer Management</div>
+        <div class="fc2-title">Turn one-time buyers into loyal regulars</div>
+      </div>
       <div class="fc2-body">
-        <div class="fc2-title">Turn one-time buyers into <strong>loyal regulars</strong></div>
-        <div class="fc2-desc">AI Customer Management uses every order to build guest profiles, then drives repeat visits through SMS campaigns, loyalty rewards, and personalized offers.</div>
+        <div class="fc2-desc">Uses every order to build guest profiles, then drives repeat visits through SMS campaigns, loyalty rewards, and personalized offers.</div>
         <ul class="fc-list">
-          <li><span class="chk" style="background:rgba(218,146,26,0.1);color:var(--amber)"><svg viewBox="0 0 12 12"><path d="M2 6l3 3 5-5"/></svg></span>Customer profiles from every order</li>
-          <li><span class="chk" style="background:rgba(218,146,26,0.1);color:var(--amber)"><svg viewBox="0 0 12 12"><path d="M2 6l3 3 5-5"/></svg></span>SMS marketing &amp; loyalty tracking</li>
-          <li><span class="chk" style="background:rgba(218,146,26,0.1);color:var(--amber)"><svg viewBox="0 0 12 12"><path d="M2 6l3 3 5-5"/></svg></span>Personalized offers &amp; repeat prompts</li>
+          <li><span class="chk" style="background:rgba(218,146,26,0.12);color:var(--amber)"><svg viewBox="0 0 12 12" stroke="currentColor"><path d="M2 6l3 3 5-5"/></svg></span>Customer profiles from every order</li>
+          <li><span class="chk" style="background:rgba(218,146,26,0.12);color:var(--amber)"><svg viewBox="0 0 12 12" stroke="currentColor"><path d="M2 6l3 3 5-5"/></svg></span>SMS marketing &amp; loyalty tracking</li>
+          <li><span class="chk" style="background:rgba(218,146,26,0.12);color:var(--amber)"><svg viewBox="0 0 12 12" stroke="currentColor"><path d="M2 6l3 3 5-5"/></svg></span>Personalized offers &amp; repeat prompts</li>
         </ul>
       </div>
     </div>
