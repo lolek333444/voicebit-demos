@@ -113,6 +113,7 @@ h1 em{font-style:italic;color:var(--red);font-family:'Playfair Display',serif;fo
   transform:rotate(-6deg);transform-origin:right center}
 .hero-annotation svg{width:80px;height:64px;overflow:visible}
 @media(max-width:960px){.hero-annotation{display:none}}
+@media(max-width:680px){}
 
 /* ─── HERO INPUT CARD ─── */
 .hero-input-card{background:#fff;border:1px solid var(--border-md);border-radius:18px;
@@ -412,7 +413,7 @@ h2 em{font-style:italic;color:var(--red);font-family:'Playfair Display',serif;fo
 /* ─── CASE STUDIES / TESTIMONIALS ─── */
 .case-wrap{background:#fff;border:none;
   padding:72px 0 0;position:relative;z-index:2;
-  box-shadow:none}
+  box-shadow:none;overflow-x:hidden}
 /* cool subtle teal diagonal stripe texture */
 .case-wrap::before{content:'';position:absolute;inset:0;pointer-events:none;z-index:0;
   background-image:repeating-linear-gradient(
@@ -488,7 +489,7 @@ h2 em{font-style:italic;color:var(--red);font-family:'Playfair Display',serif;fo
 .cc-carousel-track .cc:hover{transform:translateY(-10px) scale(1.03);box-shadow:0 32px 72px rgba(52,92,102,0.28),0 8px 24px rgba(52,92,102,0.14)}
 
 /* ─── STATS SECTION (standalone) ─── */
-.stats-section{background:var(--cream);padding:56px 40px 72px;position:relative;z-index:1}
+.stats-section{background:var(--cream);padding:56px 40px 72px;position:relative;z-index:1;overflow-x:hidden}
 .stats-section::before{content:'';position:absolute;inset:0;pointer-events:none;
   background-image:url('Photos/background_photo.png');background-size:600px auto;background-repeat:repeat;
   opacity:0.06}
@@ -512,7 +513,7 @@ h2 em{font-style:italic;color:var(--red);font-family:'Playfair Display',serif;fo
 .logo-m-box img{width:100%;height:100%;object-fit:contain}
 
 /* ─── STORY CARDS ─── */
-.stories-bg{background:var(--cream);padding:72px 40px 0;position:relative;z-index:1}
+.stories-bg{background:var(--cream);padding:72px 40px 0;position:relative;z-index:1;overflow-x:hidden}
 .stories-bg::before{content:'';position:absolute;inset:0;pointer-events:none;
   background-image:url('Photos/background_photo.png');background-size:600px auto;background-repeat:repeat;
   opacity:0.06}
@@ -788,7 +789,10 @@ nav{background:linear-gradient(135deg,rgba(42,74,82,0.97) 0%,rgba(52,92,102,0.97
   /* HERO */
   .hero{padding:100px 20px 48px}
   .hero h1{font-size:clamp(2.4rem,9vw,3.2rem)}
-  .hero-annotation{display:none}
+  /* annotation — show on mobile, smaller, positioned top-left of card */
+  .hero-annotation{display:flex;left:8px;top:auto;bottom:calc(100% - 290px);transform:none}
+  .hero-annotation-text{font-size:1.1rem}
+  .hero-annotation svg{width:52px;height:42px}
 
   /* STATS */
   .stats-band{grid-template-columns:1fr 1fr;gap:10px;align-items:stretch}
