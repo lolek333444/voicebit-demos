@@ -254,6 +254,20 @@ h2 em{font-style:italic;color:var(--red)}
 .cc-bottom-link:hover{gap:10px}
 .cc-bottom-link svg{width:13px;height:13px;stroke-width:2.5;fill:none;stroke:currentColor;stroke-linecap:round;stroke-linejoin:round}
 
+/* ─── FOUNDERS CAROUSEL ─── */
+.cc-carousel-wrap{overflow:hidden;margin-top:52px;position:relative}
+.cc-carousel-wrap::before,.cc-carousel-wrap::after{content:'';position:absolute;top:0;bottom:0;width:140px;z-index:2;pointer-events:none}
+.cc-carousel-wrap::before{left:0;background:linear-gradient(to right,#fff 30%,transparent)}
+.cc-carousel-wrap::after{right:0;background:linear-gradient(to left,#fff 30%,transparent)}
+.cc-carousel-track{display:flex;gap:18px;animation:ccSpin 36s linear infinite;width:max-content;padding:8px 0}
+.cc-carousel-track:hover{animation-play-state:paused}
+@keyframes ccSpin{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+.cc-carousel-track .cc{width:310px;min-height:440px;flex-shrink:0}
+
+/* ─── STATS SECTION (standalone) ─── */
+.stats-section{background:var(--cream);padding:80px 40px;position:relative;z-index:1}
+.stats-section-inner{max-width:1160px;margin:0 auto}
+
 /* ─── SOCIAL PROOF ─── */
 .proof-bg{background:var(--teal-dark);padding:80px 40px;position:relative;z-index:1}
 .proof-inner{max-width:1160px;margin:0 auto;display:grid;grid-template-columns:1fr 2fr;gap:64px;align-items:center}
@@ -416,58 +430,108 @@ footer{background:var(--teal-dark);border-top:1px solid rgba(255,255,255,0.08);p
 <!-- CASE STUDIES / TESTIMONIALS -->
 <div id="cases" class="case-wrap">
   <div class="case-inner">
-    <div class="eyebrow rv">Customer Stories</div>
-    <h2 class="rv">Real restaurants.<br><em>Real results.</em></h2>
-    <p class="s-desc rv">Hear from restaurant owners who've taken back control of their orders with VoiceBit.</p>
-    <div class="case-grid">
-
-      <!-- Card 1: Ray / Big Apple Pizza — photo card -->
-      <div class="cc rv">
-        <img class="cc-photo" src="Photos/Ray%20BAP.avif" alt="Ray, Big Apple Pizza">
-        <div class="cc-overlay"></div>
-        <div class="cc-top">
-          <div class="cc-name">Ray</div>
-          <div class="cc-biz">Big Apple Pizza</div>
+    <h2 class="rv" style="text-align:center">Real restaurants.<br><em>Real results.</em></h2>
+    <div class="cc-carousel-wrap">
+      <div class="cc-carousel-track">
+        <!-- Set 1 (8 cards: Ray, Chando alternating x4) -->
+        <div class="cc">
+          <img class="cc-photo" src="Photos/Ray%20BAP.avif" alt="Ray, Big Apple Pizza">
+          <div class="cc-overlay"></div>
+          <div class="cc-top"><div class="cc-name">Ray</div><div class="cc-biz">Big Apple Pizza</div></div>
+          <div class="cc-content"><div class="cc-stat">+<em>42%</em></div><div class="cc-stat-label">More orders captured — zero missed calls</div></div>
         </div>
-        <div class="cc-content">
-          <div class="cc-stat">+<em>42%</em></div>
-          <div class="cc-stat-label">More orders captured — zero missed calls</div>
+        <div class="cc">
+          <img class="cc-photo" src="Photos/Chando.avif" alt="Chando's Tacos">
+          <div class="cc-overlay"></div>
+          <div class="cc-top"><div class="cc-name">Chando</div><div class="cc-biz">Chando's Tacos</div></div>
+          <div class="cc-content"><div class="cc-headline">5-star founder service, cloned across every call</div><div class="cc-desc-short">Authentic hospitality at scale with VoiceBit AI</div></div>
+        </div>
+        <div class="cc">
+          <img class="cc-photo" src="Photos/Ray%20BAP.avif" alt="Ray, Big Apple Pizza">
+          <div class="cc-overlay"></div>
+          <div class="cc-top"><div class="cc-name">Ray</div><div class="cc-biz">Big Apple Pizza</div></div>
+          <div class="cc-content"><div class="cc-stat">+<em>42%</em></div><div class="cc-stat-label">More orders captured — zero missed calls</div></div>
+        </div>
+        <div class="cc">
+          <img class="cc-photo" src="Photos/Chando.avif" alt="Chando's Tacos">
+          <div class="cc-overlay"></div>
+          <div class="cc-top"><div class="cc-name">Chando</div><div class="cc-biz">Chando's Tacos</div></div>
+          <div class="cc-content"><div class="cc-headline">5-star founder service, cloned across every call</div><div class="cc-desc-short">Authentic hospitality at scale with VoiceBit AI</div></div>
+        </div>
+        <div class="cc">
+          <img class="cc-photo" src="Photos/Ray%20BAP.avif" alt="Ray, Big Apple Pizza">
+          <div class="cc-overlay"></div>
+          <div class="cc-top"><div class="cc-name">Ray</div><div class="cc-biz">Big Apple Pizza</div></div>
+          <div class="cc-content"><div class="cc-stat">+<em>42%</em></div><div class="cc-stat-label">More orders captured — zero missed calls</div></div>
+        </div>
+        <div class="cc">
+          <img class="cc-photo" src="Photos/Chando.avif" alt="Chando's Tacos">
+          <div class="cc-overlay"></div>
+          <div class="cc-top"><div class="cc-name">Chando</div><div class="cc-biz">Chando's Tacos</div></div>
+          <div class="cc-content"><div class="cc-headline">5-star founder service, cloned across every call</div><div class="cc-desc-short">Authentic hospitality at scale with VoiceBit AI</div></div>
+        </div>
+        <div class="cc">
+          <img class="cc-photo" src="Photos/Ray%20BAP.avif" alt="Ray, Big Apple Pizza">
+          <div class="cc-overlay"></div>
+          <div class="cc-top"><div class="cc-name">Ray</div><div class="cc-biz">Big Apple Pizza</div></div>
+          <div class="cc-content"><div class="cc-stat">+<em>42%</em></div><div class="cc-stat-label">More orders captured — zero missed calls</div></div>
+        </div>
+        <div class="cc">
+          <img class="cc-photo" src="Photos/Chando.avif" alt="Chando's Tacos">
+          <div class="cc-overlay"></div>
+          <div class="cc-top"><div class="cc-name">Chando</div><div class="cc-biz">Chando's Tacos</div></div>
+          <div class="cc-content"><div class="cc-headline">5-star founder service, cloned across every call</div><div class="cc-desc-short">Authentic hospitality at scale with VoiceBit AI</div></div>
+        </div>
+        <!-- Set 2 (duplicate for seamless loop) -->
+        <div class="cc">
+          <img class="cc-photo" src="Photos/Ray%20BAP.avif" alt="Ray, Big Apple Pizza">
+          <div class="cc-overlay"></div>
+          <div class="cc-top"><div class="cc-name">Ray</div><div class="cc-biz">Big Apple Pizza</div></div>
+          <div class="cc-content"><div class="cc-stat">+<em>42%</em></div><div class="cc-stat-label">More orders captured — zero missed calls</div></div>
+        </div>
+        <div class="cc">
+          <img class="cc-photo" src="Photos/Chando.avif" alt="Chando's Tacos">
+          <div class="cc-overlay"></div>
+          <div class="cc-top"><div class="cc-name">Chando</div><div class="cc-biz">Chando's Tacos</div></div>
+          <div class="cc-content"><div class="cc-headline">5-star founder service, cloned across every call</div><div class="cc-desc-short">Authentic hospitality at scale with VoiceBit AI</div></div>
+        </div>
+        <div class="cc">
+          <img class="cc-photo" src="Photos/Ray%20BAP.avif" alt="Ray, Big Apple Pizza">
+          <div class="cc-overlay"></div>
+          <div class="cc-top"><div class="cc-name">Ray</div><div class="cc-biz">Big Apple Pizza</div></div>
+          <div class="cc-content"><div class="cc-stat">+<em>42%</em></div><div class="cc-stat-label">More orders captured — zero missed calls</div></div>
+        </div>
+        <div class="cc">
+          <img class="cc-photo" src="Photos/Chando.avif" alt="Chando's Tacos">
+          <div class="cc-overlay"></div>
+          <div class="cc-top"><div class="cc-name">Chando</div><div class="cc-biz">Chando's Tacos</div></div>
+          <div class="cc-content"><div class="cc-headline">5-star founder service, cloned across every call</div><div class="cc-desc-short">Authentic hospitality at scale with VoiceBit AI</div></div>
+        </div>
+        <div class="cc">
+          <img class="cc-photo" src="Photos/Ray%20BAP.avif" alt="Ray, Big Apple Pizza">
+          <div class="cc-overlay"></div>
+          <div class="cc-top"><div class="cc-name">Ray</div><div class="cc-biz">Big Apple Pizza</div></div>
+          <div class="cc-content"><div class="cc-stat">+<em>42%</em></div><div class="cc-stat-label">More orders captured — zero missed calls</div></div>
+        </div>
+        <div class="cc">
+          <img class="cc-photo" src="Photos/Chando.avif" alt="Chando's Tacos">
+          <div class="cc-overlay"></div>
+          <div class="cc-top"><div class="cc-name">Chando</div><div class="cc-biz">Chando's Tacos</div></div>
+          <div class="cc-content"><div class="cc-headline">5-star founder service, cloned across every call</div><div class="cc-desc-short">Authentic hospitality at scale with VoiceBit AI</div></div>
+        </div>
+        <div class="cc">
+          <img class="cc-photo" src="Photos/Ray%20BAP.avif" alt="Ray, Big Apple Pizza">
+          <div class="cc-overlay"></div>
+          <div class="cc-top"><div class="cc-name">Ray</div><div class="cc-biz">Big Apple Pizza</div></div>
+          <div class="cc-content"><div class="cc-stat">+<em>42%</em></div><div class="cc-stat-label">More orders captured — zero missed calls</div></div>
+        </div>
+        <div class="cc">
+          <img class="cc-photo" src="Photos/Chando.avif" alt="Chando's Tacos">
+          <div class="cc-overlay"></div>
+          <div class="cc-top"><div class="cc-name">Chando</div><div class="cc-biz">Chando's Tacos</div></div>
+          <div class="cc-content"><div class="cc-headline">5-star founder service, cloned across every call</div><div class="cc-desc-short">Authentic hospitality at scale with VoiceBit AI</div></div>
         </div>
       </div>
-      <!-- Card 2: Chando's — photo card -->
-      <div class="cc rv d1">
-        <img class="cc-photo" src="Photos/Chando.avif" alt="Chando's Tacos">
-        <div class="cc-overlay"></div>
-        <div class="cc-top">
-          <div class="cc-name">Founder</div>
-          <div class="cc-biz">Chando's Tacos</div>
-        </div>
-        <div class="cc-content">
-          <div class="cc-headline">5-star founder service, cloned across every call</div>
-          <div class="cc-desc-short">Authentic hospitality at scale with VoiceBit AI</div>
-        </div>
-      </div>
-
-      <!-- Card 3: NY Pizza quote card -->
-      <div class="cc-text-card rv d2">
-        <div class="cc-text-top">
-          <div class="cc-pill-text">DoorDash → Direct</div>
-          <blockquote>A loyal customer switching to DoorDash exposed a costly problem — losing customers, data, and 25–30% of every order to third-party apps. See how they brought ordering back in-house and boosted revenue with VoiceBit.</blockquote>
-          <div class="cc-divider"></div>
-          <div class="cc-author">
-            <div class="cc-avatar-initials">NY</div>
-            <div>
-              <div class="cc-author-name">Owner</div>
-              <div class="cc-author-biz">New York Pizza &amp; Pasta</div>
-            </div>
-          </div>
-        </div>
-        <a href="#" class="cc-bottom-link">
-          Learn More
-          <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M3 8h10M8 3l5 5-5 5"/></svg>
-        </a>
-      </div>
-
     </div>
   </div>
 </div>
@@ -527,8 +591,13 @@ footer{background:var(--teal-dark);border-top:1px solid rgba(255,255,255,0.08);p
       </div>
     </div>
 
-    <!-- Stats inside prob-bg -->
-    <div class="stats-band rv" style="margin-top:48px">
+  </div>
+</div>
+
+<!-- STATS (standalone section) -->
+<div class="stats-section">
+  <div class="stats-section-inner">
+    <div class="stats-band rv">
       <div class="stat-cell">
         <div class="stat-num"><em>$0</em></div>
         <div class="stat-lbl">Commission on every direct order you capture</div>
@@ -547,10 +616,9 @@ footer{background:var(--teal-dark);border-top:1px solid rgba(255,255,255,0.08);p
       </div>
     </div>
 
-    <!-- Trusted by inside prob-bg -->
     <div class="rv" style="margin-top:48px;text-align:center">
-      <p style="font-size:0.78rem;color:rgba(255,255,255,0.35);letter-spacing:0.06em;text-transform:uppercase;font-weight:600;margin-bottom:28px">Trusted by restaurants across the country</p>
-      <div class="trusted-grid" style="--logo-filter:brightness(0) invert(1);--logo-opacity:0.25;border-top:1px solid rgba(255,255,255,0.07)">
+      <p style="font-size:0.78rem;color:var(--ink-3);letter-spacing:0.06em;text-transform:uppercase;font-weight:600;margin-bottom:28px">Trusted by restaurants across the country</p>
+      <div class="trusted-grid" style="border-top:1px solid var(--border)">
         <div class="trusted-logo"><img src="Photos/Restaurant%20Logos/A-town.jpg" alt="A-town"></div>
         <div class="trusted-logo"><img src="Photos/Restaurant%20Logos/BAP%20Livermore.avif" alt="BAP Livermore"></div>
         <div class="trusted-logo"><img src="Photos/Restaurant%20Logos/BAP%20San%20Ramon.png" alt="BAP San Ramon"></div>
@@ -563,7 +631,6 @@ footer{background:var(--teal-dark);border-top:1px solid rgba(255,255,255,0.08);p
         <div class="trusted-logo"><img src="Photos/Restaurant%20Logos/falafel%20boy.webp" alt="Falafel Boy"></div>
       </div>
     </div>
-
   </div>
 </div>
 
@@ -624,36 +691,8 @@ footer{background:var(--teal-dark);border-top:1px solid rgba(255,255,255,0.08);p
 
 <!-- INTEGRATIONS -->
 <div id="integrations" class="int-bg">
-  <div class="int-inner">
-    <div class="eyebrow rv">Integrations</div>
+  <div class="int-inner" style="text-align:center">
     <h2 class="rv">Connects with your stack</h2>
-    <p class="s-desc rv">VoiceBit syncs orders directly with your POS and the tools you already use. We handle the entire setup for you.</p>
-    <div class="int-marquee-wrap rv">
-      <div class="int-marquee-track">
-        <div class="int-m-item"><svg viewBox="0 0 32 32" width="22" height="22"><rect width="32" height="32" rx="6" fill="currentColor" opacity=".4"/><path d="M8 10h16M8 16h10M8 22h13" stroke="currentColor" stroke-width="2" stroke-linecap="round" opacity="1.5"/></svg>Toast POS</div>
-        <div class="int-m-item"><svg viewBox="0 0 32 32" width="22" height="22"><rect width="32" height="32" rx="6" fill="currentColor" opacity=".4"/><rect x="9" y="9" width="14" height="14" rx="2" fill="white" opacity=".8"/></svg>Square</div>
-        <div class="int-m-item"><svg viewBox="0 0 32 32" width="22" height="22"><circle cx="10" cy="10" r="5" fill="currentColor" opacity=".5"/><circle cx="22" cy="10" r="5" fill="currentColor" opacity=".5"/><circle cx="10" cy="22" r="5" fill="currentColor" opacity=".5"/><circle cx="22" cy="22" r="5" fill="currentColor" opacity=".5"/></svg>Clover</div>
-        <div class="int-m-item"><svg viewBox="0 0 32 32" width="22" height="22"><rect width="32" height="32" rx="6" fill="currentColor" opacity=".4"/><text x="5" y="21" font-family="Georgia" font-size="13" font-weight="700" fill="white" opacity=".8">stripe</text></svg>Stripe</div>
-        <div class="int-m-item"><svg viewBox="0 0 32 32" width="22" height="22"><circle cx="16" cy="16" r="14" fill="currentColor" opacity=".4"/><path d="M10 16l4 4 8-8" stroke="white" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" opacity=".8"/></svg>Uber Eats</div>
-        <div class="int-m-item"><svg viewBox="0 0 32 32" width="22" height="22"><circle cx="16" cy="16" r="14" fill="currentColor" opacity=".4"/><rect x="9" y="12" width="14" height="9" rx="2" fill="white" opacity=".7"/></svg>DoorDash</div>
-        <div class="int-m-item"><svg viewBox="0 0 32 32" width="22" height="22"><rect width="32" height="32" rx="6" fill="currentColor" opacity=".4"/><circle cx="16" cy="16" r="6" fill="white" opacity=".8"/></svg>Google</div>
-        <div class="int-m-item"><svg viewBox="0 0 32 32" width="22" height="22"><rect width="32" height="32" rx="6" fill="currentColor" opacity=".4"/><path d="M8 10h16M8 16h8M8 22h12" stroke="white" stroke-width="2" stroke-linecap="round" opacity=".8"/></svg>Olo</div>
-        <div class="int-m-item"><svg viewBox="0 0 32 32" width="22" height="22"><circle cx="16" cy="16" r="14" fill="currentColor" opacity=".4"/><path d="M12 10h8M12 16h6M12 22h7" stroke="white" stroke-width="2" stroke-linecap="round" opacity=".8"/></svg>ChowNow</div>
-        <div class="int-m-item"><svg viewBox="0 0 32 32" width="22" height="22"><rect width="32" height="32" rx="6" fill="currentColor" opacity=".4"/><circle cx="16" cy="14" r="5" fill="white" opacity=".8"/><path d="M8 24a8 8 0 0116 0" fill="white" opacity=".6"/></svg>Lightspeed</div>
-        <!-- duplicate set for seamless loop -->
-        <div class="int-m-item"><svg viewBox="0 0 32 32" width="22" height="22"><rect width="32" height="32" rx="6" fill="currentColor" opacity=".4"/><path d="M8 10h16M8 16h10M8 22h13" stroke="currentColor" stroke-width="2" stroke-linecap="round" opacity="1.5"/></svg>Toast POS</div>
-        <div class="int-m-item"><svg viewBox="0 0 32 32" width="22" height="22"><rect width="32" height="32" rx="6" fill="currentColor" opacity=".4"/><rect x="9" y="9" width="14" height="14" rx="2" fill="white" opacity=".8"/></svg>Square</div>
-        <div class="int-m-item"><svg viewBox="0 0 32 32" width="22" height="22"><circle cx="10" cy="10" r="5" fill="currentColor" opacity=".5"/><circle cx="22" cy="10" r="5" fill="currentColor" opacity=".5"/><circle cx="10" cy="22" r="5" fill="currentColor" opacity=".5"/><circle cx="22" cy="22" r="5" fill="currentColor" opacity=".5"/></svg>Clover</div>
-        <div class="int-m-item"><svg viewBox="0 0 32 32" width="22" height="22"><rect width="32" height="32" rx="6" fill="currentColor" opacity=".4"/><text x="5" y="21" font-family="Georgia" font-size="13" font-weight="700" fill="white" opacity=".8">stripe</text></svg>Stripe</div>
-        <div class="int-m-item"><svg viewBox="0 0 32 32" width="22" height="22"><circle cx="16" cy="16" r="14" fill="currentColor" opacity=".4"/><path d="M10 16l4 4 8-8" stroke="white" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" opacity=".8"/></svg>Uber Eats</div>
-        <div class="int-m-item"><svg viewBox="0 0 32 32" width="22" height="22"><circle cx="16" cy="16" r="14" fill="currentColor" opacity=".4"/><rect x="9" y="12" width="14" height="9" rx="2" fill="white" opacity=".7"/></svg>DoorDash</div>
-        <div class="int-m-item"><svg viewBox="0 0 32 32" width="22" height="22"><rect width="32" height="32" rx="6" fill="currentColor" opacity=".4"/><circle cx="16" cy="16" r="6" fill="white" opacity=".8"/></svg>Google</div>
-        <div class="int-m-item"><svg viewBox="0 0 32 32" width="22" height="22"><rect width="32" height="32" rx="6" fill="currentColor" opacity=".4"/><path d="M8 10h16M8 16h8M8 22h12" stroke="white" stroke-width="2" stroke-linecap="round" opacity=".8"/></svg>Olo</div>
-        <div class="int-m-item"><svg viewBox="0 0 32 32" width="22" height="22"><circle cx="16" cy="16" r="14" fill="currentColor" opacity=".4"/><path d="M12 10h8M12 16h6M12 22h7" stroke="white" stroke-width="2" stroke-linecap="round" opacity=".8"/></svg>ChowNow</div>
-        <div class="int-m-item"><svg viewBox="0 0 32 32" width="22" height="22"><rect width="32" height="32" rx="6" fill="currentColor" opacity=".4"/><circle cx="16" cy="14" r="5" fill="white" opacity=".8"/><path d="M8 24a8 8 0 0116 0" fill="white" opacity=".6"/></svg>Lightspeed</div>
-      </div>
-    </div>
-    <p class="int-note rv" style="text-align:center;margin-top:20px">Don't see your POS? We likely support it — <a href="#contact" style="color:var(--teal);font-weight:500">contact us</a> to confirm.</p>
   </div>
 </div>
 
