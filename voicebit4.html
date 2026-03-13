@@ -1601,14 +1601,17 @@ mobileMenu.querySelectorAll('a').forEach(a=>a.addEventListener('click',closeMenu
 
 // ── Typewriter for hero textarea ──
 const heroTA = document.getElementById('heroTextarea');
+// Order matches the chips: DoorDash → Uber Eats → Slice → Describe it
 const typeExamples = [
   'https://www.doordash.com/store/big-apple-pizza-livermore/',
-  'Family-owned taco spot in Sacramento — 3 locations, open daily',
+  'https://www.ubereats.com/store/chandos-tacos/',
   'https://order.slice.pizza/store/sensiores-pizza',
-  'Italian restaurant, lunch & dinner, full bar, outdoor seating',
-  'https://www.ubereats.com/store/chandos-tacos/'
+  'Family pizza spot in Sacramento, CA — 3 locations, open daily 11am–10pm'
 ];
-let twIdx=0,twChar=0,twDeleting=false,twTimer=null;
+let twIdx=0,twChar=0,twDeleting=false,twTimer=null,chipTimer=null;
+
+function stopAll(){clearTimeout(twTimer);clearInterval(chipTimer);twTimer=null;chipTimer=null;}
+
 function typeStep(){
   if(!heroTA||document.activeElement===heroTA)return;
   const cur=typeExamples[twIdx];
@@ -1622,17 +1625,17 @@ function typeStep(){
   twTimer=setTimeout(typeStep,twDeleting?28:58);
 }
 setTimeout(typeStep,900);
-heroTA.addEventListener('focus',()=>{clearTimeout(twTimer);if(!heroTA.value||typeExamples.includes(heroTA.value))heroTA.value='';});
+heroTA.addEventListener('focus',()=>{stopAll();if(!heroTA.value||typeExamples.includes(heroTA.value))heroTA.value='';});
 heroTA.addEventListener('blur',()=>{if(!heroTA.value){twChar=0;twDeleting=false;setTimeout(typeStep,600);}});
 
 // ── Suggestion chips click ──
 document.querySelectorAll('.hero-ex-chip[data-val]').forEach(chip=>{
   chip.addEventListener('click',()=>{
-    clearTimeout(twTimer);
+    stopAll();
     const val=chip.dataset.val;
     heroTA.value='';heroTA.focus();
     let i=0;
-    const t=setInterval(()=>{heroTA.value=val.slice(0,++i);if(i===val.length)clearInterval(t);},40);
+    chipTimer=setInterval(()=>{heroTA.value=val.slice(0,++i);if(i===val.length){clearInterval(chipTimer);chipTimer=null;}},40);
   });
 });
 </script>
