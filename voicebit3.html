@@ -202,7 +202,7 @@ h2 em{font-style:italic;color:var(--red)}
 .s-desc{font-size:0.97rem;color:var(--ink-2);font-weight:300;line-height:1.72;max-width:480px}
 
 /* ─── PROBLEMS ─── */
-.prob-bg{background:var(--teal);padding:96px 40px 80px;position:relative;z-index:1;margin-top:72px}
+.prob-bg{background:var(--teal);padding:96px 40px 80px;position:relative;z-index:1;margin-top:0}
 .prob-bg::before{content:'';position:absolute;inset:0;pointer-events:none;z-index:0;
   background-image:url('Photos/background_photo.png');
   background-size:600px auto;background-repeat:repeat;
@@ -441,15 +441,15 @@ h2 em{font-style:italic;color:var(--red)}
 .cc-carousel-track .cc:hover{transform:translateY(-10px) scale(1.03);box-shadow:0 32px 72px rgba(52,92,102,0.28),0 8px 24px rgba(52,92,102,0.14)}
 
 /* ─── STATS SECTION (standalone) ─── */
-.stats-section{background:var(--cream);padding:56px 40px 24px;position:relative;z-index:1}
+.stats-section{background:var(--teal);padding:56px 40px 24px;position:relative;z-index:1}
 .stats-section::before{content:'';position:absolute;inset:0;pointer-events:none;
   background-image:url('Photos/background_photo.png');background-size:600px auto;background-repeat:repeat;
-  opacity:0.07}
+  opacity:0.06;filter:brightness(0) invert(1)}
 .stats-section-inner{max-width:1400px;margin:0 auto;position:relative;z-index:1}
 
 /* ─── LOGO MARQUEE (restaurant trust bar) ─── */
 .stats-partner-text{font-family:'Oswald',sans-serif;font-size:clamp(2rem,3.2vw,3rem);
-  font-weight:700;color:var(--ink);text-align:center;margin-bottom:36px;letter-spacing:0.01em}
+  font-weight:700;color:#fff;text-align:center;margin-bottom:36px;letter-spacing:0.01em}
 .logo-marquee-wrap{overflow:hidden;margin-top:40px;position:relative;
   width:100vw;left:50%;transform:translateX(-50%);display:flex;flex-direction:column;gap:12px}
 .logo-marquee-wrap::before,.logo-marquee-wrap::after{content:'';position:absolute;top:0;bottom:0;width:100px;z-index:2;pointer-events:none}
@@ -686,7 +686,7 @@ footer{background:var(--teal-dark);border-top:1px solid rgba(255,255,255,0.08);p
   .stat-num{font-size:2.8rem}
 
   /* PROBLEMS SECTION */
-  .prob-bg{padding:48px 16px 56px;margin-top:40px}
+  .prob-bg{padding:48px 16px 56px;margin-top:0}
   .prob-heading-row{grid-template-columns:1fr;gap:12px}
   .prob-layout{grid-template-columns:1fr;margin-top:32px;border-radius:16px}
   /* tabs: 3 equal columns — all visible, no scroll needed */
